@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wasser_app/shared/colors.dart';
 import 'package:wasser_app/ui/pages/main_page.dart';
 
 void main() {
@@ -14,9 +15,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: const MainPage(),
     );
   }
