@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wasser_app/navigator/route_list.dart';
 import 'package:wasser_app/shared/colors.dart';
+import 'package:wasser_app/ui/pages/main_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -38,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
                 _buildHeader(context),
                 SizedBox(height: 16.w),
                 _buildMiddle(context),
-                SizedBox(height: 8.w),
+                SizedBox(height: 16.w),
                 _buildBottom(context),
               ],
             ),
@@ -170,7 +172,9 @@ class _LoginPageState extends State<LoginPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            _navigateToNextScreen(context);
+          },
           child: const Text(
             "Forgot Password?",
             style: TextStyle(
@@ -181,28 +185,27 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         SizedBox(height: 8.w),
-        Builder(builder: (context) {
-          return SizedBox(
-            width: double.infinity,
-            child: TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(colorPrimary),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4.r),
-                  ),
+        SizedBox(
+          height: 48.w,
+          width: double.infinity,
+          child: TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(colorPrimary),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.r),
                 ),
               ),
-              onPressed: () {
-                FocusScope.of(context).unfocus();
-              },
-              child: const Text(
-                "Sign in",
-                style: TextStyle(color: Colors.white),
-              ),
             ),
-          );
-        }),
+            onPressed: () {
+              _navigateToNextScreen(context);
+            },
+            child: const Text(
+              "Sign in",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
         SizedBox(height: 16.w),
         Row(
           children: [
@@ -229,6 +232,13 @@ class _LoginPageState extends State<LoginPage> {
           ],
         )
       ],
+    );
+  }
+
+  void _navigateToNextScreen(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      RouteList.main,
     );
   }
 }

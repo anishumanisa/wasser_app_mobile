@@ -13,10 +13,10 @@ class _MainPageState extends State<MainPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Wasser"),
+          title: const Text("Wasser"),
         ),
         body: SingleChildScrollView(
-          physics: ScrollPhysics(),
+          physics: const ScrollPhysics(),
           child: Container(),
         ),
       ),
