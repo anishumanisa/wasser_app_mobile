@@ -38,7 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 _buildHeader(context),
                 SizedBox(height: 16.w),
                 _buildMiddle(context),
-                SizedBox(height: 8.w),
+                SizedBox(height: 16.w),
                 _buildBottom(context),
               ],
             ),
@@ -213,13 +213,14 @@ class _RegisterPageState extends State<RegisterPage> {
       children: [
         Builder(builder: (context) {
           return SizedBox(
+            height: 48.w,
             width: double.infinity,
             child: TextButton(
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(colorPrimary),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4.r),
+                    borderRadius: BorderRadius.circular(10.r),
                   ),
                 ),
               ),
