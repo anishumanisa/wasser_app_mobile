@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wasser_app/ui/pages/login/login_page.dart';
-import 'package:wasser_app/ui/pages/main_page.dart';
+
 import 'package:wasser_app/ui/pages/register/register_page.dart';
 
 void main() async {
