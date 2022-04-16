@@ -28,11 +28,9 @@ class _CashFlowPageState extends State<CashFlowPage> {
                     color: colorPrimary,
                     child: Row(
                       children: [
-                        Container(
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                          ),
+                        Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
                         ),
                         SizedBox(
                           width: 10,
@@ -42,11 +40,9 @@ class _CashFlowPageState extends State<CashFlowPage> {
                           style: TextStyle(color: Colors.white),
                         ),
                         Spacer(),
-                        Container(
-                          child: Icon(
-                            Icons.menu,
-                            color: Colors.white,
-                          ),
+                        Icon(
+                          Icons.menu,
+                          color: Colors.white,
                         )
                       ],
                     ),
@@ -54,131 +50,118 @@ class _CashFlowPageState extends State<CashFlowPage> {
                   SizedBox(
                     height: 30,
                   ),
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: Image.asset(
-                            "assets/images/logo.png",
-                            scale: 10,
-                          ),
-                        )
-                      ],
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/images/logo.png",
+                        scale: 10,
+                      )
+                    ],
                   ),
                   SizedBox(
                     height: 16,
                   ),
-                  Container(
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 20,
-                          width: 125,
-                          decoration: BoxDecoration(
-                              color: Colors.white54,
-                              borderRadius: BorderRadius.circular(50)),
-                          child: Text(
-                            "Kantong utama",
-                            textAlign: TextAlign.center,
-                            style:
-                                TextStyle(color: Colors.black54, fontSize: 14),
-                          ),
+                  Column(
+                    children: [
+                      Container(
+                        height: 20,
+                        width: 125,
+                        decoration: BoxDecoration(
+                            color: Colors.white54,
+                            borderRadius: BorderRadius.circular(50)),
+                        child: Text(
+                          "Kantong utama",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.black54, fontSize: 14),
                         ),
-                        SizedBox(
-                          height: 10,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Kantong Utama",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
                         ),
-                        Container(
-                          child: Text(
-                            "Kantong Utama",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 4,
-                        ),
-                        Container(
-                          child: Text(
-                            "Rp.20000",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        "Rp.20000",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 30,
                   ),
-                  Container(
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 50,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(50)),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Tambah Uang",
-                              )
-                            ],
-                          ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(50)),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Tambah Uang",
+                            )
+                          ],
                         ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 50,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(50)),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Pindahkan Uang",
-                              )
-                            ],
-                          ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(50)),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Pindahkan Uang",
+                            )
+                          ],
                         ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 50,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(50)),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Kirim dan Bayar",
-                              )
-                            ],
-                          ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(50)),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Kirim dan Bayar",
+                            )
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 16,

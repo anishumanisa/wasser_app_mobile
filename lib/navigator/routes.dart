@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wasser_app/navigator/route_list.dart';
 import 'package:wasser_app/ui/pages/login/login_page.dart';
-import 'package:wasser_app/ui/pages/main_page.dart';
+import 'package:wasser_app/ui/pages/main/main_page.dart';
 import 'package:wasser_app/ui/pages/register/register_page.dart';
 import 'package:provider/provider.dart';
 
