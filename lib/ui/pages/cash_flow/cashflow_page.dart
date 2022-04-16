@@ -14,13 +14,13 @@ class _CashFlowPageState extends State<CashFlowPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: ListView(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
               color: colorPrimary,
               child: Column(
                 children: [
@@ -28,13 +28,11 @@ class _CashFlowPageState extends State<CashFlowPage> {
                     color: colorPrimary,
                     child: Row(
                       children: [
-                        Container(
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                          ),
+                        Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Text(
@@ -217,44 +215,142 @@ class _CashFlowPageState extends State<CashFlowPage> {
                 ],
               ),
             ),
+            SizedBox(
+              height: 16,
+            ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
+                  TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    scrollPadding: EdgeInsets.only(bottom: 100),
+                    decoration: InputDecoration(
+                      hintText: "Cari Nama Pelanggan",
+                      prefixIcon: Icon(Icons.search),
+                      hintStyle: const TextStyle(color: Colors.black54),
+                      fillColor: Colors.white,
+                      filled: true,
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: Colors.grey, width: 2),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide:
+                            const BorderSide(color: Colors.grey, width: 1.5),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide:
+                            const BorderSide(color: Colors.grey, width: 1.5),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
                   Row(
                     children: [
-                      Builder(builder: (context) {
-                        return TextFormField(
-                          style: const TextStyle(color: Colors.black),
-                          scrollPadding: EdgeInsets.only(bottom: 100),
-                          decoration: InputDecoration(
-                            hintText: "Cari Nama Pelanggan",
-                            prefixIcon: Icon(Icons.search),
-                            hintStyle: const TextStyle(color: Colors.black54),
-                            fillColor: Colors.white,
-                            filled: true,
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 10),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide:
-                                  BorderSide(color: Colors.grey, width: 2),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: const BorderSide(
-                                  color: Colors.grey, width: 1.5),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: const BorderSide(
-                                  color: Colors.grey, width: 1.5),
+                      Container(
+                        child: Text("Maret 2022"),
+                      ),
+                      Spacer(),
+                      Container(
+                        child: Text("Diperbaharui Hari Ini,19.50"),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        child: Image.asset(
+                          "assets/images/logo.png",
+                          scale: 15,
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text("Pajak Bunga"),
+                          ),
+                          Container(
+                            child: Text(
+                              "28 Mar 2022",
+                              style: TextStyle(
+                                  fontSize: 12, color: Colors.black45),
                             ),
                           ),
-                        );
-                      }),
+                        ],
+                      ),
+                      Spacer(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text("+Rp36"),
+                          ),
+                          Container(
+                            child: Text(
+                              "28 Mar 2022",
+                              style: TextStyle(
+                                  fontSize: 12, color: Colors.black45),
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
-                  )
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        child: Image.asset(
+                          "assets/images/logo.png",
+                          scale: 15,
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text("Pajak Bunga"),
+                          ),
+                          Container(
+                            child: Text(
+                              "28 Mar 2022",
+                              style: TextStyle(
+                                  fontSize: 12, color: Colors.black45),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Spacer(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text("-Rp20"),
+                          ),
+                          Container(
+                            child: Text(
+                              "28 Mar 2022",
+                              style: TextStyle(
+                                  fontSize: 12, color: Colors.black45),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
                 ],
               ),
             )
