@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
             builder: (context, child) {
               // set context for Screen util
               ScreenUtil.setContext(context);
-              return const CashFlowPage();
+              return const MemberPage();
             },
           );
         },
