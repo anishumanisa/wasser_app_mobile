@@ -294,7 +294,7 @@ class _CashFlowPageState extends State<CashFlowPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            child: Text("+Rp36"),
+                            child: Text("Pajak Bunga"),
                           ),
                           Container(
                             child: Text(
@@ -335,7 +335,7 @@ class _CashFlowPageState extends State<CashFlowPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            child: Text("-Rp20"),
+                            child: Text("Pajak Bunga"),
                           ),
                           Container(
                             child: Text(
