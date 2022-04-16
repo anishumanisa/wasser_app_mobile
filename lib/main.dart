@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wasser_app/navigator/routes.dart';
+import 'package:wasser_app/ui/pages/cash_flow/cashflow_page.dart';
+import 'package:wasser_app/ui/pages/home/home_page.dart';
 import 'package:wasser_app/ui/pages/login/login_page.dart';
 import 'package:wasser_app/ui/pages/main_page.dart';
 import 'package:wasser_app/ui/pages/member/member_page.dart';
 import 'package:wasser_app/ui/pages/member_detail/member_detail_page.dart';
+import 'package:wasser_app/ui/pages/profile/profile_page.dart';
 import 'package:wasser_app/ui/pages/register/register_page.dart';
 
 void main() async {
@@ -36,7 +39,7 @@ class MyApp extends StatelessWidget {
             builder: (context, child) {
               // set context for Screen util
               ScreenUtil.setContext(context);
-              return const MemberDetailPage();
+              return const CashFlowPage();
             },
           );
         },
