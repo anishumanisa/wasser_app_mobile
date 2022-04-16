@@ -43,6 +43,8 @@ dependencies:
   flutter_screenutil: 5.1.0
   intl: 0.17.0
   provider: ^5.0.0
+
+  custom_navigation_bar: ^0.8.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
