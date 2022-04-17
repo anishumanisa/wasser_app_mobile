@@ -22,38 +22,46 @@ class _HomePageState extends State<HomePage> {
           physics: NeverScrollableScrollPhysics(),
           //children: [CarouselSliders()],
           children: [
-            Container(
-              child: Row(
-                children: [
-                  Container(
-                    child: Image.asset(
-                      "assets/images/logo.png",
-                      scale: 15,
+            Row(
+              children: [
+                Container(
+                  child: Image.asset(
+                    "assets/images/logo.png",
+                    scale: 15,
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Text(
+                        "Hello, Anis Humanisa",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
                     ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Text("Hello, Anis Humanisa"),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Container(
+                      child: Text(
+                        "Selamat datang di wasser",
+                        style: TextStyle(fontSize: 12, color: Colors.black54),
                       ),
-                      Container(
-                        child: Text(
-                          "Selamat datang di wasser",
-                          style: TextStyle(fontSize: 10, color: Colors.black54),
-                        ),
-                      ),
-                    ],
+                    ),
+                  ],
+                ),
+                Spacer(),
+                Container(
+                  child: Icon(
+                    Icons.notifications_sharp,
+                    size: 30,
                   ),
-                  Spacer(),
-                  Container(
-                    child: Icon(Icons.notification_important),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
             SizedBox(
-              height: 20,
+              height: 24,
             ),
             Container(
               padding: EdgeInsets.all(24),
@@ -69,7 +77,10 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         child: Text(
                           "Rp. 490000",
-                          style: TextStyle(fontSize: 25, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                       Spacer(),
@@ -108,7 +119,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(
-              height: 16,
+              height: 24,
             ),
             Container(
               child: Row(
@@ -122,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Spacer(),
                   Text(
-                    "All",
+                    "Lihat Semua",
                     style: TextStyle(color: Colors.black45),
                   )
                 ],
@@ -144,16 +155,17 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Container(
                           child: Icon(
-                            Icons.wallet_travel,
+                            Icons.payment,
                             color: Colors.white,
+                            size: 32,
                           ),
                         ),
                         SizedBox(
                           height: 8,
                         ),
                         Text(
-                          "Transfers",
-                          style: TextStyle(fontSize: 12, color: Colors.white),
+                          "PAYMENT",
+                          style: TextStyle(fontSize: 11, color: Colors.white),
                         )
                       ],
                     ),
@@ -175,14 +187,15 @@ class _HomePageState extends State<HomePage> {
                           child: Icon(
                             Icons.wallet_travel,
                             color: Colors.white,
+                            size: 32,
                           ),
                         ),
                         SizedBox(
                           height: 8,
                         ),
                         Text(
-                          "Transfers",
-                          style: TextStyle(fontSize: 12, color: Colors.white),
+                          "TRANSAKSI",
+                          style: TextStyle(fontSize: 11, color: Colors.white),
                         )
                       ],
                     ),
@@ -204,14 +217,15 @@ class _HomePageState extends State<HomePage> {
                           child: Icon(
                             Icons.wallet_travel,
                             color: Colors.white,
+                            size: 32,
                           ),
                         ),
                         SizedBox(
                           height: 8,
                         ),
                         Text(
-                          "Transfers",
-                          style: TextStyle(fontSize: 12, color: Colors.white),
+                          "PENCATATAN",
+                          style: TextStyle(fontSize: 11, color: Colors.white),
                         )
                       ],
                     ),
@@ -231,16 +245,17 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Container(
                           child: Icon(
-                            Icons.wallet_travel,
+                            Icons.analytics_outlined,
                             color: Colors.white,
+                            size: 32,
                           ),
                         ),
                         SizedBox(
                           height: 8,
                         ),
                         Text(
-                          "Transfers",
-                          style: TextStyle(fontSize: 12, color: Colors.white),
+                          "LAPORAN",
+                          style: TextStyle(fontSize: 11, color: Colors.white),
                         )
                       ],
                     ),
@@ -249,7 +264,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             SizedBox(
-              height: 16,
+              height: 24,
             ),
             Row(
               children: [
@@ -259,7 +274,7 @@ class _HomePageState extends State<HomePage> {
                     height: 150,
                     width: 150,
                     decoration: BoxDecoration(
-                        color: colorPrimary,
+                        color: Colors.deepOrange.shade200,
                         borderRadius: BorderRadius.circular(10)),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -267,24 +282,28 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Container(
                           child: Icon(
-                            Icons.notifications_active,
+                            Icons.payments_outlined,
                             color: Colors.white,
+                            size: 35,
                           ),
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         Text(
-                          "Saving",
-                          style: TextStyle(color: Colors.white),
+                          "Total saldo kas",
+                          style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         Container(
                           child: Text(
-                            "Rp. 39845739",
-                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            "Rp. 80.000.000",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
                         ),
                       ],
@@ -308,24 +327,122 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Container(
                           child: Icon(
-                            Icons.notifications_active,
+                            Icons.account_circle_sharp,
                             color: Colors.white,
+                            size: 35,
                           ),
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         Text(
-                          "Saving",
-                          style: TextStyle(color: Colors.white),
+                          "Pengguna Aktif",
+                          style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         Container(
                           child: Text(
-                            "Rp. 39845739",
-                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            "350",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    height: 150,
+                    width: 150,
+                    decoration: BoxDecoration(
+                        color: Colors.green.shade200,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.notifications_active,
+                            color: Colors.white,
+                            size: 35,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Total saldo kas",
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          child: Text(
+                            "Rp. 80.000.000",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    height: 150,
+                    width: 150,
+                    decoration: BoxDecoration(
+                        color: Colors.red.shade300,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.content_paste_sharp,
+                            color: Colors.white,
+                            size: 35,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Penggunaan M3",
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          child: Text(
+                            "500 M3",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
                         ),
                       ],

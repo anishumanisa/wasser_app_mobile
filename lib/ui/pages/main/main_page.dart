@@ -2,6 +2,7 @@ import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:wasser_app/shared/colors.dart';
 import 'package:wasser_app/ui/pages/cash_flow/cashflow_page.dart';
+import 'package:wasser_app/ui/pages/cash_flow_manage/cash_flow_manage_page.dart';
 import 'package:wasser_app/ui/pages/home/home_page.dart';
 import 'package:wasser_app/ui/pages/member/member_page.dart';
 import 'package:wasser_app/ui/pages/profile/profile_page.dart';
@@ -20,7 +21,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> itemPages = [
     HomePage(),
     MemberPage(),
-    CashFlowPage(),
+    CashFlowManagePage(),
     ProfilePage()
   ];
   late PageController _pageController;
