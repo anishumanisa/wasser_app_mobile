@@ -6,6 +6,7 @@ import 'package:wasser_app/ui/pages/cash_flow_manage/cash_flow_manage_page.dart'
 import 'package:wasser_app/ui/pages/home/home_page.dart';
 import 'package:wasser_app/ui/pages/member/member_page.dart';
 import 'package:wasser_app/ui/pages/payment_detail/payment_detail_page.dart';
+import 'package:wasser_app/ui/pages/payment/payment_page.dart';
 import 'package:wasser_app/ui/pages/profile/profile_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -22,7 +23,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> itemPages = [
     HomePage(),
     PaymentDetailPage(),
-    CashFlowManagePage(),
+    PaymentPage(),
     ProfilePage()
   ];
   late PageController _pageController;
