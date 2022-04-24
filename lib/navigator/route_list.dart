@@ -7,4 +7,5 @@ class RouteList {
   static const String profile = '/profile';
   static const String cashFlow = '/cash-flow';
   static const String member = '/member';
+  static const String complain = '/complain';
 }

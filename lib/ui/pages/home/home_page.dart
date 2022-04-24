@@ -15,11 +15,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        physics: BouncingScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        physics: const BouncingScrollPhysics(),
         child: ListView(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           //children: [CarouselSliders()],
           children: [
             Row(
@@ -34,37 +34,37 @@ class _HomePageState extends State<HomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      child: Text(
+                      child: const Text(
                         "Hello, Anis Humanisa",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                     Container(
-                      child: Text(
+                      child: const Text(
                         "Selamat datang di wasser",
                         style: TextStyle(fontSize: 12, color: Colors.black54),
                       ),
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Container(
-                  child: Icon(
+                  child: const Icon(
                     Icons.notifications_sharp,
                     size: 30,
                   ),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             Container(
-              padding: EdgeInsets.all(24),
+              padding: const EdgeInsets.all(24),
               height: 170,
               decoration: BoxDecoration(
                   color: colorPrimary, borderRadius: BorderRadius.circular(10)),
@@ -73,38 +73,34 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Text(
-                          "Rp. 490000",
-                          style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
+                    children: const [
+                      Text(
+                        "Rp. 490000",
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
                       ),
                       Spacer(),
-                      Container(
-                        child: Icon(
-                          Icons.menu,
-                          color: Colors.white,
-                        ),
+                      Icon(
+                        Icons.menu,
+                        color: Colors.white,
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
-                  Text(
+                  const Text(
                     "Your balance",
-                    style: TextStyle(color: Colors.white60),
+                    style: const TextStyle(color: Colors.white60),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Container(
                     alignment: Alignment.center,
-                    child: Text(
+                    child: const Text(
                       "BAYAR YUK !",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, color: colorPrimary),
@@ -118,28 +114,24 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
-            Container(
-              child: Row(
-                children: [
-                  Container(
-                    child: Text(
-                      "Favorites",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Spacer(),
-                  Text(
-                    "Lihat Semua",
-                    style: TextStyle(color: Colors.black45),
-                  )
-                ],
-              ),
+            Row(
+              children: [
+                const Text(
+                  "Favorites",
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                const Spacer(),
+                const Text(
+                  "Lihat Semua",
+                  style: TextStyle(color: Colors.black45),
+                )
+              ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Row(
@@ -154,24 +146,25 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Icon(
+                          child: const Icon(
                             Icons.payment,
                             color: Colors.white,
                             size: 32,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text(
+                        const Text(
                           "PAYMENT",
-                          style: TextStyle(fontSize: 11, color: Colors.white),
+                          style: const TextStyle(
+                              fontSize: 11, color: Colors.white),
                         )
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 15,
                 ),
                 Expanded(
@@ -184,24 +177,25 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Icon(
+                          child: const Icon(
                             Icons.wallet_travel,
                             color: Colors.white,
                             size: 32,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text(
+                        const Text(
                           "TRANSAKSI",
-                          style: TextStyle(fontSize: 11, color: Colors.white),
+                          style: const TextStyle(
+                              fontSize: 11, color: Colors.white),
                         )
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 15,
                 ),
                 Expanded(
@@ -214,16 +208,16 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Icon(
+                          child: const Icon(
                             Icons.wallet_travel,
                             color: Colors.white,
                             size: 32,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text(
+                        const Text(
                           "PENCATATAN",
                           style: TextStyle(fontSize: 11, color: Colors.white),
                         )
@@ -231,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 15,
                 ),
                 Expanded(
@@ -244,16 +238,16 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Icon(
+                          child: const Icon(
                             Icons.analytics_outlined,
                             color: Colors.white,
                             size: 32,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text(
+                        const Text(
                           "LAPORAN",
                           style: TextStyle(fontSize: 11, color: Colors.white),
                         )
@@ -263,14 +257,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             Row(
               children: [
                 Expanded(
                   child: Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     height: 150,
                     width: 150,
                     decoration: BoxDecoration(
@@ -281,26 +275,26 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          child: Icon(
+                          child: const Icon(
                             Icons.payments_outlined,
                             color: Colors.white,
                             size: 35,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Text(
+                        const Text(
                           "Total saldo kas",
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Rp. 80.000.000",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
@@ -310,12 +304,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Expanded(
                   child: Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     height: 150,
                     width: 150,
                     decoration: BoxDecoration(
@@ -326,24 +320,24 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          child: Icon(
+                          child: const Icon(
                             Icons.account_circle_sharp,
                             color: Colors.white,
                             size: 35,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Text(
+                        const Text(
                           "Pengguna Aktif",
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "350",
                             style: TextStyle(
                                 fontSize: 18,
@@ -357,14 +351,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Row(
               children: [
                 Expanded(
                   child: Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     height: 150,
                     width: 150,
                     decoration: BoxDecoration(
@@ -373,13 +367,11 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          child: Icon(
-                            Icons.notifications_active,
-                            color: Colors.white,
-                            size: 35,
-                          ),
+                      children: const [
+                        Icon(
+                          Icons.notifications_active,
+                          color: Colors.white,
+                          size: 35,
                         ),
                         SizedBox(
                           height: 10,
@@ -391,25 +383,23 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: 10,
                         ),
-                        Container(
-                          child: Text(
-                            "Rp. 80.000.000",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
+                        Text(
+                          "Rp. 80.000.000",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                         ),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Expanded(
                   child: Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     height: 150,
                     width: 150,
                     decoration: BoxDecoration(
@@ -420,24 +410,25 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          child: Icon(
+                          child: const Icon(
                             Icons.content_paste_sharp,
                             color: Colors.white,
                             size: 35,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Text(
+                        const Text(
                           "Penggunaan M3",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 16),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "500 M3",
                             style: TextStyle(
                                 fontSize: 18,
