@@ -4,6 +4,7 @@ import 'package:wasser_app/shared/colors.dart';
 import 'package:wasser_app/ui/pages/cash_flow/cashflow_page.dart';
 import 'package:wasser_app/ui/pages/cash_flow_manage/cash_flow_manage_page.dart';
 import 'package:wasser_app/ui/pages/complain/complain_list_page.dart';
+import 'package:wasser_app/ui/pages/complain/complain_page.dart';
 import 'package:wasser_app/ui/pages/home/home_page.dart';
 import 'package:wasser_app/ui/pages/member/member_page.dart';
 import 'package:wasser_app/ui/pages/payment_detail/payment_detail_page.dart';
@@ -25,8 +26,8 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> itemPages = [
     HomePage(),
     PaymentDetailPage(),
-    ComplainListPage(),
-    TransactionPage()
+    ComplainPage(),
+    ProfilePage()
   ];
   late PageController _pageController;
   @override

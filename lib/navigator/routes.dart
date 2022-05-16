@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wasser_app/navigator/route_list.dart';
+import 'package:wasser_app/ui/pages/complain/complain_page.dart';
 import 'package:wasser_app/ui/pages/login/login_page.dart';
 import 'package:wasser_app/ui/pages/main/main_page.dart';
 import 'package:wasser_app/ui/pages/register/register_page.dart';
@@ -10,6 +11,7 @@ class Routes {
     RouteList.main: (BuildContext context) => const MainPage(),
     RouteList.login: (BuildContext context) => const LoginPage(),
     RouteList.register: (BuildContext context) => const RegisterPage(),
+    RouteList.complain: (BuildContext context) => const ComplainPage(),
   };
 
   Map<String, WidgetBuilder> get allRoutes => _routes;
@@ -36,6 +38,12 @@ class Routes {
         return _buildRoute(
           settings: settings,
           builder: const RegisterPage(),
+          fullScreenDialog: false,
+        );
+      case RouteList.complain:
+        return _buildRoute(
+          settings: settings,
+          builder: const ComplainPage(),
           fullScreenDialog: false,
         );
 

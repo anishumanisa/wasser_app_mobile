@@ -14,11 +14,11 @@ class _PaymentPageState extends State<PaymentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        physics: BouncingScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 58,
             ),
             Builder(builder: (context) {
@@ -27,7 +27,7 @@ class _PaymentPageState extends State<PaymentPage> {
                 scrollPadding: EdgeInsets.only(bottom: 100.w),
                 decoration: InputDecoration(
                   hintText: "Cari Nama Pelanggan",
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: const Icon(Icons.search),
                   hintStyle: const TextStyle(color: Colors.black54),
                   fillColor: Colors.white,
                   filled: true,
@@ -50,14 +50,14 @@ class _PaymentPageState extends State<PaymentPage> {
                 ),
               );
             }),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             ListView.separated(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               padding: EdgeInsets.zero,
               shrinkWrap: true,
-              separatorBuilder: (context, index) => SizedBox(
+              separatorBuilder: (context, index) => const SizedBox(
                 height: 6,
               ),
               itemCount: 6,
@@ -69,7 +69,7 @@ class _PaymentPageState extends State<PaymentPage> {
                         color: Colors.grey.shade200,
                         blurRadius: 2,
                         spreadRadius: 1,
-                        offset: Offset(0, 1),
+                        offset: const Offset(0, 1),
                       ),
                     ],
                     color: Colors.white,
@@ -77,8 +77,8 @@ class _PaymentPageState extends State<PaymentPage> {
                 child: Row(
                   children: [
                     Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 16),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
                           color: Colors.white),
@@ -92,7 +92,7 @@ class _PaymentPageState extends State<PaymentPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Anis Humanisa",
                             style: TextStyle(
                                 color: Colors.black,
@@ -100,11 +100,11 @@ class _PaymentPageState extends State<PaymentPage> {
                                 fontWeight: FontWeight.w600),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "F00128",
                             style: TextStyle(color: Colors.black),
                           ),

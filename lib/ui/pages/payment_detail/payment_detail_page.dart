@@ -14,7 +14,7 @@ class _PaymentDetailPageState extends State<PaymentDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: ScrollPhysics(),
+        physics: const ScrollPhysics(),
         child: ListView.separated(
             shrinkWrap: true,
             itemBuilder: (context, index) {
@@ -25,22 +25,41 @@ class _PaymentDetailPageState extends State<PaymentDetailPage> {
                         color: Colors.grey.shade200,
                         blurRadius: 2,
                         spreadRadius: 1,
-                        offset: Offset(0, 1),
+                        offset: const Offset(0, 1),
                       ),
                     ],
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16)),
-                margin: EdgeInsets.symmetric(
+                margin: const EdgeInsets.symmetric(
                   horizontal: 16,
                 ),
-                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 child: Column(
                   children: [
+                    Row(
+                      children: [
+                        const Icon(Icons.monetization_on_rounded),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text("Anis Humanisa"),
+                            Text("24 Apr 2022")
+                          ],
+                        )
+                      ],
+                    ),
+                    const Divider(
+                      color: Colors.black54,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.note,
                               color: colorPrimary,
@@ -56,19 +75,19 @@ class _PaymentDetailPageState extends State<PaymentDetailPage> {
                             ),
                           ],
                         ),
-                        Text("100",
+                        const Text("100",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, fontSize: 16)),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 3,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.note,
                               color: colorPrimary,
@@ -84,19 +103,19 @@ class _PaymentDetailPageState extends State<PaymentDetailPage> {
                             ),
                           ],
                         ),
-                        Text("180",
+                        const Text("180",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, fontSize: 16)),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 3,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.content_paste_sharp,
                               color: colorPrimary,
@@ -112,19 +131,19 @@ class _PaymentDetailPageState extends State<PaymentDetailPage> {
                             ),
                           ],
                         ),
-                        Text("80",
+                        const Text("80",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, fontSize: 16)),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 3,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.payments_outlined,
                               color: colorPrimary,
@@ -140,7 +159,7 @@ class _PaymentDetailPageState extends State<PaymentDetailPage> {
                             ),
                           ],
                         ),
-                        Text("Rp. 80.000",
+                        const Text("Rp. 80.000",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, fontSize: 16)),
                       ],
@@ -154,7 +173,7 @@ class _PaymentDetailPageState extends State<PaymentDetailPage> {
               );
             },
             separatorBuilder: (context, index) {
-              return SizedBox(
+              return const SizedBox(
                 height: 12,
               );
             },
