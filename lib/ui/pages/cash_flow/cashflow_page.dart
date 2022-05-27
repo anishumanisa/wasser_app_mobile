@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wasser_app/shared/colors.dart';
 
@@ -12,7 +13,7 @@ class _CashFlowPageState extends State<CashFlowPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xff1BAB87),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: ListView(
@@ -28,22 +29,10 @@ class _CashFlowPageState extends State<CashFlowPage> {
                     color: colorPrimary,
                     child: Row(
                       children: [
-                        Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
                         Text(
                           "Rincian Saldo Kas",
                           style: TextStyle(color: Colors.white),
                         ),
-                        Spacer(),
-                        Icon(
-                          Icons.menu,
-                          color: Colors.white,
-                        )
                       ],
                     ),
                   ),
@@ -102,101 +91,115 @@ class _CashFlowPageState extends State<CashFlowPage> {
                   SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(50)),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Tambah Uang",
-                            )
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(50)),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Pindahkan Uang",
-                            )
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(50)),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Kirim dan Bayar",
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)),
-                    height: 60,
-                    width: double.infinity,
                     child: Row(
                       children: [
-                        Container(
-                          child: Image.asset(
-                            "assets/images/logo.png",
-                            scale: 12,
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                    width: 35,
+                                    height: 35,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey.shade100,
+                                        borderRadius: BorderRadius.circular(8)),
+                                    child: Icon(
+                                      Icons.arrow_downward_sharp,
+                                      size: 18,
+                                    )),
+                                SizedBox(
+                                  width: 14,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      child: Text(
+                                        "Income",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.black54),
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Text(
+                                        "Rp 40.000",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                            width: 100,
+                            height: 60,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8)),
                           ),
                         ),
-                        Container(
-                          child: Text(
-                            "Hubungan Ke Kartu",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                    width: 35,
+                                    height: 35,
+                                    decoration: BoxDecoration(
+                                        color: Color(0xFF1BAB87),
+                                        borderRadius: BorderRadius.circular(8)),
+                                    child: Icon(
+                                      Icons.arrow_upward_sharp,
+                                      size: 18,
+                                    )),
+                                SizedBox(
+                                  width: 14,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      child: Text(
+                                        "Outcome",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.black54),
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Text(
+                                        "Rp. 70.000",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                            width: 100,
+                            height: 60,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8)),
                           ),
                         ),
-                        Spacer(),
-                        Container(
-                          child: Icon(Icons.eleven_mp_outlined),
-                        )
                       ],
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
@@ -206,33 +209,11 @@ class _CashFlowPageState extends State<CashFlowPage> {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextFormField(
-                    style: const TextStyle(color: Colors.black),
-                    scrollPadding: EdgeInsets.only(bottom: 100),
-                    decoration: InputDecoration(
-                      hintText: "Cari Nama Pelanggan",
-                      prefixIcon: Icon(Icons.search),
-                      hintStyle: const TextStyle(color: Colors.black54),
-                      fillColor: Colors.white,
-                      filled: true,
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: Colors.grey, width: 2),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide:
-                            const BorderSide(color: Colors.grey, width: 1.5),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide:
-                            const BorderSide(color: Colors.grey, width: 1.5),
-                      ),
-                    ),
+                  Text(
+                    "All Transaction",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     height: 16,

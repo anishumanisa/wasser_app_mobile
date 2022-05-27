@@ -1,10 +1,10 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:wasser_app/shared/colors.dart';
-import 'package:wasser_app/ui/pages/dummy/dummy_page.dart';
 import 'package:wasser_app/ui/pages/home/home_page.dart';
 import 'package:wasser_app/ui/pages/payment_detail/payment_detail_page.dart';
 import 'package:wasser_app/ui/pages/profile/profile_page.dart';
+import 'package:wasser_app/ui/pages/transaction/Transaction_invoice_page.dart';
 
 class MainPage extends StatefulWidget {
   static final mainScaffoldKey =
@@ -20,8 +20,8 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> itemPages = [
     HomePage(),
     PaymentDetailPage(),
-    DummyPage(),
-    ProfilePage(),
+    TransactionInvoicePage(),
+    ProfilePage()
   ];
   late PageController _pageController;
   @override
