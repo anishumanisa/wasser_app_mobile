@@ -6,11 +6,17 @@ import 'package:wasser_app/ui/pages/cash_flow_manage/cash_flow_manage_page.dart'
 import 'package:wasser_app/ui/pages/complain/complain_list_page.dart';
 import 'package:wasser_app/ui/pages/complain/complain_page.dart';
 import 'package:wasser_app/ui/pages/home/home_page.dart';
+import 'package:wasser_app/ui/pages/login/login_page.dart';
 import 'package:wasser_app/ui/pages/member/member_page.dart';
+import 'package:wasser_app/ui/pages/payment_detail/payment_confirm.dart';
 import 'package:wasser_app/ui/pages/payment_detail/payment_detail_page.dart';
 import 'package:wasser_app/ui/pages/payment/payment_page.dart';
+import 'package:wasser_app/ui/pages/payment_detail/receipt_page.dart';
 import 'package:wasser_app/ui/pages/profile/profile_page.dart';
+import 'package:wasser_app/ui/pages/register/register_page.dart';
+import 'package:wasser_app/ui/pages/transaction/Transaction_invoice_page.dart';
 import 'package:wasser_app/ui/pages/transaction/transaction_page.dart';
+import 'package:wasser_app/ui/pages/transaction/water_bill_page.dart';
 
 class MainPage extends StatefulWidget {
   static final mainScaffoldKey =
@@ -25,8 +31,8 @@ class _MainPageState extends State<MainPage> {
   int _index = 0;
   final List<Widget> itemPages = [
     HomePage(),
-    PaymentDetailPage(),
-    ComplainPage(),
+    CashFlowPage(),
+    TransactionInvoicePage(),
     ProfilePage()
   ];
   late PageController _pageController;
