@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PaymentConfirmPages extends StatefulWidget {
-  const PaymentConfirmPages({Key? key}) : super(key: key);
+class PaymentReceiptPage extends StatefulWidget {
+  const PaymentReceiptPage({Key? key}) : super(key: key);
 
   @override
-  _PaymentConfirmPagesState createState() => _PaymentConfirmPagesState();
+  _PaymentReceiptPageState createState() => _PaymentReceiptPageState();
 }
 
-class _PaymentConfirmPagesState extends State<PaymentConfirmPages> {
+class _PaymentReceiptPageState extends State<PaymentReceiptPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -2,7 +2,7 @@ import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:wasser_app/shared/colors.dart';
 import 'package:wasser_app/ui/pages/home/home_page.dart';
-import 'package:wasser_app/ui/pages/payment_detail/payment_receipt.dart';
+import 'package:wasser_app/ui/pages/payment_detail/payment_confirm_page.dart';
 import 'package:wasser_app/ui/pages/transaction/Transaction_List.dart';
 import 'package:wasser_app/user/user_page.dart';
 
@@ -21,7 +21,7 @@ class _MainPageState extends State<MainPage> {
     const HomePage(),
     const TransactionListPages(),
     const UserPages(),
-    const PaymentConfirmPages()
+    const PaymentConfirmPage()
   ];
   late PageController _pageController;
   @override
