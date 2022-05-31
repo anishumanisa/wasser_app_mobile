@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PaymentConfirmPages extends StatefulWidget {
   const PaymentConfirmPages({Key? key}) : super(key: key);
@@ -12,183 +13,483 @@ class _PaymentConfirmPagesState extends State<PaymentConfirmPages> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Confirm Payment"),
+        backgroundColor: const Color(0xff1D3A71),
+        title: const Text("Payment Confirm"),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+      body: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          physics: const ScrollPhysics(),
           child: ListView(
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-            physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.shade400,
+              SizedBox(
+                width: 100,
+                height: 100,
+                child: Image.asset(
+                  "assets/images/ic_profile.png",
+                  scale: 1,
                 ),
-                width: 350,
-                padding: EdgeInsets.symmetric(horizontal: 16),
+              ),
+              Column(
+                children: const [
+                  Text(
+                    "Anis Humanisa",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  Text(
+                    "ID010291202",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: Colors.grey),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 22,
+              ),
+              Row(
+                children: const [
+                  Text(
+                    "Transaction Details",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: const Color(0xff1D3A71),
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border.all(color: Colors.white24)),
                 child: Column(
                   children: [
-                    SizedBox(height: 20),
-                    Container(
-                      width: 70,
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(50)),
-                      child: Image.asset(
-                        "assets/images/logo.png",
-                        scale: 15,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Divider(
-                      height: 1,
-                      thickness: 1,
-                      color: Colors.grey.shade500,
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          child: Text("Amount (USD)"),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              "Meteran Awal",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              "100",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 6,
+                            ),
+                            Text(
+                              "Meteran Akhir",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              "200",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 6,
+                            ),
+                            Text(
+                              "Kubikasi",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              "10 m",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
                         ),
-                        Spacer(),
-                        Container(
-                          child: Text("Rp 8743984"),
+                        const SizedBox(
+                          width: 28,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              "Bulan",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              "Maret",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 6,
+                            ),
+                            Text(
+                              "Wilayah",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              "RT 03",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 6,
+                            ),
+                            Text(
+                              "Tanggal",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              "22 Juni 2022",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 26,
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    _divider(),
+                    const SizedBox(
+                      height: 12,
                     ),
                     Row(
-                      children: [
-                        Container(
-                          child: Text("Amount (USD)"),
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          "Admin Fee",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: Colors.white),
                         ),
-                        Spacer(),
-                        Container(
-                          child: Text("Rp 8743984"),
+                        Text(
+                          "Rp 5.000",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                              color: Colors.white),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 26,
+                    const SizedBox(
+                      height: 8,
                     ),
                     Row(
-                      children: [
-                        Container(
-                          child: Text("Amount (USD)"),
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          "Sub Total",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: Colors.white),
                         ),
-                        Spacer(),
-                        Container(
-                          child: Text("Rp 8743984"),
+                        Text(
+                          "Rp 100.000",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                              color: Colors.white),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 26,
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    _divider(),
+                    const SizedBox(
+                      height: 8,
                     ),
                     Row(
-                      children: [
-                        Container(
-                          child: Text("Amount (USD)"),
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          "Total",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: Colors.white),
                         ),
-                        Spacer(),
-                        Container(
-                          child: Text("Rp 8743984"),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 26,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: Text("Amount (USD)"),
-                        ),
-                        Spacer(),
-                        Container(
-                          child: Text("Rp 8743984"),
+                        Text(
+                          "Rp 105.000",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                              color: Colors.white),
                         ),
                       ],
-                    ),
-                    SizedBox(
-                      height: 26,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: Text("Amount (USD)"),
-                        ),
-                        Spacer(),
-                        Container(
-                          child: Text("Rp 8743984"),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 26,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: Text("Amount (USD)"),
-                        ),
-                        Spacer(),
-                        Container(
-                          width: 100,
-                          child: Text("Anis Humansia fernanda"),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 26,
                     ),
                   ],
                 ),
               ),
-              SizedBox(
-                height: 26,
+              const SizedBox(
+                height: 18,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 15),
-                child: Text(
-                  "Change",
-                  style: TextStyle(color: Colors.green),
-                  textAlign: TextAlign.center,
-                ),
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  Text(
+                    "Payment Method",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.black),
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 30,
+              const SizedBox(
+                height: 16,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 15),
-                child: Text(
-                  "Confirm Change",
-                  style: TextStyle(color: Colors.white),
-                  textAlign: TextAlign.center,
-                ),
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(10)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.monetization_on),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(
+                        "Bank Transfer",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  const Icon(
+                    Icons.check_circle_outline,
+                    color: Colors.grey,
+                  ),
+                ],
               ),
+              const SizedBox(
+                height: 8,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.monetization_on),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(
+                        "Manual",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  const Icon(
+                    Icons.check_circle_sharp,
+                    color: Color(0xff1D3A71),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Amount",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 6.w,
+                  ),
+                  TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    scrollPadding: EdgeInsets.only(bottom: 100.w),
+                    decoration: InputDecoration(
+                      hintText: "Amount",
+                      hintStyle: const TextStyle(color: Colors.black54),
+                      fillColor: Colors.white,
+                      filled: true,
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.w, horizontal: 10.w),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.r),
+                        borderSide:
+                            const BorderSide(color: Colors.black26, width: 1),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.r),
+                        borderSide:
+                            const BorderSide(color: Colors.black26, width: 1),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.r),
+                        borderSide:
+                            const BorderSide(color: Colors.black26, width: 1),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Note",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 6.w,
+                  ),
+                  TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    scrollPadding: EdgeInsets.only(bottom: 100.w),
+                    maxLines: 4,
+                    decoration: InputDecoration(
+                      hintText: "Note...",
+                      hintStyle: const TextStyle(color: Colors.black54),
+                      fillColor: Colors.white,
+                      filled: true,
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.w, horizontal: 10.w),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.r),
+                        borderSide:
+                            const BorderSide(color: Colors.grey, width: 1),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.r),
+                        borderSide:
+                            const BorderSide(color: Colors.grey, width: 1),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.r),
+                        borderSide:
+                            const BorderSide(color: Colors.grey, width: 1),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              _buildButtonConfirm(context)
             ],
-          ),
-        ),
-      ),
+          )),
+    );
+  }
+
+  Widget _buildButtonConfirm(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Builder(builder: (context) {
+          return SizedBox(
+            height: 44.w,
+            width: double.infinity,
+            child: TextButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(const Color(0xff1D3A71)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6.r),
+                  ),
+                ),
+              ),
+              onPressed: () {
+                FocusScope.of(context).unfocus();
+              },
+              child: const Text(
+                "Bayar",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600),
+              ),
+            ),
+          );
+        }),
+      ],
+    );
+  }
+
+  Widget _divider() {
+    return const Divider(
+      height: 1,
+      thickness: 0.5,
+      color: Colors.white,
     );
   }
 }

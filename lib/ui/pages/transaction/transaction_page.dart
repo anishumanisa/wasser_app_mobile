@@ -12,20 +12,21 @@ class _TransactionPageState extends State<TransactionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Riwayat Transaksi"),
+        title: const Text("Riwayat Transaksi"),
       ),
       body: SingleChildScrollView(
         // padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       "Transaksi",
                       style:
@@ -34,7 +35,7 @@ class _TransactionPageState extends State<TransactionPage> {
                   ],
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.black,
                 thickness: 0.5,
               ),
@@ -42,10 +43,10 @@ class _TransactionPageState extends State<TransactionPage> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                 child: ListView(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Column(
@@ -53,35 +54,29 @@ class _TransactionPageState extends State<TransactionPage> {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              child: Text(
-                                "24-04-2022, 16:56",
-                                style: TextStyle(fontWeight: FontWeight.w400),
-                              ),
+                          children: const [
+                            Text(
+                              "24-04-2022, 16:56",
+                              style: TextStyle(fontWeight: FontWeight.w400),
                             ),
-                            Container(
-                              child: Text(
-                                "Point 500",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
+                            Text(
+                              "Point 500",
+                              style: TextStyle(fontWeight: FontWeight.bold),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
-                        Container(
-                          child: Text(
-                            "Anis Humanisa",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
+                        const Text(
+                          "Anis Humanisa",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
@@ -94,33 +89,31 @@ class _TransactionPageState extends State<TransactionPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "24-04-2022, 16:56",
                                 style: TextStyle(fontWeight: FontWeight.w400),
                               ),
                             ),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Point 500",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
-                        Container(
-                          child: Text(
-                            "Anis Humanisa",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
+                        const Text(
+                          "Anis Humanisa",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
@@ -133,33 +126,33 @@ class _TransactionPageState extends State<TransactionPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "24-04-2022, 16:56",
                                 style: TextStyle(fontWeight: FontWeight.w400),
                               ),
                             ),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Point 500",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Anis Humanisa",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
@@ -172,33 +165,33 @@ class _TransactionPageState extends State<TransactionPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "24-04-2022, 16:56",
                                 style: TextStyle(fontWeight: FontWeight.w400),
                               ),
                             ),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Point 500",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Anis Humanisa",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
@@ -211,33 +204,33 @@ class _TransactionPageState extends State<TransactionPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "24-04-2022, 16:56",
                                 style: TextStyle(fontWeight: FontWeight.w400),
                               ),
                             ),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Point 500",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Anis Humanisa",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
@@ -250,33 +243,33 @@ class _TransactionPageState extends State<TransactionPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "24-04-2022, 16:56",
                                 style: TextStyle(fontWeight: FontWeight.w400),
                               ),
                             ),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Point 500",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Anis Humanisa",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
@@ -289,33 +282,33 @@ class _TransactionPageState extends State<TransactionPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "24-04-2022, 16:56",
                                 style: TextStyle(fontWeight: FontWeight.w400),
                               ),
                             ),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Point 500",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Anis Humanisa",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
@@ -328,33 +321,33 @@ class _TransactionPageState extends State<TransactionPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "24-04-2022, 16:56",
                                 style: TextStyle(fontWeight: FontWeight.w400),
                               ),
                             ),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Point 500",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Anis Humanisa",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
@@ -367,33 +360,33 @@ class _TransactionPageState extends State<TransactionPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "24-04-2022, 16:56",
                                 style: TextStyle(fontWeight: FontWeight.w400),
                               ),
                             ),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Point 500",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Anis Humanisa",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
@@ -406,33 +399,33 @@ class _TransactionPageState extends State<TransactionPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "24-04-2022, 16:56",
                                 style: TextStyle(fontWeight: FontWeight.w400),
                               ),
                             ),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Point 500",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Anis Humanisa",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
@@ -445,33 +438,33 @@ class _TransactionPageState extends State<TransactionPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "24-04-2022, 16:56",
                                 style: TextStyle(fontWeight: FontWeight.w400),
                               ),
                             ),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Point 500",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Anis Humanisa",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
@@ -484,33 +477,33 @@ class _TransactionPageState extends State<TransactionPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "24-04-2022, 16:56",
                                 style: TextStyle(fontWeight: FontWeight.w400),
                               ),
                             ),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Point 500",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Container(
-                          child: Text(
+                          child: const Text(
                             "Anis Humanisa",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           thickness: 0.5,
                         ),
