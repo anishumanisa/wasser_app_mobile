@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wasser_app/shared/colors.dart';
 
 class CashFlowPage extends StatefulWidget {
   const CashFlowPage({Key? key}) : super(key: key);
