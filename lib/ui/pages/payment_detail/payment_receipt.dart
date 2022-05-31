@@ -25,7 +25,7 @@ class _PaymentConfirmPagesState extends State<PaymentConfirmPages> {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.shade400,
+                  color: Colors.grey.shade100,
                 ),
                 width: 350,
                 padding: EdgeInsets.symmetric(horizontal: 16),
@@ -35,7 +35,7 @@ class _PaymentConfirmPagesState extends State<PaymentConfirmPages> {
                     Container(
                       width: 70,
                       decoration: BoxDecoration(
-                          color: Colors.red,
+                          color: Colors.grey.shade200,
                           borderRadius: BorderRadius.circular(50)),
                       child: Image.asset(
                         "assets/images/logo.png",
@@ -56,7 +56,49 @@ class _PaymentConfirmPagesState extends State<PaymentConfirmPages> {
                     Row(
                       children: [
                         Container(
-                          child: Text("Amount (USD)"),
+                          child: Text("Total Bayar"),
+                        ),
+                        Spacer(),
+                        Container(
+                          child: Text("Rp 197.000"),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 26,
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          child: Text("Nama "),
+                        ),
+                        Spacer(),
+                        Container(
+                          child: Text("Anis Humanisa "),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 26,
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          child: Text("Nama Bank"),
+                        ),
+                        Spacer(),
+                        Container(
+                          child: Text("BRI"),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 26,
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          child: Text("Metode Pembayaran"),
                         ),
                         Spacer(),
                         Container(
@@ -70,7 +112,7 @@ class _PaymentConfirmPagesState extends State<PaymentConfirmPages> {
                     Row(
                       children: [
                         Container(
-                          child: Text("Amount (USD)"),
+                          child: Text("Tanggal Transaksi"),
                         ),
                         Spacer(),
                         Container(
@@ -84,7 +126,7 @@ class _PaymentConfirmPagesState extends State<PaymentConfirmPages> {
                     Row(
                       children: [
                         Container(
-                          child: Text("Amount (USD)"),
+                          child: Text("ID  Transaksi"),
                         ),
                         Spacer(),
                         Container(
@@ -98,54 +140,21 @@ class _PaymentConfirmPagesState extends State<PaymentConfirmPages> {
                     Row(
                       children: [
                         Container(
-                          child: Text("Amount (USD)"),
+                          child: Text("Status"),
                         ),
                         Spacer(),
                         Container(
-                          child: Text("Rp 8743984"),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 26,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: Text("Amount (USD)"),
-                        ),
-                        Spacer(),
-                        Container(
-                          child: Text("Rp 8743984"),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 26,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: Text("Amount (USD)"),
-                        ),
-                        Spacer(),
-                        Container(
-                          child: Text("Rp 8743984"),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 26,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: Text("Amount (USD)"),
-                        ),
-                        Spacer(),
-                        Container(
-                          width: 100,
-                          child: Text("Anis Humansia fernanda"),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+                          width: 85,
+                          decoration: BoxDecoration(
+                              color: Color(0xff1BAB87),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Text(
+                            "Sudah Dibayar",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 10),
+                          ),
                         ),
                       ],
                     ),
@@ -156,34 +165,20 @@ class _PaymentConfirmPagesState extends State<PaymentConfirmPages> {
                 ),
               ),
               SizedBox(
-                height: 26,
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 15),
-                child: Text(
-                  "Change",
-                  style: TextStyle(color: Colors.green),
-                  textAlign: TextAlign.center,
-                ),
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10)),
-              ),
-              SizedBox(
                 height: 30,
               ),
               Container(
                 padding: EdgeInsets.symmetric(vertical: 15),
                 child: Text(
-                  "Confirm Change",
-                  style: TextStyle(color: Colors.white),
+                  "Download Invoice",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 height: 50,
                 decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(10)),
+                    color: Color(0xff1BAB87),
+                    borderRadius: BorderRadius.circular(50)),
               ),
             ],
           ),

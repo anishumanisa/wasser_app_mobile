@@ -13,7 +13,10 @@ class _CashFlowPageState extends State<CashFlowPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1BAB87),
+      appBar: AppBar(
+        title: Text("Rincian Saldo Kas"),
+      ),
+      //backgroundColor: Color(0xff1BAB87),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: ListView(
@@ -22,17 +25,40 @@ class _CashFlowPageState extends State<CashFlowPage> {
           children: [
             Container(
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-              color: colorPrimary,
+              //color: colorPrimary,
+              //color: Color(0xFF1D3A71),
               child: Column(
                 children: [
                   Container(
-                    color: colorPrimary,
+                    //  color: colorPrimary,
                     child: Row(
                       children: [
-                        Text(
-                          "Rincian Saldo Kas",
-                          style: TextStyle(color: Colors.white),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Totak Kas",
+                              style: TextStyle(
+                                color: Colors.black54,
+                                fontSize: 16,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              "Rp 370.000",
+                              style: TextStyle(
+                                  color: Color(0xff1D3A71),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
                         ),
+                        Spacer(),
+                        Container(
+                          child: Text("Mounth"),
+                        )
                       ],
                     ),
                   ),
@@ -50,43 +76,6 @@ class _CashFlowPageState extends State<CashFlowPage> {
                   ),
                   SizedBox(
                     height: 16,
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        height: 20,
-                        width: 125,
-                        decoration: BoxDecoration(
-                            color: Colors.white54,
-                            borderRadius: BorderRadius.circular(50)),
-                        child: Text(
-                          "Kantong utama",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.black54, fontSize: 14),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Kantong Utama",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        "Rp.20000",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
                   ),
                   SizedBox(
                     height: 30,
