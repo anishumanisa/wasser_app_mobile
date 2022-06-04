@@ -2,6 +2,7 @@ import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:wasser_app/ui/pages/home/home_page.dart';
 import 'package:wasser_app/ui/pages/input_meter/input_meter_page.dart';
+import 'package:wasser_app/ui/pages/payment/member_payment_page.dart';
 import 'package:wasser_app/ui/pages/payment_detail/payment_confirm_page.dart';
 import 'package:wasser_app/ui/pages/transaction/Transaction_List.dart';
 
@@ -20,7 +21,7 @@ class _MainPageState extends State<MainPage> {
     const HomePage(),
     const TransactionListPages(),
     const InputMeterPage(),
-    const PaymentConfirmPage()
+    const MemberPaymentPage()
   ];
   late PageController _pageController;
   @override

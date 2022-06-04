@@ -5,7 +5,8 @@ import 'package:wasser_app/ui/pages/complain/complain_page.dart';
 import 'package:wasser_app/ui/pages/login/login_page.dart';
 import 'package:wasser_app/ui/pages/main/main_page.dart';
 import 'package:wasser_app/ui/pages/payment_detail/payment_confirm_page.dart';
-import 'package:wasser_app/ui/pages/payment_detail/payment_receipt.dart';
+import 'package:wasser_app/ui/pages/payment_detail/payment_invoice.dart';
+
 import 'package:wasser_app/ui/pages/register/register_page.dart';
 
 class Routes {
