@@ -28,16 +28,29 @@ class _InputMeterPageState extends State<InputMeterPage> {
             ),
             Container(
               padding: EdgeInsets.all(10.w),
-              decoration: BoxDecoration(
-                  color: Color(0xff1D3A71),
-                  borderRadius: BorderRadius.circular(6)),
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.shade200,
+                  blurRadius: 2,
+                  spreadRadius: 1,
+                  offset: const Offset(0, 1),
+                ),
+              ], color: Colors.white, borderRadius: BorderRadius.circular(8)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Container(
+                    alignment: Alignment.center,
+                    height: 200,
+                    child: Image.asset(
+                      "assets/images/logo.png",
+                      scale: 1,
+                    ),
+                  ),
                   Text(
                     "Input ID Pelanggan",
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 16.w,
                         fontWeight: FontWeight.w600),
                   ),
@@ -80,7 +93,7 @@ class _InputMeterPageState extends State<InputMeterPage> {
                     child: TextButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color(0xff1BAB87)),
+                            const Color(0xff1D3A71)),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(

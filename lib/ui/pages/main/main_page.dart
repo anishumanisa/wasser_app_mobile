@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:wasser_app/ui/pages/home/home_page.dart';
 import 'package:wasser_app/ui/pages/input_meter/input_meter_page.dart';
 import 'package:wasser_app/ui/pages/payment/member_payment_page.dart';
+import 'package:wasser_app/ui/pages/input_meter/input_current_meter.dart';
+import 'package:wasser_app/ui/pages/payment/payment_list_page.dart';
 import 'package:wasser_app/ui/pages/payment_detail/payment_confirm_page.dart';
 import 'package:wasser_app/ui/pages/transaction/Transaction_List.dart';
 
@@ -20,8 +22,8 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> itemPages = [
     const HomePage(),
     const TransactionListPages(),
-    const InputMeterPage(),
-    const MemberPaymentPage()
+    const MemberPaymentPage(),
+    const InputCurrentMeter(),
   ];
   late PageController _pageController;
   @override
