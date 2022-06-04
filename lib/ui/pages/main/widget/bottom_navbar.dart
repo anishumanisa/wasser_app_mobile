@@ -24,7 +24,7 @@ class _BottomNavigationBarMwState extends State<BottomNavigationBarMw> {
         });
       },
       type: BottomNavigationBarType.fixed,
-      items: [
+      items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
         BottomNavigationBarItem(icon: Icon(Icons.api), label: "Lorem"),
         BottomNavigationBarItem(

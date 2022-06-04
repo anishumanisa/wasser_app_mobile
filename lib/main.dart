@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wasser_app/navigator/routes.dart';
-import 'package:wasser_app/ui/pages/main/main_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
             builder: (context, child) {
               // set context for Screen util
               ScreenUtil.setContext(context);
-              return const MainPage();
+              return child ?? const SizedBox.shrink();
             },
           );
         },

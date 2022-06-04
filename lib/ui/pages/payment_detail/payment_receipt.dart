@@ -12,6 +12,7 @@ class _PaymentReceiptPageState extends State<PaymentReceiptPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color(0xff1D3A71),
         title: const Text("Confirm Payment"),
       ),
       body: SafeArea(
@@ -54,14 +55,60 @@ class _PaymentReceiptPageState extends State<PaymentReceiptPage> {
                       height: 16,
                     ),
                     Row(
-                      children: [
-                        Container(
-                          child: const Text("Total Bayar"),
-                        ),
-                        const Spacer(),
-                        Container(
-                          child: const Text("Rp 197.000"),
-                        ),
+                      children: const [
+                        Text("Total Bayar"),
+                        Spacer(),
+                        Text("Rp 197.000"),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 26,
+                    ),
+                    Row(
+                      children: const [
+                        Text("Nama "),
+                        Spacer(),
+                        Text("Anis Humanisa "),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 26,
+                    ),
+                    Row(
+                      children: const [
+                        Text("Nama Bank"),
+                        Spacer(),
+                        Text("BRI"),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 26,
+                    ),
+                    Row(
+                      children: const [
+                        Text("Metode Pembayaran"),
+                        Spacer(),
+                        Text("Rp 8743984"),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 26,
+                    ),
+                    Row(
+                      children: const [
+                        Text("Tanggal Transaksi"),
+                        Spacer(),
+                        Text("Rp 8743984"),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 26,
+                    ),
+                    Row(
+                      children: const [
+                        Text("ID  Transaksi"),
+                        Spacer(),
+                        Text("Rp 8743984"),
                       ],
                     ),
                     const SizedBox(
@@ -69,79 +116,7 @@ class _PaymentReceiptPageState extends State<PaymentReceiptPage> {
                     ),
                     Row(
                       children: [
-                        Container(
-                          child: const Text("Nama "),
-                        ),
-                        const Spacer(),
-                        Container(
-                          child: const Text("Anis Humanisa "),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 26,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: const Text("Nama Bank"),
-                        ),
-                        const Spacer(),
-                        Container(
-                          child: const Text("BRI"),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 26,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: const Text("Metode Pembayaran"),
-                        ),
-                        const Spacer(),
-                        Container(
-                          child: const Text("Rp 8743984"),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 26,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: const Text("Tanggal Transaksi"),
-                        ),
-                        const Spacer(),
-                        Container(
-                          child: const Text("Rp 8743984"),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 26,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: const Text("ID  Transaksi"),
-                        ),
-                        const Spacer(),
-                        Container(
-                          child: const Text("Rp 8743984"),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 26,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: const Text("Status"),
-                        ),
+                        const Text("Status"),
                         const Spacer(),
                         Container(
                           padding: const EdgeInsets.symmetric(

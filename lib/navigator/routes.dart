@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wasser_app/navigator/route_list.dart';
 import 'package:wasser_app/ui/pages/complain/complain_page.dart';
 import 'package:wasser_app/ui/pages/login/login_page.dart';
 import 'package:wasser_app/ui/pages/main/main_page.dart';
+import 'package:wasser_app/ui/pages/payment_detail/payment_confirm_page.dart';
+import 'package:wasser_app/ui/pages/payment_detail/payment_receipt.dart';
 import 'package:wasser_app/ui/pages/register/register_page.dart';
-import 'package:provider/provider.dart';
 
 class Routes {
   static final Map<String, WidgetBuilder> _routes = {
@@ -44,6 +46,18 @@ class Routes {
         return _buildRoute(
           settings: settings,
           builder: const ComplainPage(),
+          fullScreenDialog: false,
+        );
+      case RouteList.paymentConfirm:
+        return _buildRoute(
+          settings: settings,
+          builder: const PaymentConfirmPage(),
+          fullScreenDialog: false,
+        );
+      case RouteList.paymentReceipt:
+        return _buildRoute(
+          settings: settings,
+          builder: const PaymentReceiptPage(),
           fullScreenDialog: false,
         );
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wasser_app/shared/colors.dart';
+import 'package:wasser_app/navigator/route_list.dart';
 
 class UserPages extends StatefulWidget {
   const UserPages({Key? key}) : super(key: key);
@@ -343,7 +343,8 @@ class _UserPagesState extends State<UserPages> {
                           ),
                         ),
                         onPressed: () {
-                          FocusScope.of(context).unfocus();
+                          Navigator.of(context)
+                              .pushNamed(RouteList.paymentConfirm);
                         },
                         child: const Text(
                           "Tambah User",
