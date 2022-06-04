@@ -11,6 +11,10 @@ class _ComplainListPageState extends State<ComplainListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xff1D3A71),
+        title: Text("List Complaint"),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
         physics: const BouncingScrollPhysics(),
@@ -42,7 +46,7 @@ class _ComplainListPageState extends State<ComplainListPage> {
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                     borderSide:
-                        const BorderSide(color: Colors.grey, width: 1.5),
+                        const BorderSide(color: Color(0xff1D3A71), width: 1.5),
                   ),
                 ),
               );
@@ -67,11 +71,16 @@ class _ComplainListPageState extends State<ComplainListPage> {
                         children: const [
                           Text(
                             "Anis Humanisa",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff1D3A71)),
                           ),
                           Text(
                             "24 April 2022",
-                            style: TextStyle(color: Colors.black54),
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: Color(0xff1D3A71),
+                            ),
                           )
                         ],
                       ),
@@ -81,12 +90,14 @@ class _ComplainListPageState extends State<ComplainListPage> {
                         child: Text(
                           "Sudah Diproses",
                           style: TextStyle(
-                              fontSize: 10, fontWeight: FontWeight.bold),
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold),
                         ),
-                        height: 15,
+                        height: 20,
                         width: 95,
                         decoration: BoxDecoration(
-                            color: Colors.green.shade400,
+                            color: Color(0xff1BAB87),
                             borderRadius: BorderRadius.circular(5)),
                       ),
                     ],
@@ -98,29 +109,39 @@ class _ComplainListPageState extends State<ComplainListPage> {
                   Container(
                     child: Text(
                       "Judul Komplenan",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Color(0xff1D3A71),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce metus lacus, fermentum eget commodo eu,"
-                      " consequat sed arcu. Suspendisse ut magna eleifend nulla posuere finibus."),
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce metus lacus, fermentum eget commodo eu,"
+                    " consequat sed arcu. Suspendisse ut magna eleifend nulla posuere finibus.",
+                    style: TextStyle(color: Color(0XFF1D3A71)),
+                  ),
                   SizedBox(
                     height: 14,
                   ),
                   Container(
                       alignment: Alignment.bottomRight,
-                      child: Text("Selengkapnya"))
+                      child: Text(
+                        "Selengkapnya",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontStyle: FontStyle.italic),
+                      ))
                 ],
               ),
               height: 235,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                color: Colors.grey.shade400,
-              ),
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.white70,
+                  border: Border.all(color: Color(0xff1D3A71))),
             ),
             SizedBox(
               height: 16,
@@ -142,11 +163,16 @@ class _ComplainListPageState extends State<ComplainListPage> {
                         children: const [
                           Text(
                             "Anis Humanisa",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff1D3A71)),
                           ),
                           Text(
                             "24 April 2022",
-                            style: TextStyle(color: Colors.black54),
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: Color(0xff1D3A71),
+                            ),
                           )
                         ],
                       ),
@@ -156,12 +182,14 @@ class _ComplainListPageState extends State<ComplainListPage> {
                         child: Text(
                           "Sudah Diproses",
                           style: TextStyle(
-                              fontSize: 10, fontWeight: FontWeight.bold),
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold),
                         ),
-                        height: 15,
+                        height: 20,
                         width: 95,
                         decoration: BoxDecoration(
-                            color: Colors.green.shade400,
+                            color: Color(0xff1BAB87),
                             borderRadius: BorderRadius.circular(5)),
                       ),
                     ],
@@ -173,29 +201,39 @@ class _ComplainListPageState extends State<ComplainListPage> {
                   Container(
                     child: Text(
                       "Judul Komplenan",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Color(0xff1D3A71),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce metus lacus, fermentum eget commodo eu,"
-                      " consequat sed arcu. Suspendisse ut magna eleifend nulla posuere finibus."),
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce metus lacus, fermentum eget commodo eu,"
+                    " consequat sed arcu. Suspendisse ut magna eleifend nulla posuere finibus.",
+                    style: TextStyle(color: Color(0XFF1D3A71)),
+                  ),
                   SizedBox(
                     height: 14,
                   ),
                   Container(
                       alignment: Alignment.bottomRight,
-                      child: Text("Selengkapnya"))
+                      child: Text(
+                        "Selengkapnya",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontStyle: FontStyle.italic),
+                      ))
                 ],
               ),
               height: 235,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                color: Colors.grey.shade400,
-              ),
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.white70,
+                  border: Border.all(color: Color(0xff1D3A71))),
             ),
             SizedBox(
               height: 16,
@@ -217,11 +255,16 @@ class _ComplainListPageState extends State<ComplainListPage> {
                         children: const [
                           Text(
                             "Anis Humanisa",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff1D3A71)),
                           ),
                           Text(
                             "24 April 2022",
-                            style: TextStyle(color: Colors.black54),
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: Color(0xff1D3A71),
+                            ),
                           )
                         ],
                       ),
@@ -231,12 +274,14 @@ class _ComplainListPageState extends State<ComplainListPage> {
                         child: Text(
                           "Sudah Diproses",
                           style: TextStyle(
-                              fontSize: 10, fontWeight: FontWeight.bold),
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold),
                         ),
-                        height: 15,
+                        height: 20,
                         width: 95,
                         decoration: BoxDecoration(
-                            color: Colors.green.shade400,
+                            color: Color(0xff1BAB87),
                             borderRadius: BorderRadius.circular(5)),
                       ),
                     ],
@@ -248,29 +293,39 @@ class _ComplainListPageState extends State<ComplainListPage> {
                   Container(
                     child: Text(
                       "Judul Komplenan",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Color(0xff1D3A71),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce metus lacus, fermentum eget commodo eu,"
-                      " consequat sed arcu. Suspendisse ut magna eleifend nulla posuere finibus."),
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce metus lacus, fermentum eget commodo eu,"
+                    " consequat sed arcu. Suspendisse ut magna eleifend nulla posuere finibus.",
+                    style: TextStyle(color: Color(0XFF1D3A71)),
+                  ),
                   SizedBox(
                     height: 14,
                   ),
                   Container(
                       alignment: Alignment.bottomRight,
-                      child: Text("Selengkapnya"))
+                      child: Text(
+                        "Selengkapnya",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontStyle: FontStyle.italic),
+                      ))
                 ],
               ),
               height: 235,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                color: Colors.grey.shade400,
-              ),
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.white70,
+                  border: Border.all(color: Color(0xff1D3A71))),
             ),
             SizedBox(
               height: 16,

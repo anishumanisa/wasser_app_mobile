@@ -1,6 +1,5 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:wasser_app/shared/colors.dart';
 import 'package:wasser_app/ui/pages/home/home_page.dart';
 import 'package:wasser_app/ui/pages/input_meter/input_meter_page.dart';
 import 'package:wasser_app/ui/pages/payment_detail/payment_confirm_page.dart';
@@ -48,8 +47,8 @@ class _MainPageState extends State<MainPage> {
     return CustomNavigationBar(
       elevation: 0.6,
       iconSize: 30.0,
-      selectedColor: colorPrimary,
-      strokeColor: const Color(0x300c18fb),
+      selectedColor: Color(0xff1D3A71),
+      strokeColor: const Color(0xff1D3A71),
       unSelectedColor: Colors.grey[600],
       backgroundColor: Colors.white,
       borderRadius: const Radius.circular(40.0),
