@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ComplainPage extends StatefulWidget {
   const ComplainPage({Key? key}) : super(key: key);
@@ -65,6 +66,14 @@ class _ComplainPageState extends State<ComplainPage> {
               width: 20,
               //  height: 300,
               decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade200,
+                      blurRadius: 2,
+                      spreadRadius: 1,
+                      offset: Offset(0, 1),
+                    ),
+                  ],
                   color: Color(0xff1BAB87),
                   borderRadius: BorderRadius.circular(7)),
               child: Column(
@@ -216,13 +225,23 @@ class _ComplainPageState extends State<ComplainPage> {
               height: 12,
             ),
             Container(
-              height: 500,
+              height: 240.w,
               width: double.infinity,
               child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
                   itemBuilder: (BuildContext context, int index) => Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.shade200,
+                              blurRadius: 2,
+                              spreadRadius: 1,
+                              offset: Offset(0, 1),
+                            ),
+                          ],
+                        ),
                         margin: EdgeInsets.only(right: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
