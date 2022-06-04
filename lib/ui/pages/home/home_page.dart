@@ -109,6 +109,14 @@ class _HomePageState extends State<HomePage> {
                       width: 100,
                       height: 60,
                       decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.shade200,
+                              blurRadius: 2,
+                              spreadRadius: 1,
+                              offset: Offset(0, 1),
+                            ),
+                          ],
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(8)),
                     ),
@@ -161,6 +169,14 @@ class _HomePageState extends State<HomePage> {
                       width: 100,
                       height: 60,
                       decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.shade200,
+                              blurRadius: 2,
+                              spreadRadius: 1,
+                              offset: Offset(0, 1),
+                            ),
+                          ],
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(8)),
                     ),
