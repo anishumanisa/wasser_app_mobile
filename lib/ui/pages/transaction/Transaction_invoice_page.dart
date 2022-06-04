@@ -23,7 +23,7 @@ class _TransactionInvoicePageState extends State<TransactionInvoicePage> {
           children: [
             Container(
               height: 600,
-              decoration: BoxDecoration(color: Colors.grey.shade400),
+              decoration: BoxDecoration(color: Colors.grey.shade200),
               child: Column(
                 children: [
                   SizedBox(
@@ -130,20 +130,21 @@ class _TransactionInvoicePageState extends State<TransactionInvoicePage> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                    padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                     child: Row(
                       children: [
-                        Text("Sataus"),
+                        Text("Status"),
                         Spacer(),
                         Container(
-                          width: 80,
+                          width: 70,
+                          height: 15,
                           decoration: BoxDecoration(
                               color: Colors.blue,
                               borderRadius: BorderRadius.circular(50)),
                           child: Text(
                             "Success",
                             style: TextStyle(
-                                fontSize: 13, fontWeight: FontWeight.bold),
+                                fontSize: 10, fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
                           ),
                         )

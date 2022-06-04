@@ -6,7 +6,9 @@ import 'package:wasser_app/ui/pages/payment/member_payment_page.dart';
 import 'package:wasser_app/ui/pages/input_meter/input_current_meter.dart';
 import 'package:wasser_app/ui/pages/payment/payment_list_page.dart';
 import 'package:wasser_app/ui/pages/payment_detail/payment_confirm_page.dart';
+import 'package:wasser_app/ui/pages/qr_code/qr_code.dart';
 import 'package:wasser_app/ui/pages/transaction/Transaction_List.dart';
+import 'package:wasser_app/ui/pages/transaction/Transaction_invoice_page.dart';
 
 class MainPage extends StatefulWidget {
   static final mainScaffoldKey =
@@ -23,7 +25,7 @@ class _MainPageState extends State<MainPage> {
     const HomePage(),
     const TransactionListPages(),
     const MemberPaymentPage(),
-    const InputCurrentMeter(),
+    const TransactionInvoicePage(),
   ];
   late PageController _pageController;
   @override
