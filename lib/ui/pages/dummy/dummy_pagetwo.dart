@@ -14,7 +14,7 @@ class _UhuyState extends State<Uhuy> {
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(
+          const Text(
             'Headline',
             style: TextStyle(fontSize: 18),
           ),
@@ -23,14 +23,14 @@ class _UhuyState extends State<Uhuy> {
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: 15,
-              itemBuilder: (BuildContext context, int index) => Card(
+              itemBuilder: (BuildContext context, int index) => const Card(
                 child: Center(child: Text('Dummy Card Text')),
               ),
             ),
           ),
-          Text(
+          const Text(
             'Demo Headline 2',
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
           ),
           Expanded(
             child: ListView.builder(
@@ -39,8 +39,8 @@ class _UhuyState extends State<Uhuy> {
                 return Card(
                   child: ListTile(
                       title: Text('Motivation $int'),
-                      subtitle:
-                          Text('this is a description of the motivation')),
+                      subtitle: const Text(
+                          'this is a description of the motivation')),
                 );
               },
             ),

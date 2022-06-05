@@ -1,53 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wasser_app/shared/colors.dart';
 
-class ComplainDetail extends StatefulWidget {
-  const ComplainDetail({Key? key}) : super(key: key);
+class ComplainFormPage extends StatefulWidget {
+  const ComplainFormPage({Key? key}) : super(key: key);
 
   @override
-  _ComplainDetailState createState() => _ComplainDetailState();
+  State<ComplainFormPage> createState() => _ComplainFormPageState();
 }
 
-class _ComplainDetailState extends State<ComplainDetail> {
+class _ComplainFormPageState extends State<ComplainFormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff1D3A71),
-        title: Text("Complain Detail"),
+        backgroundColor: colorPrimary,
+        title: const Text("Tambah Complain"),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-        physics: BouncingScrollPhysics(),
+        padding: EdgeInsets.symmetric(vertical: 16.w, horizontal: 16.w),
+        physics: const BouncingScrollPhysics(),
         child: ListView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           children: [
             Container(
-              child: Container(
-                child: Image.asset(
-                  "assets/images/gallery.png",
-                  scale: 7,
-                ),
-                width: 100,
-                height: 170,
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.grey)),
+              child: Image.asset(
+                "assets/images/gallery.png",
+                scale: 7.w,
               ),
+              width: 100.w,
+              height: 170.w,
+              decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.circular(10.r),
+                  border: Border.all(color: Colors.grey)),
             ),
             SizedBox(
-              height: 16,
+              height: 16.w,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   "Keluhan",
                   style: TextStyle(
-                      color: Color(0xff1D3A71),
-                      fontSize: 18,
+                      color: colorPrimary,
+                      fontSize: 18.w,
                       fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
@@ -85,16 +84,16 @@ class _ComplainDetailState extends State<ComplainDetail> {
               ],
             ),
             SizedBox(
-              height: 16,
+              height: 16.w,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   "Keterangan",
                   style: TextStyle(
-                      color: Color(0xff1D3A71),
-                      fontSize: 18,
+                      color: colorPrimary,
+                      fontSize: 18.w,
                       fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
@@ -131,7 +130,7 @@ class _ComplainDetailState extends State<ComplainDetail> {
                   );
                 }),
                 SizedBox(
-                  height: 16,
+                  height: 16.w,
                 ),
                 Builder(builder: (context) {
                   return SizedBox(
@@ -140,7 +139,7 @@ class _ComplainDetailState extends State<ComplainDetail> {
                     child: TextButton(
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Color(0xff1D3A71)),
+                            MaterialStateProperty.all<Color>(colorPrimary),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
@@ -151,11 +150,11 @@ class _ComplainDetailState extends State<ComplainDetail> {
                       onPressed: () {
                         FocusScope.of(context).unfocus();
                       },
-                      child: const Text(
+                      child: Text(
                         "Simpan",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 16.w,
                             fontWeight: FontWeight.w600),
                       ),
                     ),

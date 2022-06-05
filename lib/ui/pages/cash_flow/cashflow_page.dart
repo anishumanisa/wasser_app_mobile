@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wasser_app/shared/colors.dart';
 
 class CashFlowPage extends StatefulWidget {
   const CashFlowPage({Key? key}) : super(key: key);
@@ -13,300 +14,268 @@ class _CashFlowPageState extends State<CashFlowPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Rincian Saldo Kas"),
+        backgroundColor: colorPrimary,
+        title: const Text("Saldo Kas"),
       ),
-      //backgroundColor: Color(0xff1BAB87),
       body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.w),
         physics: const BouncingScrollPhysics(),
         child: ListView(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-              //color: colorPrimary,
-              //color: Color(0xFF1D3A71),
-              child: Column(
-                children: [
-                  Container(
-                    //  color: colorPrimary,
-                    child: Row(
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Totak Kas",
-                              style: TextStyle(
-                                color: Colors.black54,
-                                fontSize: 16,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 2,
-                            ),
-                            Text(
-                              "Rp 370.000",
-                              style: TextStyle(
-                                  color: Color(0xff1D3A71),
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                        Spacer(),
-                        Container(
-                          child: Text("Mounth"),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/logo.png",
-                        scale: 10,
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Container(
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Container(
-                                    width: 35,
-                                    height: 35,
-                                    decoration: BoxDecoration(
-                                        color: Colors.grey.shade100,
-                                        borderRadius: BorderRadius.circular(8)),
-                                    child: Icon(
-                                      Icons.arrow_downward_sharp,
-                                      size: 18,
-                                    )),
-                                SizedBox(
-                                  width: 14,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      child: Text(
-                                        "Income",
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            color: Colors.black54),
-                                      ),
-                                    ),
-                                    Container(
-                                      child: Text(
-                                        "Rp 40.000",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                            width: 100,
-                            height: 60,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8)),
+                        Text(
+                          "Saldo Kas",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 16.w,
                           ),
                         ),
                         SizedBox(
-                          width: 10,
+                          height: 2.w,
                         ),
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Container(
-                                    width: 35,
-                                    height: 35,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFF1BAB87),
-                                        borderRadius: BorderRadius.circular(8)),
-                                    child: Icon(
-                                      Icons.arrow_upward_sharp,
-                                      size: 18,
-                                    )),
-                                SizedBox(
-                                  width: 14,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      child: Text(
-                                        "Outcome",
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            color: Colors.black54),
-                                      ),
-                                    ),
-                                    Container(
-                                      child: Text(
-                                        "Rp. 70.000",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
+                        Text(
+                          "Rp 370.000",
+                          style: TextStyle(
+                              color: colorPrimary,
+                              fontSize: 18.w,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    const Spacer(),
+                    const Text("Month")
+                  ],
+                ),
+                SizedBox(
+                  height: 30.w,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/images/logo.png",
+                      scale: 10.w,
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 16.w,
+                ),
+                SizedBox(
+                  height: 30.w,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                                width: 35.w,
+                                height: 35.w,
+                                decoration: BoxDecoration(
+                                    color: colorPrimary,
+                                    borderRadius: BorderRadius.circular(8.r)),
+                                child: Icon(
+                                  Icons.arrow_downward_sharp,
+                                  color: Colors.white,
+                                  size: 18.w,
+                                )),
+                            SizedBox(
+                              width: 14.w,
                             ),
-                            width: 100,
-                            height: 60,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8)),
-                          ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Income",
+                                  style: TextStyle(
+                                      fontSize: 12.w, color: Colors.black54),
+                                ),
+                                const Text(
+                                  "Rp 40.000",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                        width: 100.w,
+                        height: 60.w,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.shade200,
+                                blurRadius: 2.r,
+                                spreadRadius: 1,
+                                offset: const Offset(0, 1),
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8.r)),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10.w,
+                    ),
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                                width: 35.w,
+                                height: 35.w,
+                                decoration: BoxDecoration(
+                                    color: colorAccentPrimary,
+                                    borderRadius: BorderRadius.circular(8.r)),
+                                child: Icon(
+                                  Icons.arrow_upward_sharp,
+                                  color: Colors.white,
+                                  size: 18.w,
+                                )),
+                            SizedBox(
+                              width: 14.w,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Outcome",
+                                  style: TextStyle(
+                                      fontSize: 12.w, color: Colors.black54),
+                                ),
+                                const Text(
+                                  "Rp. 70.000",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                        width: 100.w,
+                        height: 60.w,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.shade200,
+                                blurRadius: 2.r,
+                                spreadRadius: 1,
+                                offset: const Offset(0, 1),
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8.r)),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 16.w,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "All Transaction",
+                  style: TextStyle(fontSize: 16.w, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 16.w,
+                ),
+                Row(
+                  children: const [
+                    Text("Market 2022"),
+                    Spacer(),
+                    Text("Diperbaharui Hari Ini,19.50"),
+                  ],
+                ),
+                SizedBox(
+                  height: 10.w,
+                ),
+                Row(
+                  children: [
+                    Image.asset(
+                      "assets/images/logo.png",
+                      scale: 15.w,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text("Pajak Bunga"),
+                        Text(
+                          "28 Mar 2022",
+                          style:
+                              TextStyle(fontSize: 12.w, color: Colors.black45),
                         ),
                       ],
                     ),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "All Transaction",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        child: Text("Maret 2022"),
-                      ),
-                      Spacer(),
-                      Container(
-                        child: Text("Diperbaharui Hari Ini,19.50"),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        child: Image.asset(
-                          "assets/images/logo.png",
-                          scale: 15,
+                    const Spacer(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text("Pajama Bunga"),
+                        Text(
+                          "28 Mar 2022",
+                          style:
+                              TextStyle(fontSize: 12.w, color: Colors.black45),
                         ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            child: Text("Pajak Bunga"),
-                          ),
-                          Container(
-                            child: Text(
-                              "28 Mar 2022",
-                              style: TextStyle(
-                                  fontSize: 12, color: Colors.black45),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Spacer(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            child: Text("Pajak Bunga"),
-                          ),
-                          Container(
-                            child: Text(
-                              "28 Mar 2022",
-                              style: TextStyle(
-                                  fontSize: 12, color: Colors.black45),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        child: Image.asset(
-                          "assets/images/logo.png",
-                          scale: 15,
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Image.asset(
+                      "assets/images/logo.png",
+                      scale: 15.w,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text("Pajak Bunga"),
+                        Text(
+                          "28 Mar 2022",
+                          style:
+                              TextStyle(fontSize: 12.w, color: Colors.black45),
                         ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            child: Text("Pajak Bunga"),
-                          ),
-                          Container(
-                            child: Text(
-                              "28 Mar 2022",
-                              style: TextStyle(
-                                  fontSize: 12, color: Colors.black45),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Spacer(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            child: Text("Pajak Bunga"),
-                          ),
-                          Container(
-                            child: Text(
-                              "28 Mar 2022",
-                              style: TextStyle(
-                                  fontSize: 12, color: Colors.black45),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                ],
-              ),
+                      ],
+                    ),
+                    const Spacer(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text("Pajama Bunga"),
+                        Text(
+                          "28 Mar 2022",
+                          style:
+                              TextStyle(fontSize: 12.w, color: Colors.black45),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 16.w,
+                ),
+              ],
             )
           ],
         ),

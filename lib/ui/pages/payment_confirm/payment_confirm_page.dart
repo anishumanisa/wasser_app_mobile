@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wasser_app/navigator/route_list.dart';
-import 'package:wasser_app/ui/pages/payment_detail/widget/dialog_confirm.dart';
+import 'package:wasser_app/core/router/route_list.dart';
+import 'package:wasser_app/ui/pages/payment_confirm/widget/dialog_confirm.dart';
 
 class PaymentConfirmPage extends StatefulWidget {
   const PaymentConfirmPage({Key? key}) : super(key: key);
@@ -475,13 +475,12 @@ class _PaymentConfirmPageState extends State<PaymentConfirmPage> {
                     context: context,
                     barrierDismissible: true,
                     builder: (BuildContext context) {
-                      return DialogForceUpdateMw(
+                      return DialogConfirm(
                           title: "Transfer Confirmation",
                           subTitle: "Transaction Success",
                           isAbleToBackClose: true,
                           onClick: () async {
-                            Navigator.pop(context);
-                            Navigator.pushNamed(
+                            Navigator.popAndPushNamed(
                                 context, RouteList.paymentReceipt);
                           });
                     });

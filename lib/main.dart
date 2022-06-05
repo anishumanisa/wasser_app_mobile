@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wasser_app/navigator/routes.dart';
+import 'package:wasser_app/core/router/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -14,11 +14,11 @@ class _CashFlowManagePageState extends State<CashFlowManagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
-        physics: ScrollPhysics(),
+        padding: EdgeInsets.all(16.w),
+        physics: const ScrollPhysics(),
         child: ListView(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: [
             Container(
               padding: EdgeInsets.symmetric(vertical: 16.w),
@@ -27,9 +27,9 @@ class _CashFlowManagePageState extends State<CashFlowManagePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildHeader(context),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.w),
                   _buildMiddle(context),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.w),
                   _buildBottom(context),
                 ],
               ),
@@ -213,11 +213,11 @@ class _CashFlowManagePageState extends State<CashFlowManagePage> {
               onPressed: () {
                 FocusScope.of(context).unfocus();
               },
-              child: const Text(
+              child: Text(
                 "Simpan",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 16,
+                    fontSize: 16.w,
                     fontWeight: FontWeight.w600),
               ),
             ),

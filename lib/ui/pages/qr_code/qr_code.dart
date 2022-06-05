@@ -20,9 +20,9 @@ class _QrCodeState extends State<QrCode> {
   void reassemble() {
     super.reassemble();
     if (Platform.isAndroid) {
-      controller!.pauseCamera();
+      controller?.pauseCamera();
     } else if (Platform.isIOS) {
-      controller!.resumeCamera();
+      controller?.resumeCamera();
     }
   }
 
@@ -43,8 +43,8 @@ class _QrCodeState extends State<QrCode> {
             child: Center(
               child: (result != null)
                   ? Text(
-                      'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}')
-                  : Text('Scan a code'),
+                      'Barcode Type: ${describeEnum(result?.format ?? '')}   Data: ${result?.code ?? ''}')
+                  : const Text('Scan a code'),
             ),
           )
         ],

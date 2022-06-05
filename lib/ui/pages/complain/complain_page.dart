@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wasser_app/core/router/route_list.dart';
+import 'package:wasser_app/shared/colors.dart';
 
 class ComplainPage extends StatefulWidget {
   const ComplainPage({Key? key}) : super(key: key);
@@ -13,69 +14,63 @@ class _ComplainPageState extends State<ComplainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Color(0xff1BAB87),
       appBar: AppBar(
-        title: Text("Complain"),
-        backgroundColor: Color(0xff1D3A71),
+        title: const Text("Complain"),
+        backgroundColor: colorPrimary,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-        physics: BouncingScrollPhysics(),
+        padding: EdgeInsets.symmetric(vertical: 16.w, horizontal: 16.w),
+        physics: const BouncingScrollPhysics(),
         child: ListView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           children: [
-            Container(
-              child: Row(
-                children: [
-                  Container(
-                    child: Text(
-                      "Overview",
-                      style: TextStyle(color: Color(0xff1BAB87)),
-                    ),
+            Row(
+              children: [
+                const Text(
+                  "Overview",
+                  style: TextStyle(color: colorPrimary),
+                ),
+                const Spacer(),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 4.w, horizontal: 6.w),
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: BorderRadius.circular(6.r)),
+                  child: Row(
+                    children: const [
+                      Text(
+                        "Month",
+                        style: TextStyle(
+                            color: colorAccentPrimary,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Icon(
+                        Icons.arrow_drop_down,
+                        color: Colors.grey,
+                      )
+                    ],
                   ),
-                  Spacer(),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 6),
-                    decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(6)),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Month",
-                          style: TextStyle(
-                              color: Color(0xff1BAB87),
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Icon(
-                          Icons.arrow_drop_down,
-                          color: Colors.grey,
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
             SizedBox(
-              height: 16,
+              height: 16.w,
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-              width: 20,
-              //  height: 300,
+              padding: EdgeInsets.symmetric(vertical: 20.w, horizontal: 20.w),
+              width: 20.w,
               decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.shade200,
                       blurRadius: 2,
                       spreadRadius: 1,
-                      offset: Offset(0, 1),
+                      offset: const Offset(0, 1),
                     ),
                   ],
-                  color: Color(0xff1BAB87),
-                  borderRadius: BorderRadius.circular(7)),
+                  color: colorAccentPrimary,
+                  borderRadius: BorderRadius.circular(7.r)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -83,128 +78,122 @@ class _ComplainPageState extends State<ComplainPage> {
                     children: [
                       Row(
                         children: [
-                          Container(
-                            child: Text(
-                              "Total Done ",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                          Text(
+                            "Total Done ",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.w,
+                                fontWeight: FontWeight.bold),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Container(
                             padding: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 5),
+                                vertical: 5.w, horizontal: 5.w),
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(5)),
+                                borderRadius: BorderRadius.circular(5.r)),
                             child: Text(
                               "47",
                               style: TextStyle(
-                                  color: Color(0xff1BAB87),
-                                  fontSize: 14,
+                                  color: colorAccentPrimary,
+                                  fontSize: 14.w,
                                   fontWeight: FontWeight.bold),
                             ),
                           )
                         ],
                       ),
                       SizedBox(
-                        height: 22,
+                        height: 22.w,
                       ),
                     ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Text(
-                              "Done",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                            Spacer(),
-                            Text(
-                              "16",
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
-                        ),
+                      Row(
+                        children: const [
+                          Text(
+                            "Done",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                          Spacer(),
+                          Text(
+                            "16",
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
                       ),
                       SizedBox(
-                        height: 12,
+                        height: 12.w,
                       ),
                       LinearProgressIndicator(
-                        minHeight: 5,
+                        minHeight: 5.w,
                         backgroundColor: Colors.white70,
                         value: 0.7,
-                        color: Color(0xff1D3A71),
+                        color: colorPrimary,
                         semanticsLabel: 'Linear progress indicator',
                       ),
                       SizedBox(
-                        height: 8,
+                        height: 8.w,
                       ),
                       Text(
                         "27 Done",
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             color: Colors.white70,
-                            fontSize: 12),
+                            fontSize: 12.w),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: 6,
+                    height: 6.w,
                   ),
                   Divider(
                     color: Colors.grey.shade200,
                     thickness: 1,
                   ),
                   SizedBox(
-                    height: 8,
+                    height: 8.w,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Text(
-                              "Reject",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                            Spacer(),
-                            Text(
-                              "16",
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
-                        ),
+                      Row(
+                        children: const [
+                          Text(
+                            "Reject",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                          Spacer(),
+                          Text(
+                            "16",
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
                       ),
                       SizedBox(
-                        height: 12,
+                        height: 12.w,
                       ),
                       LinearProgressIndicator(
-                        minHeight: 5,
+                        minHeight: 5.w,
                         backgroundColor: Colors.white70,
                         value: 0.4,
-                        color: Color(0xff1D3A71),
+                        color: colorPrimary,
                         semanticsLabel: 'Linear progress indicator',
                       ),
                       SizedBox(
-                        height: 8,
+                        height: 8.w,
                       ),
                       Text(
                         "27 Reject",
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             color: Colors.white70,
-                            fontSize: 12),
+                            fontSize: 12.w),
                       ),
                     ],
                   ),
@@ -212,20 +201,37 @@ class _ComplainPageState extends State<ComplainPage> {
               ),
             ),
             SizedBox(
-              height: 16,
+              height: 16.w,
             ),
-            Text(
-              "New Complaint",
-              style: TextStyle(
-                  fontSize: 16,
-                  color: Color(0xff1D3A71),
-                  fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "New Complaint",
+                  style: TextStyle(
+                      fontSize: 16.w,
+                      color: colorPrimary,
+                      fontWeight: FontWeight.bold),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteList.complainList);
+                  },
+                  child: Text(
+                    "Lihat Semua",
+                    style: TextStyle(
+                        fontSize: 12.w,
+                        color: colorPrimary,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
-              height: 12,
+              height: 12.w,
             ),
-            Container(
-              height: 240.w,
+            SizedBox(
+              height: 260.w,
               width: double.infinity,
               child: ListView.builder(
                   shrinkWrap: true,
@@ -238,40 +244,40 @@ class _ComplainPageState extends State<ComplainPage> {
                               color: Colors.grey.shade200,
                               blurRadius: 2,
                               spreadRadius: 1,
-                              offset: Offset(0, 1),
+                              offset: const Offset(0, 1),
                             ),
                           ],
                         ),
-                        margin: EdgeInsets.only(right: 10),
+                        margin: EdgeInsets.only(right: 10.w),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              padding: EdgeInsets.symmetric(vertical: 10),
+                              padding: EdgeInsets.symmetric(vertical: 10.w),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    topRight: Radius.circular(10)),
+                                    topLeft: Radius.circular(10.r),
+                                    topRight: Radius.circular(10.r)),
                                 color: Colors.grey.shade200,
                               ),
                               child: Image.asset(
                                 "assets/images/fixing.png",
-                                width: 250,
-                                height: 180,
+                                width: 250.w,
+                                height: 180.w,
                               ),
                             ),
                             Column(
                               children: [
                                 Container(
-                                  width: 250,
-                                  height: 58,
+                                  width: 250.w,
+                                  height: 58.w,
                                   decoration: BoxDecoration(
-                                      color: Color(0xff1D3A71),
+                                      color: colorPrimary,
                                       borderRadius: BorderRadius.only(
-                                          bottomRight: Radius.circular(10),
-                                          bottomLeft: Radius.circular(10))),
+                                          bottomRight: Radius.circular(10.r),
+                                          bottomLeft: Radius.circular(10.r))),
                                   padding: EdgeInsets.symmetric(
-                                      vertical: 8, horizontal: 16),
+                                      vertical: 8.w, horizontal: 16.w),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -281,19 +287,19 @@ class _ComplainPageState extends State<ComplainPage> {
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 16,
+                                            fontSize: 16.w,
                                             fontWeight: FontWeight.bold),
                                       ),
 
                                       // Spacer(),
                                       Container(
-                                        padding:
-                                            EdgeInsets.only(left: 150, top: 7),
+                                        padding: EdgeInsets.only(
+                                            left: 150.w, top: 7.w),
                                         child: Text(
                                           "Selengkapnya",
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 10,
+                                              fontSize: 10.w,
                                               fontStyle: FontStyle.italic),
                                         ),
                                       )

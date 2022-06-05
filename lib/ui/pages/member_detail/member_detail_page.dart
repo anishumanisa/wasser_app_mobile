@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wasser_app/shared/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MemberDetailPage extends StatefulWidget {
   const MemberDetailPage({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class _MemberDetailPageState extends State<MemberDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        padding: EdgeInsets.symmetric(vertical: 20.w, horizontal: 20.w),
         physics: const BouncingScrollPhysics(),
         child: ListView(
           physics: const NeverScrollableScrollPhysics(),
@@ -23,31 +23,31 @@ class _MemberDetailPageState extends State<MemberDetailPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 90,
-                  width: 90,
+                  height: 90.w,
+                  width: 90.w,
                   decoration: BoxDecoration(
                       color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.circular(50)),
+                      borderRadius: BorderRadius.circular(50.r)),
                   child: Image.asset(
                     "assets/images/logo.png",
                   ),
                 ),
-                const SizedBox(
-                  height: 14,
+                SizedBox(
+                  height: 14.w,
                 ),
                 Column(
-                  children: const [
+                  children: [
                     Text(
                       "Anis Humanisa",
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20),
+                          fontSize: 20.w),
                     ),
                     SizedBox(
-                      height: 5,
+                      height: 5.w,
                     ),
-                    Text(
+                    const Text(
                       "F0012389",
                       style: TextStyle(color: Colors.black38),
                     ),
@@ -55,46 +55,42 @@ class _MemberDetailPageState extends State<MemberDetailPage> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 50,
+            SizedBox(
+              height: 50.w,
             ),
-            const Text(
+            Text(
               "Histori Pembayaran",
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 18,
+                  fontSize: 18.w,
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 16,
+              height: 16.w,
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-              height: 65,
+              padding: EdgeInsets.symmetric(vertical: 12.w, horizontal: 10.w),
+              height: 65.w,
               decoration: BoxDecoration(
                   color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10.r)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    child: Text(
-                      "Pembayaran Bulan Maret",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                    ),
+                  const Text(
+                    "Pembayaran Bulan Maret",
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 5.w,
                   ),
                   Row(
-                    children: [
-                      Container(
-                        child: Text(
-                          "Rp.97000",
-                          style: TextStyle(
-                            color: Colors.black54,
-                          ),
+                    children: const [
+                      Text(
+                        "Rp.97000",
+                        style: TextStyle(
+                          color: Colors.black54,
                         ),
                       ),
                       Spacer(),
@@ -109,35 +105,31 @@ class _MemberDetailPageState extends State<MemberDetailPage> {
               ),
             ),
             SizedBox(
-              height: 16,
+              height: 16.w,
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-              height: 65,
+              padding: EdgeInsets.symmetric(vertical: 12.w, horizontal: 10.w),
+              height: 65.w,
               decoration: BoxDecoration(
                   color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10.r)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    child: Text(
-                      "Pembayaran Bulan Maret",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                    ),
+                  const Text(
+                    "Pembayaran Bulan Maret",
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 5.w,
                   ),
                   Row(
-                    children: [
-                      Container(
-                        child: Text(
-                          "Rp.97000",
-                          style: TextStyle(
-                            color: Colors.black54,
-                          ),
+                    children: const [
+                      Text(
+                        "Rp.97000",
+                        style: TextStyle(
+                          color: Colors.black54,
                         ),
                       ),
                       Spacer(),
@@ -151,49 +143,6 @@ class _MemberDetailPageState extends State<MemberDetailPage> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 16,
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-              height: 65,
-              decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    child: Text(
-                      "Pembayaran Bulan Maret",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        child: Text(
-                          "Rp.97000",
-                          style: TextStyle(
-                            color: Colors.black54,
-                          ),
-                        ),
-                      ),
-                      Spacer(),
-                      Text(
-                        "Success",
-                        style: TextStyle(
-                            color: Colors.green, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            )
           ],
         ),
       ),

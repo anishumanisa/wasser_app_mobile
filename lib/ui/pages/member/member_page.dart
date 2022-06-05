@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wasser_app/shared/colors.dart';
 
 class MemberPage extends StatefulWidget {
   const MemberPage({Key? key}) : super(key: key);
@@ -13,21 +14,23 @@ class _MemberPageState extends State<MemberPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: colorPrimary,
+        title: const Text("List Member"),
+      ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        physics: BouncingScrollPhysics(),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.w),
+        physics: const ScrollPhysics(),
+        scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            SizedBox(
-              height: 58,
-            ),
             Builder(builder: (context) {
               return TextFormField(
                 style: const TextStyle(color: Colors.black),
                 scrollPadding: EdgeInsets.only(bottom: 100.w),
                 decoration: InputDecoration(
                   hintText: "Cari Nama Pelanggan",
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: const Icon(Icons.search),
                   hintStyle: const TextStyle(color: Colors.black54),
                   fillColor: Colors.white,
                   filled: true,
@@ -51,73 +54,80 @@ class _MemberPageState extends State<MemberPage> {
               );
             }),
             SizedBox(
-              height: 16,
+              height: 12.w,
             ),
-            ListView.separated(
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.zero,
-              shrinkWrap: true,
-              separatorBuilder: (context, index) => SizedBox(
-                height: 6,
-              ),
-              itemCount: 6,
-              itemBuilder: (context, index) => Container(
-                height: 80,
-                decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.shade200,
-                        blurRadius: 2,
-                        spreadRadius: 1,
-                        offset: Offset(0, 1),
+            ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 16.w),
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              "assets/images/ic_profile.png",
+                              scale: 2.w,
+                            ),
+                            SizedBox(
+                              width: 8.w,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Anis Humanisa - Rt 03",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14.w,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 4.w,
+                                ),
+                                Text(
+                                  "ID1012012012",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14.w,
+                                      fontWeight: FontWeight.w200),
+                                ),
+                              ],
+                            ),
+                            const Spacer(),
+                            Container(
+                              height: 30.w,
+                              width: 34.w,
+                              decoration: BoxDecoration(
+                                  color: colorPrimary,
+                                  borderRadius: BorderRadius.circular(4.r),
+                                  border: Border.all(color: Colors.black26)),
+                              child: Icon(
+                                Icons.visibility_sharp,
+                                size: 15.w,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
+                      _divider()
                     ],
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16)),
-                child: Row(
-                  children: [
-                    Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          color: Colors.white),
-                      child: Image.asset(
-                        "assets/images/logo.png",
-                        scale: 15,
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Anis Humanisa",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Container(
-                          child: Text(
-                            "F00128",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
+                  );
+                }),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _divider() {
+    return Divider(
+      height: 1.w,
+      thickness: 0.5,
+      color: Colors.black12,
     );
   }
 }

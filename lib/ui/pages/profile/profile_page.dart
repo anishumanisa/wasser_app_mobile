@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+        padding: EdgeInsets.symmetric(vertical: 16.w, horizontal: 16.w),
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
         child: ListView(
@@ -23,195 +23,197 @@ class _ProfilePageState extends State<ProfilePage> {
             Column(
               children: [
                 Container(
-                  height: 70,
-                  width: 70,
+                  height: 70.w,
+                  width: 70.w,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
+                      borderRadius: BorderRadius.circular(100.r),
                       color: Colors.grey),
                   child: Image.asset(
                     "assets/images/logo.png",
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: 20.w,
                 ),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
                     Text(
                       "Anis Humanisa",
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 16,
+                          fontSize: 16.w,
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
-                      height: 4,
+                      height: 4.w,
                     ),
                     Text(
                       "1029019120129",
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 14,
+                          fontSize: 14.w,
                           fontWeight: FontWeight.w300),
                     ),
                   ],
                 )
               ],
             ),
-            const SizedBox(
-              height: 22,
+            SizedBox(
+              height: 22.w,
             ),
-            const Text(
+            Text(
               "Personal Info",
               style: TextStyle(
                   fontWeight: FontWeight.w400,
-                  fontSize: 16,
+                  fontSize: 16.w,
                   color: Colors.black45),
             ),
-            const SizedBox(
-              height: 16,
+            SizedBox(
+              height: 16.w,
             ),
             Row(
               children: [
                 Image.asset(
                   "assets/images/logo.png",
-                  scale: 20,
+                  scale: 20.w,
                 ),
-                const Text(
+                Text(
                   "Profile",
-                  style: TextStyle(color: Colors.black, fontSize: 16),
+                  style: TextStyle(color: Colors.black, fontSize: 16.w),
                 ),
                 const Spacer(),
-                const Icon(
+                Icon(
                   Icons.arrow_forward_ios,
-                  size: 15,
+                  size: 15.w,
                   color: Colors.grey,
                 )
               ],
             ),
-            const SizedBox(
-              height: 8,
+            SizedBox(
+              height: 8.w,
             ),
             _divider(),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.w,
             ),
             Row(
               children: [
                 Image.asset(
                   "assets/images/logo.png",
-                  scale: 20,
+                  scale: 20.w,
                 ),
-                const Text(
-                  "Edit Profile",
-                  style: TextStyle(color: Colors.black, fontSize: 16),
+                Text(
+                  "User Management",
+                  style: TextStyle(color: Colors.black, fontSize: 16.w),
                 ),
                 const Spacer(),
-                const Icon(
+                Icon(
                   Icons.arrow_forward_ios,
-                  size: 15,
+                  size: 15.w,
                   color: Colors.grey,
                 )
               ],
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.w,
             ),
             _divider(),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.w,
             ),
             Row(
               children: [
                 Image.asset(
                   "assets/images/logo.png",
-                  scale: 20,
+                  scale: 20.w,
                 ),
-                const Text(
-                  "Edit Profile",
-                  style: const TextStyle(color: Colors.black, fontSize: 16),
+                Text(
+                  "Lorem Ipsum",
+                  style: TextStyle(color: Colors.black, fontSize: 16.w),
                 ),
                 const Spacer(),
-                const Icon(
+                Icon(
                   Icons.arrow_forward_ios,
-                  size: 15,
+                  size: 15.w,
                   color: Colors.grey,
                 )
               ],
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.w,
             ),
             _divider(),
-            const SizedBox(
-              height: 22,
+            SizedBox(
+              height: 22.w,
             ),
-            const Text(
+            Text(
               "General",
               style: TextStyle(
                   fontWeight: FontWeight.w400,
-                  fontSize: 16,
+                  fontSize: 16.w,
                   color: Colors.black45),
             ),
-            const SizedBox(
-              height: 16,
+            SizedBox(
+              height: 16.w,
             ),
             Row(
               children: [
                 Image.asset(
                   "assets/images/logo.png",
-                  scale: 20,
+                  scale: 20.w,
                 ),
-                const Text(
-                  "Edit Profile",
-                  style: TextStyle(color: Colors.black, fontSize: 16),
+                Text(
+                  "Lorem Ipsum",
+                  style: TextStyle(color: Colors.black, fontSize: 16.w),
                 ),
                 const Spacer(),
-                const Icon(
+                Icon(
                   Icons.arrow_forward_ios,
-                  size: 15,
+                  size: 15.w,
                   color: Colors.grey,
                 )
               ],
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.w,
             ),
             _divider(),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.w,
             ),
             Row(
               children: [
                 Image.asset(
                   "assets/images/logo.png",
-                  scale: 20,
+                  scale: 20.w,
                 ),
-                const Text(
-                  "Edit Profile",
-                  style: TextStyle(color: Colors.black, fontSize: 16),
+                Text(
+                  "Lorem Ipsum",
+                  style: TextStyle(color: Colors.black, fontSize: 16.w),
                 ),
                 const Spacer(),
-                const Icon(
+                Icon(
                   Icons.arrow_forward_ios,
-                  size: 15,
+                  size: 15.w,
                   color: Colors.grey,
                 )
               ],
             ),
             _divider(),
-            const SizedBox(
-              height: 22,
+            SizedBox(
+              height: 22.w,
             ),
-            const Text(
+            Text(
               "Logout",
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontWeight: FontWeight.bold, color: Colors.red, fontSize: 16),
+                  fontWeight: FontWeight.bold,
+                  color: Colors.red,
+                  fontSize: 16.w),
             ),
-            const SizedBox(
-              height: 25,
+            SizedBox(
+              height: 25.w,
             ),
           ],
         ),
@@ -220,8 +222,8 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget _divider() {
-    return const Divider(
-      height: 1,
+    return Divider(
+      height: 1.w,
       thickness: 0.5,
       color: Colors.black12,
     );

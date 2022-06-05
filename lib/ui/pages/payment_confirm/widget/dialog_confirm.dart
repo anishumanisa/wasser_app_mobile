@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wasser_app/shared/colors.dart';
 
-class DialogForceUpdateMw extends StatelessWidget {
-  DialogForceUpdateMw({
+class DialogConfirm extends StatelessWidget {
+  DialogConfirm({
     required this.title,
     required this.subTitle,
     this.isAbleToBackClose = true,
@@ -54,10 +55,10 @@ class DialogForceUpdateMw extends StatelessWidget {
                       Text(
                         title,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                            color: Color(0xff1D3A71),
+                        style: TextStyle(
+                            color: colorPrimary,
                             fontWeight: FontWeight.bold,
-                            fontSize: 18),
+                            fontSize: 18.w),
                       ),
                       SizedBox(
                         height: 8.w,
@@ -65,10 +66,10 @@ class DialogForceUpdateMw extends StatelessWidget {
                       Text(
                         subTitle,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.grey,
                             fontWeight: FontWeight.w400,
-                            fontSize: 16),
+                            fontSize: 16.w),
                       ),
                       SizedBox(
                         height: 22.w,
@@ -88,11 +89,11 @@ class DialogForceUpdateMw extends StatelessWidget {
                             ),
                           ),
                           onPressed: onClick,
-                          child: const Text(
+                          child: Text(
                             "Complete",
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 16,
+                                fontSize: 16.w,
                                 fontWeight: FontWeight.w600),
                           ),
                         ),

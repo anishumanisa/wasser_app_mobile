@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wasser_app/navigator/route_list.dart';
+import 'package:wasser_app/core/router/route_list.dart';
 import 'package:wasser_app/shared/colors.dart';
 
 class LoginPage extends StatefulWidget {
@@ -183,7 +183,7 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: TextDecoration.underline),
           ),
         ),
-        SizedBox(height: 8.w),
+        SizedBox(height: 16.w),
         SizedBox(
           height: 48.w,
           width: double.infinity,
@@ -199,9 +199,9 @@ class _LoginPageState extends State<LoginPage> {
             onPressed: () {
               _navigateToNextScreen(context);
             },
-            child: const Text(
+            child: Text(
               "Sign in",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white, fontSize: 16.w),
             ),
           ),
         ),
@@ -218,7 +218,9 @@ class _LoginPageState extends State<LoginPage> {
               width: 6.w,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, RouteList.register);
+              },
               child: Text(
                 "Sign Up",
                 style: TextStyle(
@@ -235,7 +237,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _navigateToNextScreen(BuildContext context) {
-    Navigator.pushNamed(
+    Navigator.pushReplacementNamed(
       context,
       RouteList.main,
     );

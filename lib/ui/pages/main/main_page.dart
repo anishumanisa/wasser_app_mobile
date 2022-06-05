@@ -1,11 +1,10 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wasser_app/shared/colors.dart';
 import 'package:wasser_app/ui/pages/home/home_page.dart';
-import 'package:wasser_app/ui/pages/input_meter/input_meter_page.dart';
-import 'package:wasser_app/ui/pages/payment/member_payment_page.dart';
-import 'package:wasser_app/ui/pages/input_meter/input_current_meter.dart';
-import 'package:wasser_app/ui/pages/payment/payment_list_page.dart';
-import 'package:wasser_app/ui/pages/payment_detail/payment_confirm_page.dart';
+import 'package:wasser_app/ui/pages/payment/payment_page.dart';
+import 'package:wasser_app/ui/pages/profile/profile_page.dart';
 import 'package:wasser_app/ui/pages/transaction/Transaction_List.dart';
 
 class MainPage extends StatefulWidget {
@@ -21,9 +20,9 @@ class _MainPageState extends State<MainPage> {
   int _index = 0;
   final List<Widget> itemPages = [
     const HomePage(),
-    const TransactionListPages(),
-    const MemberPaymentPage(),
-    const InputCurrentMeter(),
+    const PaymentPage(),
+    const TransactionListPage(),
+    const ProfilePage(),
   ];
   late PageController _pageController;
   @override
@@ -36,7 +35,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: MainPage.mainScaffoldKey,
-        backgroundColor: const Color(0xfff5f6fa),
+        backgroundColor: Colors.white,
         extendBody: true,
         body: PageView(
           controller: _pageController,
@@ -49,12 +48,12 @@ class _MainPageState extends State<MainPage> {
   Widget _buildFloatingBar() {
     return CustomNavigationBar(
       elevation: 0.6,
-      iconSize: 30.0,
-      selectedColor: Color(0xff1D3A71),
-      strokeColor: const Color(0xff1D3A71),
+      iconSize: 30.w,
+      selectedColor: colorPrimary,
+      strokeColor: colorPrimary,
       unSelectedColor: Colors.grey[600],
       backgroundColor: Colors.white,
-      borderRadius: const Radius.circular(40.0),
+      borderRadius: Radius.circular(40.r),
       scaleFactor: 0.4,
       items: [
         CustomNavigationBarItem(
@@ -77,7 +76,6 @@ class _MainPageState extends State<MainPage> {
           _index = index;
         });
       },
-      // isFloating: true,
     );
   }
 }
