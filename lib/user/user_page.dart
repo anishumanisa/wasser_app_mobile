@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wasser_app/navigator/route_list.dart';
+import 'package:wasser_app/core/router/route_list.dart';
 
 class UserPages extends StatefulWidget {
   const UserPages({Key? key}) : super(key: key);
@@ -14,22 +14,22 @@ class _UserPagesState extends State<UserPages> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff1D3A71),
-        title: Text("User"),
+        backgroundColor: const Color(0xff1D3A71),
+        title: const Text("User"),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-        physics: BouncingScrollPhysics(),
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+        physics: const BouncingScrollPhysics(),
         child: ListView(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: [
             Container(
               //   padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Row(
@@ -44,20 +44,20 @@ class _UserPagesState extends State<UserPages> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            child: Text(
+                            child: const Text(
                               "Anis Humanisa",
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFF1D3A71),
+                                color: const Color(0xFF1D3A71),
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
                           Container(
-                            child: Text(
+                            child: const Text(
                               "ID17839720",
                               style: TextStyle(
                                   fontSize: 12, color: Colors.black45),
@@ -65,35 +65,35 @@ class _UserPagesState extends State<UserPages> {
                           ),
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 vertical: 2, horizontal: 8),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: Color(0xFF1BAB87),
+                              color: const Color(0xFF1BAB87),
                             ),
                             child: Container(
-                              child: Text(
+                              child: const Text(
                                 "Super Admin",
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
                           Container(
-                            child: Text(
+                            child: const Text(
                               "28 Mar 2022",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 12, color: Colors.black45),
                             ),
                           ),
@@ -117,7 +117,7 @@ class _UserPagesState extends State<UserPages> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            child: Text(
+                            child: const Text(
                               "Tedi Alamsyah",
                               style: TextStyle(
                                 fontSize: 14,
@@ -126,11 +126,11 @@ class _UserPagesState extends State<UserPages> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
                           Container(
-                            child: Text(
+                            child: const Text(
                               "ID17839720",
                               style: TextStyle(
                                   fontSize: 12, color: Colors.black45),
@@ -138,19 +138,19 @@ class _UserPagesState extends State<UserPages> {
                           ),
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 vertical: 2, horizontal: 8),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: Color(0xFF1BAB87),
+                              color: const Color(0xFF1BAB87),
                             ),
                             child: Container(
-                              child: Text(
+                              child: const Text(
                                 "Super Admin",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -160,11 +160,11 @@ class _UserPagesState extends State<UserPages> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
                           Container(
-                            child: Text(
+                            child: const Text(
                               "28 Mar 2022",
                               style: TextStyle(
                                   fontSize: 12, color: Colors.black45),
@@ -190,7 +190,7 @@ class _UserPagesState extends State<UserPages> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            child: Text(
+                            child: const Text(
                               "Erni Nurmalasari ",
                               style: TextStyle(
                                 fontSize: 14,
@@ -199,45 +199,45 @@ class _UserPagesState extends State<UserPages> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
                           Container(
-                            child: Text(
+                            child: const Text(
                               "ID17839720",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 12, color: Colors.black45),
                             ),
                           ),
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 vertical: 2, horizontal: 8),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: Color(0xFF1BAB87),
+                              color: const Color(0xFF1BAB87),
                             ),
                             child: Container(
-                              child: Text(
+                              child: const Text(
                                 "Super Admin",
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
                           Container(
-                            child: Text(
+                            child: const Text(
                               "28 Mar 2022",
                               style: TextStyle(
                                   fontSize: 12, color: Colors.black45),
@@ -263,20 +263,20 @@ class _UserPagesState extends State<UserPages> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            child: Text(
+                            child: const Text(
                               "Mustopa ",
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xFF1D3A71),
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
                           Container(
-                            child: Text(
+                            child: const Text(
                               "ID17839720",
                               style: TextStyle(
                                   fontSize: 12, color: Colors.black45),
@@ -284,35 +284,35 @@ class _UserPagesState extends State<UserPages> {
                           ),
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 vertical: 2, horizontal: 8),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: Color(0xFF1BAB87),
+                              color: const Color(0xFF1BAB87),
                             ),
                             child: Container(
-                              child: Text(
+                              child: const Text(
                                 "Kontrol",
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
                           Container(
-                            child: Text(
+                            child: const Text(
                               "28 Mar 2022",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 12, color: Colors.black45),
                             ),
                           ),
@@ -324,7 +324,7 @@ class _UserPagesState extends State<UserPages> {
                     thickness: 1,
                     color: Colors.grey.shade200,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Builder(builder: (context) {
@@ -334,7 +334,7 @@ class _UserPagesState extends State<UserPages> {
                       child: TextButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                              Color(0xff1D3A71)),
+                              const Color(0xff1D3A71)),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(

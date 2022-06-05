@@ -42,12 +42,12 @@ class _CarouselSlidersState extends State<CarouselSliders> {
                       left: 0,
                       right: 0,
                       child: Container(
-                        padding: const EdgeInsets.all(10),
-                        child: const Text(
+                        padding: EdgeInsets.all(10.w),
+                        child: Text(
                           'Some Text',
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 20.w,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -55,43 +55,40 @@ class _CarouselSlidersState extends State<CarouselSliders> {
                   ],
                 ),
               ),
-              Container(
-                child: ClipRRect(
-                  borderRadius:
-                      const BorderRadius.all(const Radius.circular(10)),
-                  child: Stack(
-                    children: [
-                      CachedNetworkImage(
-                        imageUrl:
-                            "https://images.unsplash.com/photo-1590766232095-4f4daf8ca543?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1316&q=80",
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                        progressIndicatorBuilder:
-                            (context, url, downloadProgress) => Center(
-                          child: CircularProgressIndicator(
-                            value: downloadProgress.progress,
-                          ),
+              ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                child: Stack(
+                  children: [
+                    CachedNetworkImage(
+                      imageUrl:
+                          "https://images.unsplash.com/photo-1590766232095-4f4daf8ca543?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1316&q=80",
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
+                      progressIndicatorBuilder:
+                          (context, url, downloadProgress) => Center(
+                        child: CircularProgressIndicator(
+                          value: downloadProgress.progress,
                         ),
-                        fit: BoxFit.cover,
-                        width: 1000,
                       ),
-                      Positioned(
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          child: const Text(
-                            'Some Text',
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
-                          ),
+                      fit: BoxFit.cover,
+                      width: 1000.w,
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      child: Container(
+                        padding: EdgeInsets.all(10.w),
+                        child: Text(
+                          'Some Text',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.w,
+                              fontWeight: FontWeight.bold),
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 ),
               )
             ],

@@ -1,58 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wasser_app/shared/colors.dart';
 
-class PaymentReceiptPage extends StatefulWidget {
-  const PaymentReceiptPage({Key? key}) : super(key: key);
+class InvoicePage extends StatefulWidget {
+  const InvoicePage({Key? key}) : super(key: key);
 
   @override
-  _PaymentReceiptPageState createState() => _PaymentReceiptPageState();
+  _InvoicePageState createState() => _InvoicePageState();
 }
 
-class _PaymentReceiptPageState extends State<PaymentReceiptPage> {
+class _InvoicePageState extends State<InvoicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xff1D3A71),
+        backgroundColor: colorPrimary,
         title: const Text("Confirm Payment"),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: ListView(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+            padding: EdgeInsets.symmetric(vertical: 20.w, horizontal: 16.w),
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             children: [
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   color: Colors.grey.shade100,
                 ),
-                width: 350,
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                width: 350.w,
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Column(
                   children: [
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.w),
                     Container(
-                      width: 70,
+                      width: 70.w,
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.circular(50)),
+                          borderRadius: BorderRadius.circular(50.r)),
                       child: Image.asset(
                         "assets/images/logo.png",
-                        scale: 15,
+                        scale: 15.w,
                       ),
                     ),
-                    const SizedBox(
-                      height: 30,
+                    SizedBox(
+                      height: 30.w,
                     ),
                     Divider(
-                      height: 1,
+                      height: 1.w,
                       thickness: 1,
                       color: Colors.grey.shade500,
                     ),
-                    const SizedBox(
-                      height: 16,
+                    SizedBox(
+                      height: 16.w,
                     ),
                     Row(
                       children: const [
@@ -61,8 +63,8 @@ class _PaymentReceiptPageState extends State<PaymentReceiptPage> {
                         Text("Rp 197.000"),
                       ],
                     ),
-                    const SizedBox(
-                      height: 26,
+                    SizedBox(
+                      height: 26.w,
                     ),
                     Row(
                       children: const [
@@ -71,8 +73,8 @@ class _PaymentReceiptPageState extends State<PaymentReceiptPage> {
                         Text("Anis Humanisa "),
                       ],
                     ),
-                    const SizedBox(
-                      height: 26,
+                    SizedBox(
+                      height: 26.w,
                     ),
                     Row(
                       children: const [
@@ -81,8 +83,8 @@ class _PaymentReceiptPageState extends State<PaymentReceiptPage> {
                         Text("BRI"),
                       ],
                     ),
-                    const SizedBox(
-                      height: 26,
+                    SizedBox(
+                      height: 26.w,
                     ),
                     Row(
                       children: const [
@@ -91,8 +93,8 @@ class _PaymentReceiptPageState extends State<PaymentReceiptPage> {
                         Text("Rp 8743984"),
                       ],
                     ),
-                    const SizedBox(
-                      height: 26,
+                    SizedBox(
+                      height: 26.w,
                     ),
                     Row(
                       children: const [
@@ -101,8 +103,8 @@ class _PaymentReceiptPageState extends State<PaymentReceiptPage> {
                         Text("Rp 8743984"),
                       ],
                     ),
-                    const SizedBox(
-                      height: 26,
+                    SizedBox(
+                      height: 26.w,
                     ),
                     Row(
                       children: const [
@@ -111,49 +113,51 @@ class _PaymentReceiptPageState extends State<PaymentReceiptPage> {
                         Text("Rp 8743984"),
                       ],
                     ),
-                    const SizedBox(
-                      height: 26,
+                    SizedBox(
+                      height: 26.w,
                     ),
                     Row(
                       children: [
                         const Text("Status"),
                         const Spacer(),
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 2, vertical: 2),
-                          width: 85,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 2.w, vertical: 2.w),
+                          width: 85.w,
                           decoration: BoxDecoration(
-                              color: const Color(0xff1BAB87),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: const Text(
+                              color: colorAccentPrimary,
+                              borderRadius: BorderRadius.circular(10.r)),
+                          child: Text(
                             "Sudah Dibayar",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 10),
+                            style: TextStyle(fontSize: 10.w),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 26,
+                    SizedBox(
+                      height: 26.w,
                     ),
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: 30.w,
               ),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 15),
-                child: const Text(
+                padding: EdgeInsets.symmetric(vertical: 15.w),
+                child: Text(
                   "Download Invoice",
                   style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                      fontSize: 14.w,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
-                height: 50,
+                height: 44.w,
                 decoration: BoxDecoration(
-                    color: const Color(0xff1BAB87),
-                    borderRadius: BorderRadius.circular(50)),
+                    color: colorAccentPrimary,
+                    borderRadius: BorderRadius.circular(50.r)),
               ),
             ],
           ),

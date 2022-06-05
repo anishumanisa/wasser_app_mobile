@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wasser_app/core/router/route_list.dart';
 import 'package:wasser_app/shared/colors.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -226,10 +227,12 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               onPressed: () {
                 FocusScope.of(context).unfocus();
+
+                Navigator.pushNamed(context, RouteList.login);
               },
-              child: const Text(
+              child: Text(
                 "Sign Up",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 16.w),
               ),
             ),
           );
@@ -247,7 +250,9 @@ class _RegisterPageState extends State<RegisterPage> {
               width: 6.w,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, RouteList.login);
+              },
               child: Text(
                 "Sign In",
                 style: TextStyle(

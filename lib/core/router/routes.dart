@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wasser_app/navigator/route_list.dart';
+import 'package:wasser_app/core/router/route_list.dart';
+import 'package:wasser_app/ui/pages/cash_flow/cashflow_page.dart';
 import 'package:wasser_app/ui/pages/complain/complain_page.dart';
+import 'package:wasser_app/ui/pages/complain_form/complain_form_page.dart';
+import 'package:wasser_app/ui/pages/complain_list/complain_list_page.dart';
+import 'package:wasser_app/ui/pages/example/example_page.dart';
+import 'package:wasser_app/ui/pages/home/home_page.dart';
 import 'package:wasser_app/ui/pages/login/login_page.dart';
 import 'package:wasser_app/ui/pages/main/main_page.dart';
-import 'package:wasser_app/ui/pages/payment_detail/payment_confirm_page.dart';
-import 'package:wasser_app/ui/pages/payment_detail/payment_invoice.dart';
-
+import 'package:wasser_app/ui/pages/payment_confirm/payment_confirm_page.dart';
+import 'package:wasser_app/ui/pages/payment_list/payment_list_page.dart';
+import 'package:wasser_app/ui/pages/peyment_receipt/payment_receipt_page.dart';
 import 'package:wasser_app/ui/pages/register/register_page.dart';
 
 class Routes {
@@ -30,6 +35,14 @@ class Routes {
           builder: const MainPage(),
           fullScreenDialog: false,
         );
+
+      case RouteList.home:
+        return _buildRoute(
+          settings: settings,
+          builder: const HomePage(),
+          fullScreenDialog: false,
+        );
+
       case RouteList.login:
         return _buildRoute(
           settings: settings,
@@ -43,22 +56,60 @@ class Routes {
           builder: const RegisterPage(),
           fullScreenDialog: false,
         );
+
       case RouteList.complain:
         return _buildRoute(
           settings: settings,
           builder: const ComplainPage(),
           fullScreenDialog: false,
         );
+
+      case RouteList.complainList:
+        return _buildRoute(
+          settings: settings,
+          builder: const ComplainListPage(),
+          fullScreenDialog: false,
+        );
+
+      case RouteList.complainForm:
+        return _buildRoute(
+          settings: settings,
+          builder: const ComplainFormPage(),
+          fullScreenDialog: false,
+        );
+
       case RouteList.paymentConfirm:
         return _buildRoute(
           settings: settings,
           builder: const PaymentConfirmPage(),
           fullScreenDialog: false,
         );
+
+      case RouteList.cashFlow:
+        return _buildRoute(
+          settings: settings,
+          builder: const CashFlowPage(),
+          fullScreenDialog: false,
+        );
+
+      case RouteList.paymentList:
+        return _buildRoute(
+          settings: settings,
+          builder: const PaymentListPage(),
+          fullScreenDialog: false,
+        );
+
       case RouteList.paymentReceipt:
         return _buildRoute(
           settings: settings,
           builder: const PaymentReceiptPage(),
+          fullScreenDialog: false,
+        );
+
+      case RouteList.example:
+        return _buildRoute(
+          settings: settings,
+          builder: const ExamplePage(),
           fullScreenDialog: false,
         );
 
@@ -103,7 +154,7 @@ class Routes {
     return MaterialPageRoute<T>(
       settings: settings,
       builder: (context) {
-        if (!(null is T2)) {
+        if (null is! T2) {
           return ListenableProvider<T2>.value(
             value: viewModel,
             builder: (context, child) => builder,

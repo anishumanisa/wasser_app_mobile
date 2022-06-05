@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class BottomNavigationBarMw extends StatefulWidget {
   final PageController pageController;
-  static final lastIndex = 3;
+  static const lastIndex = 3;
 
-  BottomNavigationBarMw({required this.pageController});
+  BottomNavigationBarMw({Key? key, required this.pageController})
+      : super(key: key);
 
   @override
   State<BottomNavigationBarMw> createState() => _BottomNavigationBarMwState();
