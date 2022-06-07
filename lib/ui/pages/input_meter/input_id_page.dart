@@ -41,11 +41,13 @@ class _InputIdPageState extends State<InputIdPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    alignment: Alignment.center,
-                    height: 200.w,
+                    width: 120.w,
+                    decoration: BoxDecoration(
+                        color: Colors.blue.shade50,
+                        borderRadius: BorderRadius.circular(100.r)),
                     child: Image.asset(
-                      "assets/images/logo.png",
-                      scale: 1,
+                      "assets/images/drop.png",
+                      scale: 7.w,
                     ),
                   ),
                   Text(
