@@ -11,10 +11,6 @@ InterceptorsWrapper interceptorsHeader() {
           ? InterceptorConstant.android
           : InterceptorConstant.ios;
       optionRequest.headers[HttpHeaders.acceptHeader] = ContentType.json;
-      // optionRequest.headers[HttpHeaders.authorizationHeader] =
-      //     InterceptorConstant.authorizationHeader;
-      optionRequest.headers['authorization'] =
-          'Bearer ' + InterceptorConstant.tokenTmp;
 
       // set token from local data
       if (SharePref.getToken().isNotEmpty) {
