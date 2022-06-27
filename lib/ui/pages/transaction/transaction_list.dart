@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:wasser_app/common/widgets/loading_state.dart';
+import 'package:wasser_app/core/base/base_view.dart';
 import 'package:wasser_app/shared/colors.dart';
+import 'package:wasser_app/ui/pages/transaction/repository/transaction_repository.dart';
+import 'package:wasser_app/ui/pages/transaction/view_model/transaction_view_model.dart';
 
 class TransactionListPage extends StatefulWidget {
   const TransactionListPage({Key? key}) : super(key: key);
@@ -12,6 +17,15 @@ class TransactionListPage extends StatefulWidget {
 class _TransactionListPageState extends State<TransactionListPage> {
   @override
   Widget build(BuildContext context) {
+    return BaseView<TransactionViewModel>(
+      key: const ValueKey('transaction-list-view'),
+      vmBuilder: (context) =>
+          TransactionViewModel(transactionRepository: TransactionRepository()),
+      builder: _buildScreen,
+    );
+  }
+
+  Widget _buildScreen(BuildContext context, TransactionViewModel viewModel) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorPrimary,
@@ -77,80 +91,94 @@ class _TransactionListPageState extends State<TransactionListPage> {
                 ),
               ],
             ),
-            ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: 3,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset(
-                          "assets/images/logo.png",
-                          scale: 15.w,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Anis Humanisa - Rt 03",
-                              style: TextStyle(
-                                fontSize: 14.w,
-                                fontWeight: FontWeight.bold,
-                                color: colorPrimary,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 6.w,
-                            ),
-                            Text(
-                              "ID17839720",
-                              style: TextStyle(
-                                  fontSize: 12.w, color: Colors.black45),
-                            ),
-                          ],
-                        ),
-                        const Spacer(),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 2.w, horizontal: 8.w),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: colorAccentPrimary,
-                              ),
-                              child: Text(
-                                "Sudah Bayar",
-                                textAlign: TextAlign.center,
+            Builder(builder: (context) {
+              var transactionList = context.select(
+                  (TransactionViewModel vm) => vm.transactionList.data ?? []);
+
+              var isLoading =
+                  context.select((TransactionViewModel vm) => vm.isLoading);
+
+              if (isLoading) {
+                return const LoadingState();
+              }
+              return ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: transactionList.length,
+                itemBuilder: (context, index) {
+                  var item = transactionList[index];
+                  return Column(
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset(
+                            "assets/images/logo.png",
+                            scale: 15.w,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${item.user?.name} - ${item.user?.wilayah?.namaWilayah}",
                                 style: TextStyle(
-                                    fontSize: 10.w,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                                  fontSize: 14.w,
+                                  fontWeight: FontWeight.bold,
+                                  color: colorPrimary,
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 6.w,
-                            ),
-                            Text(
-                              "28 Mar 2022",
-                              style: TextStyle(
-                                  fontSize: 12.w, color: Colors.black45),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Divider(
-                      thickness: 1,
-                      color: Colors.grey.shade200,
-                    ),
-                  ],
-                );
-              },
-            ),
+                              SizedBox(
+                                height: 6.w,
+                              ),
+                              Text(
+                                item.user?.noPelanggan.toString() ?? '',
+                                style: TextStyle(
+                                    fontSize: 12.w, color: Colors.black45),
+                              ),
+                            ],
+                          ),
+                          const Spacer(),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 2.w, horizontal: 8.w),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: colorAccentPrimary,
+                                ),
+                                child: Text(
+                                  item.pembayaran?.status == 'paid'
+                                      ? "Sudah Bayar"
+                                      : 'Belum Bayar',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 10.w,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 6.w,
+                              ),
+                              Text(
+                                item.tglTransaksi ?? '-',
+                                style: TextStyle(
+                                    fontSize: 12.w, color: Colors.black45),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        thickness: 1,
+                        color: Colors.grey.shade200,
+                      ),
+                    ],
+                  );
+                },
+              );
+            }),
           ],
         ),
       ),

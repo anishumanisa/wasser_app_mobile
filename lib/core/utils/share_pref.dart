@@ -5,7 +5,7 @@ class SharePref {
 
   // add static const String for key shared preferences
   static const String _keyToken = '_keyToken';
-  static const String _keyUser = 'keyUser';
+  static const String _keyUser = '_keyUser';
 
   static Future init() async {
     _prefs = await SharedPreferences.getInstance();

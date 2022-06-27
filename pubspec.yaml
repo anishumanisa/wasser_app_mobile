@@ -46,6 +46,7 @@ dependencies:
   custom_navigation_bar: ^0.8.2
   google_fonts: 2.1.0
   flutter_native_splash: 2.1.6
+  flash: ^2.0.3+2
 
   dio: ^4.0.6
   http: ^0.13.4

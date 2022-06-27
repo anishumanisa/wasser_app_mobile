@@ -22,6 +22,8 @@ class RouteList {
   static const String submission = '/submission';
   static const String transaction = '/transaction';
   static const String transactionHistory = '/transaction-history';
+  static const String user = '/user';
+  static const String userManage = '/user-manage';
   static const String dummy = '/dummy';
   static const String example = '/example';
 }

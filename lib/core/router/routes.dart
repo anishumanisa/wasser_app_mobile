@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wasser_app/core/router/route_list.dart';
 import 'package:wasser_app/ui/pages/cash_flow/cashflow_page.dart';
+import 'package:wasser_app/ui/pages/cash_flow_manage/cash_flow_manage_page.dart';
 import 'package:wasser_app/ui/pages/complain/complain_page.dart';
 import 'package:wasser_app/ui/pages/complain_form/complain_form_page.dart';
 import 'package:wasser_app/ui/pages/complain_list/complain_list_page.dart';
@@ -13,6 +14,8 @@ import 'package:wasser_app/ui/pages/payment_confirm/payment_confirm_page.dart';
 import 'package:wasser_app/ui/pages/payment_list/payment_list_page.dart';
 import 'package:wasser_app/ui/pages/peyment_receipt/payment_receipt_page.dart';
 import 'package:wasser_app/ui/pages/register/register_page.dart';
+import 'package:wasser_app/ui/pages/user/user_page.dart';
+import 'package:wasser_app/ui/pages/user_manage/user_manage_page.dart';
 
 class Routes {
   static final Map<String, WidgetBuilder> _routes = {
@@ -79,11 +82,13 @@ class Routes {
         );
 
       case RouteList.paymentConfirm:
-        return _buildRoute(
-          settings: settings,
-          builder: const PaymentConfirmPage(),
-          fullScreenDialog: false,
-        );
+        if (settings.arguments is String) {
+          var paymentId = settings.arguments as String;
+          return _buildRoute(
+              settings: settings,
+              builder: PaymentConfirmPage(paymentId: paymentId));
+        }
+        return _errorRoute();
 
       case RouteList.cashFlow:
         return _buildRoute(
@@ -92,12 +97,32 @@ class Routes {
           fullScreenDialog: false,
         );
 
-      case RouteList.paymentList:
+      case RouteList.cashFlowManage:
         return _buildRoute(
           settings: settings,
-          builder: const PaymentListPage(),
+          builder: const CashFlowManagePage(),
           fullScreenDialog: false,
         );
+      case RouteList.user:
+        return _buildRoute(
+          settings: settings,
+          builder: const UserPages(),
+          fullScreenDialog: false,
+        );
+      case RouteList.userManage:
+        return _buildRoute(
+          settings: settings,
+          builder: const UserManagePage(),
+          fullScreenDialog: false,
+        );
+
+      case RouteList.paymentList:
+        if (settings.arguments is String) {
+          var userId = settings.arguments as String;
+          return _buildRoute(
+              settings: settings, builder: PaymentListPage(userId: userId));
+        }
+        return _errorRoute();
 
       case RouteList.paymentReceipt:
         return _buildRoute(
@@ -129,18 +154,18 @@ class Routes {
     return _routes[name];
   }
 
-  // static Route _errorRoute() {
-  //   return MaterialPageRoute(builder: (_) {
-  //     return Scaffold(
-  //       appBar: AppBar(
-  //         title: const Text('Error'),
-  //       ),
-  //       body: const Center(
-  //         child: Text('Page not found'),
-  //       ),
-  //     );
-  //   });
-  // }
+  static Route _errorRoute() {
+    return MaterialPageRoute(builder: (_) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Error'),
+        ),
+        body: const Center(
+          child: Text('Page not found'),
+        ),
+      );
+    });
+  }
 
   /// T2 for view model
   /// T for class generic MaterialPageRoute

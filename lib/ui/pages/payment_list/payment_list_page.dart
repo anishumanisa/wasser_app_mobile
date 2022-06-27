@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:wasser_app/core/base/base_view.dart';
 import 'package:wasser_app/core/router/route_list.dart';
+import 'package:wasser_app/core/utils/number_format.dart';
 import 'package:wasser_app/shared/colors.dart';
+import 'package:wasser_app/ui/pages/payment_list/repository/payment_list_repository.dart';
+import 'package:wasser_app/ui/pages/payment_list/view_model/payment_list_view_model.dart';
 
 class PaymentListPage extends StatefulWidget {
-  const PaymentListPage({Key? key}) : super(key: key);
+  const PaymentListPage({Key? key, required this.userId}) : super(key: key);
 
+  final String userId;
   @override
   _PaymentListPageState createState() => _PaymentListPageState();
 }
@@ -13,11 +19,21 @@ class PaymentListPage extends StatefulWidget {
 class _PaymentListPageState extends State<PaymentListPage> {
   @override
   Widget build(BuildContext context) {
+    return BaseView<PaymentListViewModel>(
+      key: const ValueKey('payment-detail-view'),
+      vmBuilder: (context) => PaymentListViewModel(
+          paymentListRepository: PaymentListRepository(),
+          userId: widget.userId),
+      builder: _buildScreen,
+    );
+  }
+
+  Widget _buildScreen(BuildContext context, PaymentListViewModel viewModel) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: colorAccentPrimary,
-        title: const Text("Payment List"),
+        title: const Text("Payment Lists"),
       ),
       body: SingleChildScrollView(
           physics: const ScrollPhysics(),
@@ -38,324 +54,340 @@ class _PaymentListPageState extends State<PaymentListPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      height: 120.w,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.r),
-                          border: Border.all(color: Colors.white24)),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 12.w,
-                          ),
-                          Row(
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Nama Customer",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    "Anis Humanisa ( Rt 03 )",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 6.w,
-                                  ),
-                                  Text(
-                                    "ID Pelanggan",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    "ID09210921",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 6.w,
-                                  ),
-                                  Text(
-                                    "No Telp",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    "0821980239023",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                width: 28.w,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Wilayah",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    "RT 03",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 6.w,
-                                  ),
-                                  Text(
-                                    "Sumber",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    "Danau",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 6.w,
-                                  ),
-                                  Text(
-                                    "Terdaftar",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    "28 Mei 2022",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                    Builder(builder: (context) {
+                      var userData = context.select(
+                          (PaymentListViewModel vm) => vm.paymentList.data);
+
+                      return Container(
+                        height: 120.w,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.r),
+                            border: Border.all(color: Colors.white24)),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 12.w,
+                            ),
+                            Row(
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Nama Customer",
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white70,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Text(
+                                      "${userData?.name}",
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 6.w,
+                                    ),
+                                    Text(
+                                      "ID Pelanggan",
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white70,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Text(
+                                      userData?.noPelanggan.toString() ?? '-',
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 6.w,
+                                    ),
+                                    Text(
+                                      "No Telp",
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white70,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Text(
+                                      userData?.noTelp ?? '-',
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 28.w,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Wilayah",
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white70,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Text(
+                                      userData?.wilayah?.namaWilayah ?? '-',
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 6.w,
+                                    ),
+                                    Text(
+                                      "Terdaftar",
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white70,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Text(
+                                      '-',
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 6.w,
+                                    ),
+                                    Text(
+                                      "",
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white70,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Text(
+                                      '',
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(top: 16.w),
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 12.w, vertical: 14.w),
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.shade200,
-                              blurRadius: 1,
-                              spreadRadius: 1,
-                              offset: const Offset(0, 1),
-                            ),
-                          ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(6.r)),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset(
-                                    "assets/images/ic_profile.png",
-                                    scale: 3.2.w,
-                                  ),
-                                  SizedBox(
-                                    width: 8.w,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Tedi Alamsyah",
-                                        style: TextStyle(
-                                            fontSize: 12.w,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(
-                                        height: 1.w,
-                                      ),
-                                      Text(
-                                        "Maret 2022",
-                                        style: TextStyle(
-                                            fontSize: 12.w, color: Colors.grey),
-                                      ),
-                                    ],
-                                  )
-                                ],
+              Builder(builder: (context) {
+                var data = context
+                    .select((PaymentListViewModel vm) => vm.paymentList.data);
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: data?.pembayaran?.length,
+                    itemBuilder: (context, index) {
+                      var item = data?.pembayaran?[index];
+                      return Container(
+                        margin: EdgeInsets.only(top: 16.w),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 12.w, vertical: 14.w),
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.shade200,
+                                blurRadius: 1,
+                                spreadRadius: 1,
+                                offset: const Offset(0, 1),
                               ),
-                              const Spacer(),
-                              Row(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 4.w),
-                                    height: 20.w,
-                                    decoration: BoxDecoration(
-                                      color: colorAccentPrimary,
-                                      borderRadius: BorderRadius.circular(4.r),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(6.r)),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/ic_profile.png",
+                                      scale: 3.2.w,
                                     ),
-                                    child: Text(
-                                      "Berhasil",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 11.w),
+                                    SizedBox(
+                                      width: 8.w,
                                     ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10.w,
-                          ),
-                          _divider(),
-                          SizedBox(
-                            height: 10.w,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text(
-                                "Meteran Awal",
-                                style: TextStyle(fontWeight: FontWeight.w300),
-                              ),
-                              Text(
-                                "100",
-                                style: TextStyle(fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 4.w,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text(
-                                "Meteran Akhir",
-                                style: TextStyle(fontWeight: FontWeight.w300),
-                              ),
-                              Text(
-                                "100",
-                                style: TextStyle(fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 4.w,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text(
-                                "Kubikasi",
-                                style: TextStyle(fontWeight: FontWeight.w300),
-                              ),
-                              Text(
-                                "100",
-                                style: TextStyle(fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 16.w,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Total : ",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    "Rp 100.000",
-                                    style: TextStyle(
-                                        fontSize: 12.w,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.pushNamed(
-                                      context, RouteList.paymentConfirm);
-                                },
-                                child: Container(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 26.w),
-                                  alignment: Alignment.center,
-                                  height: 26.w,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(6.r),
-                                      border: Border.all(
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          data?.name ?? '-',
+                                          style: TextStyle(
+                                              fontSize: 12.w,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          height: 1.w,
+                                        ),
+                                        Text(
+                                          item?.tglInput ?? '-',
+                                          style: TextStyle(
+                                              fontSize: 12.w,
+                                              color: Colors.grey),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                const Spacer(),
+                                Row(
+                                  children: [
+                                    Container(
+                                      alignment: Alignment.center,
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 4.w),
+                                      height: 20.w,
+                                      decoration: BoxDecoration(
                                         color: colorAccentPrimary,
-                                      )),
-                                  child: const Text(
-                                    "Bayar",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      color: colorAccentPrimary,
+                                        borderRadius:
+                                            BorderRadius.circular(4.r),
+                                      ),
+                                      child: Text(
+                                        item?.status ?? '-',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 11.w),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10.w,
+                            ),
+                            _divider(),
+                            SizedBox(
+                              height: 10.w,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Meteran Awal",
+                                  style: TextStyle(fontWeight: FontWeight.w300),
+                                ),
+                                Text(
+                                  (item?.meteranAwal ?? 0).toString(),
+                                  style: TextStyle(fontWeight: FontWeight.w400),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 4.w,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Meteran Akhir",
+                                  style: TextStyle(fontWeight: FontWeight.w300),
+                                ),
+                                Text(
+                                  (item?.meteranAkhir ?? 0).toString(),
+                                  style: TextStyle(fontWeight: FontWeight.w400),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 4.w,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Kubikasi",
+                                  style: TextStyle(fontWeight: FontWeight.w300),
+                                ),
+                                Text(
+                                  (item?.kubikasi ?? 0).toString(),
+                                  style: TextStyle(fontWeight: FontWeight.w400),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 16.w,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Total : ",
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Text(
+                                      NumberFormatter.rupiah(
+                                          item?.jumlahBayar ?? 0),
+                                      style: TextStyle(
+                                          fontSize: 12.w,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, RouteList.paymentConfirm,
+                                        arguments: item?.id.toString());
+                                  },
+                                  child: Container(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 26.w),
+                                    alignment: Alignment.center,
+                                    height: 26.w,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(6.r),
+                                        border: Border.all(
+                                          color: colorAccentPrimary,
+                                        )),
+                                    child: const Text(
+                                      "Bayar",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: colorAccentPrimary,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                );
+              }),
             ],
           )),
     );

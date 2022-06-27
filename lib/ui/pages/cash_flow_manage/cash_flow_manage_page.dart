@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wasser_app/core/base/base_view.dart';
 import 'package:wasser_app/shared/colors.dart';
+import 'package:wasser_app/ui/pages/cash_flow_manage/repository/cash_flow_manage_repository.dart';
+import 'package:wasser_app/ui/pages/cash_flow_manage/view_model/cash_flow_manage_view_model.dart';
 
 class CashFlowManagePage extends StatefulWidget {
   const CashFlowManagePage({Key? key}) : super(key: key);
@@ -12,7 +15,20 @@ class CashFlowManagePage extends StatefulWidget {
 class _CashFlowManagePageState extends State<CashFlowManagePage> {
   @override
   Widget build(BuildContext context) {
+    return BaseView<CashFlowManageViewModel>(
+      key: const ValueKey('cash-flow-manage-view'),
+      vmBuilder: (context) => CashFlowManageViewModel(
+          cashFlowManageRepository: CashFlowManageRepository()),
+      builder: _buildScreen,
+    );
+  }
+
+  Widget _buildScreen(BuildContext context, CashFlowManageViewModel viewModel) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: colorPrimary,
+        title: Text("Saldo Kas"),
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.w),
         physics: const ScrollPhysics(),
@@ -21,7 +37,6 @@ class _CashFlowManagePageState extends State<CashFlowManagePage> {
           physics: const NeverScrollableScrollPhysics(),
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 16.w),
               color: Colors.white54,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

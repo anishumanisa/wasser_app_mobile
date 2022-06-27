@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:wasser_app/common/widgets/flash_bar_mixin.dart';
+import 'package:wasser_app/core/base/base_view.dart';
 import 'package:wasser_app/core/router/route_list.dart';
 import 'package:wasser_app/shared/colors.dart';
+import 'package:wasser_app/ui/pages/register/repository/register_repository.dart';
+import 'package:wasser_app/ui/pages/register/view_model/register_view_model.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -10,21 +15,28 @@ class RegisterPage extends StatefulWidget {
   _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterPageState extends State<RegisterPage> with FlashBarMixin {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-
-    WidgetsBinding.instance?.addPostFrameCallback(
-      ((_) {}),
-    );
   }
 
   @override
   Widget build(BuildContext context) {
+    return BaseView<RegisterViewModel>(
+      key: const ValueKey('register-view'),
+      vmBuilder: (context) => RegisterViewModel(
+          emailController: _emailController,
+          passwordController: _passwordController,
+          registerRepository: RegisterRepository()),
+      builder: _buildScreen,
+    );
+  }
+
+  Widget _buildScreen(BuildContext context, RegisterViewModel viewModel) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -226,9 +238,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
               onPressed: () {
+                _onSubmitRegister(context, context.read<RegisterViewModel>());
                 FocusScope.of(context).unfocus();
-
-                Navigator.pushNamed(context, RouteList.login);
               },
               child: Text(
                 "Sign Up",
@@ -265,6 +276,29 @@ class _RegisterPageState extends State<RegisterPage> {
           ],
         )
       ],
+    );
+  }
+
+  Future<void> _onSubmitRegister(
+      BuildContext context, RegisterViewModel viewModel) async {
+    var response = await viewModel.register();
+    var meta = response.meta;
+
+    if (meta?.status ?? false) {
+      showCustomFlash(context, "Kamu Berhasil Register :)");
+      // Future.delayed(const Duration(milliseconds: 1000), () {
+      //   _navigateToNextScreen(context);
+      // });
+      _navigateToNextScreen(context);
+    } else {
+      showCustomFlash(context, "Upss, Register Gagal :(");
+    }
+  }
+
+  void _navigateToNextScreen(BuildContext context) {
+    Navigator.pushReplacementNamed(
+      context,
+      RouteList.login,
     );
   }
 }
