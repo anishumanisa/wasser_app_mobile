@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:wasser_app/core/base/base_view_model.dart';
+import 'package:wasser_app/ui/pages/home/model/list_transaksi_response.dart';
 import 'package:wasser_app/ui/pages/home/model/saldo_response.dart' as saldo;
 import 'package:wasser_app/ui/pages/home/repository/home_repository.dart';
-import 'package:wasser_app/ui/pages/transaction/model/transaksi_list_response.dart';
 
 class HomeViewModel extends BaseViewModel {
   final HomeRepository _homeRepository;
@@ -31,22 +31,32 @@ class HomeViewModel extends BaseViewModel {
   int get income => _income;
   int get outcome => _outcome;
 
-  Future<saldo.SaldoResponse> cashFlow() async {
+  Future<saldo.SaldoKasResponse> cashFlow() async {
     isLoading = true;
 
     var response = await _homeRepository.cashFlow();
 
-    _income = response.data
-            ?.where((element) => element.type == "in")
-            .map((m) => m.jumlah)
-            .reduce((a, b) => (a ?? 0) + (b ?? 0)) ??
-        0;
+    response.data?.forEach((element) {
+      if (element.type == 'in') {
+        _income = response.data
+                ?.where((element) => element.type == "in")
+                .map((m) => m.jumlah)
+                .reduce((a, b) => (a ?? 0) + (b ?? 0)) ??
+            0;
+      } else if (_income == 0) {
+        _income = 0;
+      }
 
-    _outcome = response.data
-            ?.where((element) => element.type == "out")
-            .map((m) => m.jumlah)
-            .reduce((a, b) => (a ?? 0) + (b ?? 0)) ??
-        0;
+      if (element.type == 'out') {
+        _outcome = response.data
+                ?.where((element) => element.type == "out")
+                .map((m) => m.jumlah)
+                .reduce((a, b) => (a ?? 0) + (b ?? 0)) ??
+            0;
+      } else if (_outcome == 0) {
+        _outcome = 0;
+      }
+    });
 
     isLoading = false;
     return response;

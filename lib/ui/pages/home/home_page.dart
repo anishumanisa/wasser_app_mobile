@@ -223,19 +223,20 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, RouteList.cashFlow);
+                        Navigator.pushNamed(context, RouteList.cashFlow)
+                            .whenComplete(() async {
+                          await viewModel.cashFlow();
+                        });
                       },
                       child: Column(
                         children: [
-                          const Icon(
-                            Icons.insert_chart_outlined_outlined,
-                            color: Colors.white,
-                          ),
+                          Image.asset("assets/icons/ic_cash_flow.png",
+                              height: 21.w),
                           SizedBox(
                             height: 5.w,
                           ),
                           Text(
-                            "Saldo Kas",
+                            "Saldo",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12.w,
@@ -248,19 +249,20 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, RouteList.complain);
+                        Navigator.pushNamed(context, RouteList.payment)
+                            .whenComplete(() async {
+                          await viewModel.getTransactionList();
+                        });
                       },
                       child: Column(
                         children: [
-                          const Icon(
-                            Icons.settings_applications_sharp,
-                            color: Colors.white,
-                          ),
+                          Image.asset("assets/icons/ic_transaction_flow.png",
+                              height: 21.w),
                           SizedBox(
                             height: 5.w,
                           ),
                           Text(
-                            "Pengaduan",
+                            "Tagihan",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12.w,
@@ -273,19 +275,16 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, RouteList.transaction);
+                        Navigator.pushNamed(context, RouteList.customer);
                       },
                       child: Column(
                         children: [
-                          const Icon(
-                            Icons.attach_money_sharp,
-                            color: Colors.white,
-                          ),
+                          Image.asset("assets/icons/ic_team.png", height: 21.w),
                           SizedBox(
                             height: 5.w,
                           ),
                           Text(
-                            "Transaksi",
+                            "Pelanggan",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12.w,
@@ -296,23 +295,26 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Expanded(
-                    child: Column(
-                      children: [
-                        const Icon(
-                          Icons.receipt,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          height: 5.w,
-                        ),
-                        Text(
-                          "Pencatatan",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12.w,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, RouteList.record);
+                      },
+                      child: Column(
+                        children: [
+                          Image.asset("assets/icons/ic_notes.png",
+                              height: 21.w),
+                          SizedBox(
+                            height: 5.w,
+                          ),
+                          Text(
+                            "Pencatatan",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12.w,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -335,22 +337,6 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 16.w,
                 ),
-                Row(
-                  children: const [
-                    Text(
-                      "Maret 2022",
-                      style: TextStyle(color: colorPrimary),
-                    ),
-                    Spacer(),
-                    Text(
-                      "Diperbaharui Hari Ini,19.50",
-                      style: TextStyle(color: colorPrimary),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 16.w,
-                ),
                 Builder(builder: (context) {
                   var transactionList = context.select(
                       (HomeViewModel vm) => vm.transactionList.data ?? []);
@@ -360,6 +346,23 @@ class _HomePageState extends State<HomePage> {
 
                   if (isLoading) {
                     return const LoadingState();
+                  }
+                  if (transactionList.isEmpty) {
+                    return Center(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            'assets/icons/ic_resume.png',
+                            width: 80.w,
+                            height: 80.w,
+                          ),
+                          SizedBox(
+                            height: 16.w,
+                          ),
+                          const Text("Transaksi nya masih kosong nih :)")
+                        ],
+                      ),
+                    );
                   }
                   return ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
@@ -372,14 +375,17 @@ class _HomePageState extends State<HomePage> {
                           Row(
                             children: [
                               Image.asset(
-                                "assets/images/logo.png",
-                                scale: 15.w,
+                                "assets/icons/${item.user?.avatar}",
+                                height: 30.w,
+                              ),
+                              SizedBox(
+                                width: 8.w,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "${item.user?.name} - ${item.user?.wilayahId}",
+                                    "${item.user?.name} - ${item.user?.wilayah?.namaWilayah}",
                                     style: TextStyle(
                                       fontSize: 14.w,
                                       fontWeight: FontWeight.bold,

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,19 +22,10 @@ class _CarouselSlidersState extends State<CarouselSliders> {
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
                 child: Stack(
                   children: [
-                    CachedNetworkImage(
-                      imageUrl:
-                          "https://images.unsplash.com/photo-1590766232095-4f4daf8ca543?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1316&q=80",
-                      errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
-                      progressIndicatorBuilder:
-                          (context, url, downloadProgress) => Center(
-                        child: CircularProgressIndicator(
-                          value: downloadProgress.progress,
-                        ),
-                      ),
-                      fit: BoxFit.cover,
-                      width: 1000,
+                    Image.asset(
+                      "assets/images/banner_2.jpg",
+                      fit: BoxFit.fill,
+                      width: double.infinity,
                     ),
                     Positioned(
                       bottom: 0,
@@ -44,10 +34,10 @@ class _CarouselSlidersState extends State<CarouselSliders> {
                       child: Container(
                         padding: EdgeInsets.all(10.w),
                         child: Text(
-                          'Some Text',
+                          'CSR Aqua Desa Ciherang Pondok',
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.w,
+                              fontSize: 16.w,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -59,19 +49,10 @@ class _CarouselSlidersState extends State<CarouselSliders> {
                 borderRadius: BorderRadius.all(Radius.circular(10.r)),
                 child: Stack(
                   children: [
-                    CachedNetworkImage(
-                      imageUrl:
-                          "https://images.unsplash.com/photo-1590766232095-4f4daf8ca543?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1316&q=80",
-                      errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
-                      progressIndicatorBuilder:
-                          (context, url, downloadProgress) => Center(
-                        child: CircularProgressIndicator(
-                          value: downloadProgress.progress,
-                        ),
-                      ),
-                      fit: BoxFit.cover,
-                      width: 1000.w,
+                    Image.asset(
+                      "assets/images/banner_1.jpg",
+                      fit: BoxFit.fill,
+                      width: double.infinity,
                     ),
                     Positioned(
                       bottom: 0,
@@ -80,7 +61,7 @@ class _CarouselSlidersState extends State<CarouselSliders> {
                       child: Container(
                         padding: EdgeInsets.all(10.w),
                         child: Text(
-                          'Some Text',
+                          'CSR Aqua Desa Ciherang Pondok',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 20.w,
@@ -95,7 +76,7 @@ class _CarouselSlidersState extends State<CarouselSliders> {
             options: CarouselOptions(
                 autoPlay: true,
                 enlargeCenterPage: true,
-                aspectRatio: 16 / 7.5,
+                aspectRatio: 16 / 8,
                 viewportFraction: 1,
                 onPageChanged: (index, reason) {
                   setState(() {

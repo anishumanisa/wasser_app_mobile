@@ -38,7 +38,7 @@ class WasserApp extends StatelessWidget {
           var isNotLogged = token?.isNullEmpty;
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            key: const ValueKey('main'),
+            // key: const ValueKey('main'),
             title: "Wasser",
             initialRoute:
                 (isNotLogged ?? false) ? RouteList.login : RouteList.main,

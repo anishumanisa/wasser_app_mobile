@@ -73,9 +73,9 @@ class Data {
     this.meteranAwal,
     this.meteranAkhir,
     this.kubikasi,
+    this.tagihanBulan,
     this.keterangan,
     this.status,
-    this.tglInput,
     this.userId,
     this.createdAt,
     this.updatedAt,
@@ -88,9 +88,9 @@ class Data {
         meteranAwal: asT<int?>(json['meteran_awal']),
         meteranAkhir: asT<int?>(json['meteran_akhir']),
         kubikasi: asT<int?>(json['kubikasi']),
+        tagihanBulan: asT<String?>(json['tagihan_bulan']),
         keterangan: asT<String?>(json['keterangan']),
         status: asT<String?>(json['status']),
-        tglInput: asT<String?>(json['tgl_input']),
         userId: asT<int?>(json['user_id']),
         createdAt: asT<String?>(json['created_at']),
         updatedAt: asT<String?>(json['updated_at']),
@@ -104,9 +104,9 @@ class Data {
   int? meteranAwal;
   int? meteranAkhir;
   int? kubikasi;
+  String? tagihanBulan;
   String? keterangan;
   String? status;
-  String? tglInput;
   int? userId;
   String? createdAt;
   String? updatedAt;
@@ -123,9 +123,9 @@ class Data {
         'meteran_awal': meteranAwal,
         'meteran_akhir': meteranAkhir,
         'kubikasi': kubikasi,
+        'tagihan_bulan': tagihanBulan,
         'keterangan': keterangan,
         'status': status,
-        'tgl_input': tglInput,
         'user_id': userId,
         'created_at': createdAt,
         'updated_at': updatedAt,

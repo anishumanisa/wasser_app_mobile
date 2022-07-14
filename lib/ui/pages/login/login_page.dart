@@ -21,11 +21,6 @@ class _LoginPageState extends State<LoginPage> with FlashBarMixin {
   final _passwordController = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BaseView<LoginViewModel>(
       key: const ValueKey('login-view'),
@@ -183,19 +178,19 @@ class _LoginPageState extends State<LoginPage> with FlashBarMixin {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        GestureDetector(
-          onTap: () {
-            _navigateToNextScreen(context);
-          },
-          child: const Text(
-            "Forgot Password?",
-            style: TextStyle(
-                color: colorPrimary,
-                fontWeight: FontWeight.bold,
-                fontSize: 12,
-                decoration: TextDecoration.underline),
-          ),
-        ),
+        // GestureDetector(
+        //   onTap: () {
+        //     _navigateToNextScreen(context);
+        //   },
+        //   child: const Text(
+        //     "Forgot Password?",
+        //     style: TextStyle(
+        //         color: colorPrimary,
+        //         fontWeight: FontWeight.bold,
+        //         fontSize: 12,
+        //         decoration: TextDecoration.underline),
+        //   ),
+        // ),
         SizedBox(height: 16.w),
         Builder(builder: (context) {
           var isLoading = context.select((LoginViewModel vm) => vm.isLoading);
@@ -226,32 +221,32 @@ class _LoginPageState extends State<LoginPage> with FlashBarMixin {
           );
         }),
         SizedBox(height: 16.w),
-        Row(
-          children: [
-            const Text("Don't have an account?",
-                style: TextStyle(
-                  color: Colors.black54,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12,
-                )),
-            SizedBox(
-              width: 6.w,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, RouteList.register);
-              },
-              child: Text(
-                "Sign Up",
-                style: TextStyle(
-                    color: colorPrimary,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12.w,
-                    decoration: TextDecoration.underline),
-              ),
-            ),
-          ],
-        )
+        // Row(
+        //   children: [
+        //     const Text("Don't have an account?",
+        //         style: TextStyle(
+        //           color: Colors.black54,
+        //           fontWeight: FontWeight.bold,
+        //           fontSize: 12,
+        //         )),
+        //     SizedBox(
+        //       width: 6.w,
+        //     ),
+        //     GestureDetector(
+        //       onTap: () {
+        //         Navigator.pushNamed(context, RouteList.register);
+        //       },
+        //       child: Text(
+        //         "Sign Up",
+        //         style: TextStyle(
+        //             color: colorPrimary,
+        //             fontWeight: FontWeight.bold,
+        //             fontSize: 12.w,
+        //             decoration: TextDecoration.underline),
+        //       ),
+        //     ),
+        //   ],
+        // )
       ],
     );
   }

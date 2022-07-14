@@ -29,7 +29,7 @@ class _TransactionListPageState extends State<TransactionListPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorPrimary,
-        title: const Text("Transaction List"),
+        title: const Text("Transaction History"),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 16.w, horizontal: 16.w),
@@ -40,6 +40,9 @@ class _TransactionListPageState extends State<TransactionListPage> {
           children: [
             Builder(builder: (context) {
               return TextFormField(
+                onChanged: (value) {
+                  viewModel.search(value);
+                },
                 style: const TextStyle(color: Colors.black),
                 scrollPadding: EdgeInsets.only(bottom: 100.w),
                 decoration: InputDecoration(
@@ -67,33 +70,15 @@ class _TransactionListPageState extends State<TransactionListPage> {
                 ),
               );
             }),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 16.w,
-                ),
-                Row(
-                  children: const [
-                    Text(
-                      "Maret 2022",
-                      style: TextStyle(color: colorPrimary),
-                    ),
-                    Spacer(),
-                    Text(
-                      "Diperbaharui Hari Ini,19.50",
-                      style: TextStyle(color: colorPrimary),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 16.w,
-                ),
-              ],
+            SizedBox(
+              height: 24.w,
             ),
             Builder(builder: (context) {
               var transactionList = context.select(
                   (TransactionViewModel vm) => vm.transactionList.data ?? []);
+
+              var foundUser =
+                  context.select((TransactionViewModel vm) => vm.foundUsers);
 
               var isLoading =
                   context.select((TransactionViewModel vm) => vm.isLoading);
@@ -101,19 +86,58 @@ class _TransactionListPageState extends State<TransactionListPage> {
               if (isLoading) {
                 return const LoadingState();
               }
+              if (transactionList.isEmpty) {
+                return Container(
+                  margin: EdgeInsets.only(top: 50.w),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        'assets/icons/ic_resume.png',
+                        width: 80.w,
+                        height: 80.w,
+                      ),
+                      SizedBox(
+                        height: 16.w,
+                      ),
+                      const Text("Transaksi nya masih kosong nih :)")
+                    ],
+                  ),
+                );
+              }
+              if (foundUser.isEmpty) {
+                return Container(
+                  margin: EdgeInsets.only(top: 50.w),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        'assets/icons/ic_resume.png',
+                        width: 80.w,
+                        height: 80.w,
+                      ),
+                      SizedBox(
+                        height: 16.w,
+                      ),
+                      const Text("Wah data nya gak ketemu :)")
+                    ],
+                  ),
+                );
+              }
               return ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: transactionList.length,
+                itemCount: foundUser.length,
                 itemBuilder: (context, index) {
-                  var item = transactionList[index];
+                  var item = foundUser[index];
                   return Column(
                     children: [
                       Row(
                         children: [
                           Image.asset(
-                            "assets/images/logo.png",
-                            scale: 15.w,
+                            "assets/icons/${item.user?.avatar}",
+                            height: 30.w,
+                          ),
+                          SizedBox(
+                            width: 8.w,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

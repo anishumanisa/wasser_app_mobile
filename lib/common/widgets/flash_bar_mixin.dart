@@ -15,10 +15,6 @@ mixin FlashBarMixin {
           behavior: FlashBehavior.floating,
           position: FlashPosition.bottom,
           borderRadius: BorderRadius.circular(6.0),
-          // borderColor: colorPrimary,
-          // backgroundGradient: const LinearGradient(
-          //   colors: [Colors.pink, Colors.red],
-          // ),
           backgroundColor: colorPrimary,
           forwardAnimationCurve: Curves.easeIn,
           reverseAnimationCurve: Curves.bounceIn,

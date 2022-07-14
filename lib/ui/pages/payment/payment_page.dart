@@ -19,7 +19,7 @@ class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return BaseView<PaymentViewModel>(
-      key: const ValueKey('transaction-list-view'),
+      key: const ValueKey('payment-view'),
       vmBuilder: (context) =>
           PaymentViewModel(paymentRepository: PaymentRepository()),
       builder: _buildScreen,
@@ -28,9 +28,32 @@ class _PaymentPageState extends State<PaymentPage> {
 
   Widget _buildScreen(BuildContext context, PaymentViewModel viewModel) {
     return Scaffold(
+      bottomNavigationBar: SafeArea(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              margin: EdgeInsets.all(16.w),
+              child: FloatingActionButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, RouteList.searchCustomer)
+                      .whenComplete(() async {
+                    await viewModel.getPaymentList();
+                  });
+                },
+                backgroundColor: colorPrimary,
+                child: const Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: colorPrimary,
-        title: const Text("Member List"),
+        title: const Text("List Pembayaran"),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.w),
@@ -40,6 +63,9 @@ class _PaymentPageState extends State<PaymentPage> {
           children: [
             Builder(builder: (context) {
               return TextFormField(
+                onChanged: (value) {
+                  viewModel.search(value);
+                },
                 style: const TextStyle(color: Colors.black),
                 scrollPadding: EdgeInsets.only(bottom: 100.w),
                 decoration: InputDecoration(
@@ -74,18 +100,58 @@ class _PaymentPageState extends State<PaymentPage> {
               var paymentList = context
                   .select((PaymentViewModel vm) => vm.paymentList.data ?? []);
 
+              var foundUser =
+                  context.select((PaymentViewModel vm) => vm.foundUsers);
+
               var isLoading =
                   context.select((PaymentViewModel vm) => vm.isLoading);
 
               if (isLoading) {
                 return const LoadingState();
               }
+
+              if (paymentList.isEmpty) {
+                return Container(
+                  margin: EdgeInsets.only(top: 50.w),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        'assets/icons/ic_resume.png',
+                        width: 80.w,
+                        height: 80.w,
+                      ),
+                      SizedBox(
+                        height: 16.w,
+                      ),
+                      const Text("Waah masih kosong nih :)")
+                    ],
+                  ),
+                );
+              }
+              if (foundUser.isEmpty) {
+                return Container(
+                  margin: EdgeInsets.only(top: 50.w),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        'assets/icons/ic_resume.png',
+                        width: 80.w,
+                        height: 80.w,
+                      ),
+                      SizedBox(
+                        height: 16.w,
+                      ),
+                      const Text("Waah gak ketemu nih :)")
+                    ],
+                  ),
+                );
+              }
               return ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: paymentList.length,
+                  itemCount: foundUser.length,
                   itemBuilder: (context, index) {
-                    var item = paymentList[index];
+                    var item = foundUser[index];
                     return Column(
                       children: [
                         Container(
@@ -93,8 +159,8 @@ class _PaymentPageState extends State<PaymentPage> {
                           child: Row(
                             children: [
                               Image.asset(
-                                "assets/images/ic_profile.png",
-                                scale: 2.w,
+                                "assets/icons/${item.avatar}",
+                                height: 30.w,
                               ),
                               SizedBox(
                                 width: 8.w,

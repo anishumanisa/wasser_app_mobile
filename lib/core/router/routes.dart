@@ -6,15 +6,32 @@ import 'package:wasser_app/ui/pages/cash_flow_manage/cash_flow_manage_page.dart'
 import 'package:wasser_app/ui/pages/complain/complain_page.dart';
 import 'package:wasser_app/ui/pages/complain_form/complain_form_page.dart';
 import 'package:wasser_app/ui/pages/complain_list/complain_list_page.dart';
+import 'package:wasser_app/ui/pages/customer/customer_page.dart';
+import 'package:wasser_app/ui/pages/customer/model/customer_list_response.dart'
+    as customer;
+import 'package:wasser_app/ui/pages/customer_detail/customer_detail_page.dart';
 import 'package:wasser_app/ui/pages/example/example_page.dart';
 import 'package:wasser_app/ui/pages/home/home_page.dart';
+import 'package:wasser_app/ui/pages/input_customer/input_customer_page.dart';
+import 'package:wasser_app/ui/pages/input_meter/input_meter_page.dart';
 import 'package:wasser_app/ui/pages/login/login_page.dart';
+import 'package:wasser_app/ui/pages/login/model/login_response.dart' as login;
 import 'package:wasser_app/ui/pages/main/main_page.dart';
+import 'package:wasser_app/ui/pages/payment/payment_page.dart';
+import 'package:wasser_app/ui/pages/payment_confirm/model/create_transaction_response.dart';
 import 'package:wasser_app/ui/pages/payment_confirm/payment_confirm_page.dart';
 import 'package:wasser_app/ui/pages/payment_list/payment_list_page.dart';
-import 'package:wasser_app/ui/pages/peyment_receipt/payment_receipt_page.dart';
+import 'package:wasser_app/ui/pages/payment_receipt/payment_receipt_page.dart';
+import 'package:wasser_app/ui/pages/profile_detail/profile_detail_page.dart';
+import 'package:wasser_app/ui/pages/record/record_page.dart';
 import 'package:wasser_app/ui/pages/register/register_page.dart';
+import 'package:wasser_app/ui/pages/search_customer/model/search_customer_response.dart';
+import 'package:wasser_app/ui/pages/search_customer/search_customer_page.dart';
+import 'package:wasser_app/ui/pages/transaction/transaction_list_page.dart';
+import 'package:wasser_app/ui/pages/user/model/user_list_response.dart'
+    as userDetail;
 import 'package:wasser_app/ui/pages/user/user_page.dart';
+import 'package:wasser_app/ui/pages/user_detail/user_detail_page.dart';
 import 'package:wasser_app/ui/pages/user_manage/user_manage_page.dart';
 
 class Routes {
@@ -109,12 +126,88 @@ class Routes {
           builder: const UserPages(),
           fullScreenDialog: false,
         );
+
       case RouteList.userManage:
         return _buildRoute(
           settings: settings,
           builder: const UserManagePage(),
           fullScreenDialog: false,
         );
+
+      case RouteList.transaction:
+        return _buildRoute(
+          settings: settings,
+          builder: const TransactionListPage(),
+          fullScreenDialog: false,
+        );
+
+      case RouteList.payment:
+        return _buildRoute(
+          settings: settings,
+          builder: const PaymentPage(),
+          fullScreenDialog: false,
+        );
+
+      case RouteList.searchCustomer:
+        return _buildRoute(
+          settings: settings,
+          builder: const SearchCustomerPage(),
+          fullScreenDialog: false,
+        );
+
+      case RouteList.customer:
+        return _buildRoute(
+          settings: settings,
+          builder: const CustomerPage(),
+          fullScreenDialog: false,
+        );
+
+      case RouteList.inputCustomer:
+        return _buildRoute(
+          settings: settings,
+          builder: const InputCustomerPage(),
+          fullScreenDialog: false,
+        );
+
+      case RouteList.record:
+        return _buildRoute(
+          settings: settings,
+          builder: const RecordPage(),
+          fullScreenDialog: false,
+        );
+
+      case RouteList.userDetail:
+        if (settings.arguments is userDetail.User) {
+          userDetail.User user = settings.arguments as userDetail.User;
+          return _buildRoute(
+              settings: settings, builder: UserDetailPage(user: user));
+        }
+        return _errorRoute();
+
+      case RouteList.customerDetail:
+        if (settings.arguments is customer.User) {
+          customer.User user = settings.arguments as customer.User;
+          return _buildRoute(
+              settings: settings, builder: CustomerDetailPage(user: user));
+        }
+        return _errorRoute();
+
+      case RouteList.profileDetail:
+        if (settings.arguments is login.User) {
+          var user = settings.arguments as login.User;
+          return _buildRoute(
+              settings: settings, builder: ProfileDetailPage(user: user));
+        }
+        return _errorRoute();
+
+      case RouteList.inputMeter:
+        if (settings.arguments is DataCustomer) {
+          var dataCustomer = settings.arguments as DataCustomer;
+          return _buildRoute(
+              settings: settings,
+              builder: InputMeterPage(dataCustomer: dataCustomer));
+        }
+        return _errorRoute();
 
       case RouteList.paymentList:
         if (settings.arguments is String) {
@@ -125,11 +218,13 @@ class Routes {
         return _errorRoute();
 
       case RouteList.paymentReceipt:
-        return _buildRoute(
-          settings: settings,
-          builder: const PaymentReceiptPage(),
-          fullScreenDialog: false,
-        );
+        if (settings.arguments is TransactionData) {
+          var transactionData = settings.arguments as TransactionData;
+          return _buildRoute(
+              settings: settings,
+              builder: PaymentReceiptPage(transactionData: transactionData));
+        }
+        return _errorRoute();
 
       case RouteList.example:
         return _buildRoute(

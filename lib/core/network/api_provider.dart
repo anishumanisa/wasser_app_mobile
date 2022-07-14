@@ -13,7 +13,6 @@ class ApiProvider {
       ..receiveTimeout = 50000;
     _dio.interceptors.add(interceptorsHeader());
     _dio.interceptors.add(Logging());
-    _dio.options.headers['X-Channel'] = ['app'];
   }
 
   static Dio get dio {

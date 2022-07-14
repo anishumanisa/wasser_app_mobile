@@ -5,7 +5,7 @@ import 'package:wasser_app/shared/colors.dart';
 import 'package:wasser_app/ui/pages/home/home_page.dart';
 import 'package:wasser_app/ui/pages/payment/payment_page.dart';
 import 'package:wasser_app/ui/pages/profile/profile_page.dart';
-import 'package:wasser_app/ui/pages/transaction/Transaction_List.dart';
+import 'package:wasser_app/ui/pages/transaction/transaction_list_page.dart';
 
 class MainPage extends StatefulWidget {
   static final mainScaffoldKey =
@@ -57,16 +57,20 @@ class _MainPageState extends State<MainPage> {
       scaleFactor: 0.4,
       items: [
         CustomNavigationBarItem(
-          icon: const Icon(Icons.home),
+          icon: Image.asset("assets/icons/ic_home_off.png"),
+          selectedIcon: Image.asset("assets/icons/ic_home_on.png"),
         ),
         CustomNavigationBarItem(
-          icon: const Icon(Icons.agriculture_sharp),
+          icon: Image.asset("assets/icons/ic_bill_off.png"),
+          selectedIcon: Image.asset("assets/icons/ic_bill_on.png"),
         ),
         CustomNavigationBarItem(
-          icon: const Icon(Icons.note),
+          icon: Image.asset("assets/icons/ic_transfer_off.png"),
+          selectedIcon: Image.asset("assets/icons/ic_tranfer_on.png"),
         ),
         CustomNavigationBarItem(
-          icon: const Icon(Icons.account_circle_sharp),
+          icon: Image.asset("assets/icons/ic_user_off.png"),
+          selectedIcon: Image.asset("assets/icons/ic_user.png"),
         ),
       ],
       currentIndex: _index,

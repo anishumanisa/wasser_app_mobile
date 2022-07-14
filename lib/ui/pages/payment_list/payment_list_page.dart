@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:wasser_app/core/base/base_view.dart';
 import 'package:wasser_app/core/router/route_list.dart';
@@ -194,6 +195,24 @@ class _PaymentListPageState extends State<PaymentListPage> {
               Builder(builder: (context) {
                 var data = context
                     .select((PaymentListViewModel vm) => vm.paymentList.data);
+                if ((data?.pembayaran ?? []).isEmpty) {
+                  return Container(
+                    margin: EdgeInsets.only(top: 48.w),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          'assets/icons/ic_resume.png',
+                          width: 80.w,
+                          height: 80.w,
+                        ),
+                        SizedBox(
+                          height: 16.w,
+                        ),
+                        const Text("Tagihan nya masih kosong nih!! :)")
+                      ],
+                    ),
+                  );
+                }
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: ListView.builder(
@@ -202,6 +221,11 @@ class _PaymentListPageState extends State<PaymentListPage> {
                     itemCount: data?.pembayaran?.length,
                     itemBuilder: (context, index) {
                       var item = data?.pembayaran?[index];
+
+                      var _tagihanBulan =
+                          DateTime.parse(item?.tagihanBulan ?? '');
+                      var month = DateFormat.LLLL().format(_tagihanBulan);
+
                       return Container(
                         margin: EdgeInsets.only(top: 16.w),
                         padding: EdgeInsets.symmetric(
@@ -224,8 +248,8 @@ class _PaymentListPageState extends State<PaymentListPage> {
                                 Row(
                                   children: [
                                     Image.asset(
-                                      "assets/images/ic_profile.png",
-                                      scale: 3.2.w,
+                                      "assets/icons/${data?.avatar}",
+                                      height: 24.w,
                                     ),
                                     SizedBox(
                                       width: 8.w,
@@ -244,7 +268,7 @@ class _PaymentListPageState extends State<PaymentListPage> {
                                           height: 1.w,
                                         ),
                                         Text(
-                                          item?.tglInput ?? '-',
+                                          month,
                                           style: TextStyle(
                                               fontSize: 12.w,
                                               color: Colors.grey),
@@ -267,10 +291,10 @@ class _PaymentListPageState extends State<PaymentListPage> {
                                             BorderRadius.circular(4.r),
                                       ),
                                       child: Text(
-                                        item?.status ?? '-',
+                                        item?.status?.toUpperCase() ?? '-',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 11.w),
+                                            fontSize: 10.w),
                                       ),
                                     ),
                                   ],
@@ -289,11 +313,15 @@ class _PaymentListPageState extends State<PaymentListPage> {
                               children: [
                                 Text(
                                   "Meteran Awal",
-                                  style: TextStyle(fontWeight: FontWeight.w300),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12.w),
                                 ),
                                 Text(
                                   (item?.meteranAwal ?? 0).toString(),
-                                  style: TextStyle(fontWeight: FontWeight.w400),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 12.w),
                                 ),
                               ],
                             ),
@@ -305,11 +333,15 @@ class _PaymentListPageState extends State<PaymentListPage> {
                               children: [
                                 Text(
                                   "Meteran Akhir",
-                                  style: TextStyle(fontWeight: FontWeight.w300),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12.w),
                                 ),
                                 Text(
                                   (item?.meteranAkhir ?? 0).toString(),
-                                  style: TextStyle(fontWeight: FontWeight.w400),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 12.w),
                                 ),
                               ],
                             ),
@@ -321,11 +353,15 @@ class _PaymentListPageState extends State<PaymentListPage> {
                               children: [
                                 Text(
                                   "Kubikasi",
-                                  style: TextStyle(fontWeight: FontWeight.w300),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 12.w),
                                 ),
                                 Text(
                                   (item?.kubikasi ?? 0).toString(),
-                                  style: TextStyle(fontWeight: FontWeight.w400),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 12.w),
                                 ),
                               ],
                             ),
@@ -354,11 +390,17 @@ class _PaymentListPageState extends State<PaymentListPage> {
                                   ],
                                 ),
                                 GestureDetector(
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                        context, RouteList.paymentConfirm,
-                                        arguments: item?.id.toString());
-                                  },
+                                  onTap: item?.status == 'paid'
+                                      ? null
+                                      : () {
+                                          Navigator.pushNamed(context,
+                                                  RouteList.paymentConfirm,
+                                                  arguments:
+                                                      item?.id.toString())
+                                              .whenComplete(() {
+                                            viewModel.getPaymentList();
+                                          });
+                                        },
                                   child: Container(
                                     padding:
                                         EdgeInsets.symmetric(horizontal: 26.w),
@@ -368,13 +410,17 @@ class _PaymentListPageState extends State<PaymentListPage> {
                                         borderRadius:
                                             BorderRadius.circular(6.r),
                                         border: Border.all(
-                                          color: colorAccentPrimary,
+                                          color: item?.status == 'paid'
+                                              ? Colors.grey
+                                              : colorAccentPrimary,
                                         )),
-                                    child: const Text(
-                                      "Bayar",
+                                    child: Text(
+                                      "Bayar".toUpperCase(),
                                       style: TextStyle(
                                         fontWeight: FontWeight.w500,
-                                        color: colorAccentPrimary,
+                                        color: item?.status == 'paid'
+                                            ? Colors.grey
+                                            : colorAccentPrimary,
                                       ),
                                     ),
                                   ),

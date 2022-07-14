@@ -35,7 +35,7 @@ class DialogConfirm extends StatelessWidget {
                   width: 312.w,
                   height: 250.w,
                   padding: EdgeInsets.only(
-                      left: 22.w, right: 22.w, top: 16.w, bottom: 32.w),
+                      left: 22.w, right: 22.w, top: 16.w, bottom: 26.w),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(16.r)),
                     color: Colors.white,
@@ -43,14 +43,14 @@ class DialogConfirm extends StatelessWidget {
                   child: Column(
                     children: [
                       SizedBox(
-                        width: 70.w,
-                        height: 70.w,
+                        width: 90.w,
+                        height: 90.w,
                         child: const Image(
-                          image: AssetImage('assets/images/ic_profile.png'),
+                          image: AssetImage('assets/icons/ic_light.png'),
                         ),
                       ),
                       SizedBox(
-                        height: 16.w,
+                        height: 22.w,
                       ),
                       Text(
                         title,
@@ -63,16 +63,16 @@ class DialogConfirm extends StatelessWidget {
                       SizedBox(
                         height: 8.w,
                       ),
-                      Text(
-                        subTitle,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16.w),
-                      ),
+                      // Text(
+                      //   subTitle,
+                      //   textAlign: TextAlign.center,
+                      //   style: TextStyle(
+                      //       color: Colors.grey,
+                      //       fontWeight: FontWeight.w400,
+                      //       fontSize: 16.w),
+                      // ),
                       SizedBox(
-                        height: 22.w,
+                        height: 16.w,
                       ),
                       SizedBox(
                         height: 44.w,
@@ -90,7 +90,7 @@ class DialogConfirm extends StatelessWidget {
                           ),
                           onPressed: onClick,
                           child: Text(
-                            "Complete",
+                            "OKE",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.w,

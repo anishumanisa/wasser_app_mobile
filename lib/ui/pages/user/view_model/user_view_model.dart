@@ -10,15 +10,15 @@ class UserViewModel extends BaseViewModel {
   UserViewModel({required UserRepository userRepository})
       : _userRepository = userRepository;
 
-  var _transactionList = UserListResponse();
-  UserListResponse get transactionList => _transactionList;
-
+  var _userList = UserListResponse();
+  UserListResponse get userList => _userList;
+  final role = 'admin';
   Future<UserListResponse> getUserList() async {
     isLoading = true;
 
-    var response = await _userRepository.userList();
+    var response = await _userRepository.userList(role: role);
 
-    _transactionList = response;
+    _userList = response;
     isLoading = false;
     return response;
   }

@@ -17,6 +17,7 @@ class RouteList {
   static const String paymentList = '/payment-list';
   static const String paymentReceipt = '/payment-receipt';
   static const String qrCode = '/qr-code';
+  static const String searchCustomer = '/search-customer';
   static const String inputMeter = '/input-meter';
   static const String report = '/report';
   static const String submission = '/submission';
@@ -24,6 +25,12 @@ class RouteList {
   static const String transactionHistory = '/transaction-history';
   static const String user = '/user';
   static const String userManage = '/user-manage';
+  static const String customer = '/customer';
+  static const String inputCustomer = '/input-customer';
+  static const String record = '/record';
+  static const String userDetail = '/user-detail';
+  static const String profileDetail = '/profile-detail';
+  static const String customerDetail = '/customer-detail';
   static const String dummy = '/dummy';
   static const String example = '/example';
 }

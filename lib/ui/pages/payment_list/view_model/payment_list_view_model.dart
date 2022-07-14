@@ -14,10 +14,10 @@ class PaymentListViewModel extends BaseViewModel {
       : _paymentListRepository = paymentListRepository,
         _userId = userId;
 
-  var _paymentList = DetailPembayaranResponse();
-  DetailPembayaranResponse get paymentList => _paymentList;
+  var _paymentList = ListDetailPembayaranResponse();
+  ListDetailPembayaranResponse get paymentList => _paymentList;
 
-  Future<DetailPembayaranResponse> getPaymentList() async {
+  Future<ListDetailPembayaranResponse> getPaymentList() async {
     isLoading = true;
 
     var response = await _paymentListRepository.paymentList(id: _userId);

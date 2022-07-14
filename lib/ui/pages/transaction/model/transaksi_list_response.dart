@@ -81,7 +81,11 @@ class Data {
     this.kembali,
     this.total,
     this.adminFee,
+    this.denda,
+    this.method,
+    this.status,
     this.tglTransaksi,
+    this.keterangan,
     this.pembayaranId,
     this.userId,
     this.createdAt,
@@ -97,7 +101,11 @@ class Data {
         kembali: asT<int?>(json['kembali']),
         total: asT<int?>(json['total']),
         adminFee: asT<int?>(json['admin_fee']),
+        denda: asT<int?>(json['denda']),
+        method: asT<String?>(json['method']),
+        status: asT<bool?>(json['status']),
         tglTransaksi: asT<String?>(json['tgl_transaksi']),
+        keterangan: asT<String?>(json['keterangan']),
         pembayaranId: asT<int?>(json['pembayaran_id']),
         userId: asT<int?>(json['user_id']),
         createdAt: asT<String?>(json['created_at']),
@@ -117,7 +125,11 @@ class Data {
   int? kembali;
   int? total;
   int? adminFee;
+  int? denda;
+  String? method;
+  bool? status;
   String? tglTransaksi;
+  String? keterangan;
   int? pembayaranId;
   int? userId;
   String? createdAt;
@@ -137,7 +149,11 @@ class Data {
         'kembali': kembali,
         'total': total,
         'admin_fee': adminFee,
+        'denda': denda,
+        'method': method,
+        'status': status,
         'tgl_transaksi': tglTransaksi,
+        'keterangan': keterangan,
         'pembayaran_id': pembayaranId,
         'user_id': userId,
         'created_at': createdAt,
@@ -161,9 +177,9 @@ class User {
     this.avatar,
     this.role,
     this.wilayahId,
-    this.wilayah,
     this.createdAt,
     this.updatedAt,
+    this.wilayah,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => User(
@@ -179,11 +195,11 @@ class User {
         avatar: asT<String?>(json['avatar']),
         role: asT<String?>(json['role']),
         wilayahId: asT<int?>(json['wilayah_id']),
+        createdAt: asT<String?>(json['created_at']),
+        updatedAt: asT<String?>(json['updated_at']),
         wilayah: json['wilayah'] == null
             ? null
             : Wilayah.fromJson(asT<Map<String, dynamic>>(json['wilayah'])!),
-        createdAt: asT<String?>(json['created_at']),
-        updatedAt: asT<String?>(json['updated_at']),
       );
 
   int? id;
@@ -198,9 +214,9 @@ class User {
   String? avatar;
   String? role;
   int? wilayahId;
-  Wilayah? wilayah;
   String? createdAt;
   String? updatedAt;
+  Wilayah? wilayah;
 
   @override
   String toString() {
@@ -220,70 +236,9 @@ class User {
         'avatar': avatar,
         'role': role,
         'wilayah_id': wilayahId,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
         'wilayah': wilayah,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
-}
-
-class Pembayaran {
-  Pembayaran({
-    this.id,
-    this.jumlahBayar,
-    this.meteranAwal,
-    this.meteranAkhir,
-    this.kubikasi,
-    this.keterangan,
-    this.status,
-    this.tglInput,
-    this.userId,
-    this.createdAt,
-    this.updatedAt,
-  });
-
-  factory Pembayaran.fromJson(Map<String, dynamic> json) => Pembayaran(
-        id: asT<int?>(json['id']),
-        jumlahBayar: asT<int?>(json['jumlah_bayar']),
-        meteranAwal: asT<int?>(json['meteran_awal']),
-        meteranAkhir: asT<int?>(json['meteran_akhir']),
-        kubikasi: asT<int?>(json['kubikasi']),
-        keterangan: asT<String?>(json['keterangan']),
-        status: asT<String?>(json['status']),
-        tglInput: asT<String?>(json['tgl_input']),
-        userId: asT<int?>(json['user_id']),
-        createdAt: asT<String?>(json['created_at']),
-        updatedAt: asT<String?>(json['updated_at']),
-      );
-
-  int? id;
-  int? jumlahBayar;
-  int? meteranAwal;
-  int? meteranAkhir;
-  int? kubikasi;
-  String? keterangan;
-  String? status;
-  String? tglInput;
-  int? userId;
-  String? createdAt;
-  String? updatedAt;
-
-  @override
-  String toString() {
-    return jsonEncode(this);
-  }
-
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'id': id,
-        'jumlah_bayar': jumlahBayar,
-        'meteran_awal': meteranAwal,
-        'meteran_akhir': meteranAkhir,
-        'kubikasi': kubikasi,
-        'keterangan': keterangan,
-        'status': status,
-        'tgl_input': tglInput,
-        'user_id': userId,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
       };
 }
 
@@ -315,6 +270,67 @@ class Wilayah {
   Map<String, dynamic> toJson() => <String, dynamic>{
         'id': id,
         'nama_wilayah': namaWilayah,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
+}
+
+class Pembayaran {
+  Pembayaran({
+    this.id,
+    this.jumlahBayar,
+    this.meteranAwal,
+    this.meteranAkhir,
+    this.kubikasi,
+    this.tagihanBulan,
+    this.keterangan,
+    this.status,
+    this.userId,
+    this.createdAt,
+    this.updatedAt,
+  });
+
+  factory Pembayaran.fromJson(Map<String, dynamic> json) => Pembayaran(
+        id: asT<int?>(json['id']),
+        jumlahBayar: asT<int?>(json['jumlah_bayar']),
+        meteranAwal: asT<int?>(json['meteran_awal']),
+        meteranAkhir: asT<int?>(json['meteran_akhir']),
+        kubikasi: asT<int?>(json['kubikasi']),
+        tagihanBulan: asT<String?>(json['tagihan_bulan']),
+        keterangan: asT<String?>(json['keterangan']),
+        status: asT<String?>(json['status']),
+        userId: asT<int?>(json['user_id']),
+        createdAt: asT<String?>(json['created_at']),
+        updatedAt: asT<String?>(json['updated_at']),
+      );
+
+  int? id;
+  int? jumlahBayar;
+  int? meteranAwal;
+  int? meteranAkhir;
+  int? kubikasi;
+  String? tagihanBulan;
+  String? keterangan;
+  String? status;
+  int? userId;
+  String? createdAt;
+  String? updatedAt;
+
+  @override
+  String toString() {
+    return jsonEncode(this);
+  }
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'id': id,
+        'jumlah_bayar': jumlahBayar,
+        'meteran_awal': meteranAwal,
+        'meteran_akhir': meteranAkhir,
+        'kubikasi': kubikasi,
+        'tagihan_bulan': tagihanBulan,
+        'keterangan': keterangan,
+        'status': status,
+        'user_id': userId,
         'created_at': createdAt,
         'updated_at': updatedAt,
       };

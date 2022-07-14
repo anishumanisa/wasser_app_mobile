@@ -26,6 +26,16 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _buildScreen(BuildContext context, ProfileViewModel viewModel) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.white,
+        shadowColor: Colors.transparent,
+        title: const Text(
+          "Account",
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 16.w, horizontal: 16.w),
         physics: const BouncingScrollPhysics(),
@@ -36,38 +46,36 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             Builder(builder: (context) {
               var user = context.select((ProfileViewModel vm) => vm.user);
-              return Column(
+              return Row(
                 children: [
-                  Container(
-                    height: 70.w,
-                    width: 70.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100.r),
-                        color: Colors.grey),
+                  SizedBox(
+                    height: 42.w,
+                    width: 42.w,
                     child: Image.asset(
-                      "assets/images/logo.png",
+                      "assets/icons/${user.avatar}",
+                      height: 18.w,
                     ),
                   ),
                   SizedBox(
-                    height: 20.w,
+                    width: 8.w,
                   ),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         user.name ?? '',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16.w,
-                            fontWeight: FontWeight.bold),
+                            fontWeight: FontWeight.w600),
                       ),
                       SizedBox(
                         height: 4.w,
                       ),
                       Text(
-                        user.noPelanggan.toString(),
+                        user.email ?? '-',
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.black38,
                             fontSize: 14.w,
                             fontWeight: FontWeight.w300),
                       ),
@@ -83,30 +91,45 @@ class _ProfilePageState extends State<ProfilePage> {
               "Personal Info",
               style: TextStyle(
                   fontWeight: FontWeight.w400,
-                  fontSize: 16.w,
+                  fontSize: 14.w,
                   color: Colors.black45),
             ),
             SizedBox(
               height: 16.w,
             ),
-            Row(
-              children: [
-                Image.asset(
-                  "assets/images/logo.png",
-                  scale: 20.w,
+            Builder(builder: (context) {
+              var user = context.select((ProfileViewModel vm) => vm.user);
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, RouteList.profileDetail,
+                      arguments: user);
+                },
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/icons/ic_user.png",
+                      scale: 14.w,
+                    ),
+                    SizedBox(
+                      width: 12.w,
+                    ),
+                    Text(
+                      "Profile",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14.w,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    const Spacer(),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 15.w,
+                      color: Colors.grey,
+                    )
+                  ],
                 ),
-                Text(
-                  "Profile",
-                  style: TextStyle(color: Colors.black, fontSize: 16.w),
-                ),
-                const Spacer(),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  size: 15.w,
-                  color: Colors.grey,
-                )
-              ],
-            ),
+              );
+            }),
             SizedBox(
               height: 8.w,
             ),
@@ -121,12 +144,18 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Row(
                 children: [
                   Image.asset(
-                    "assets/images/logo.png",
-                    scale: 20.w,
+                    "assets/icons/ic_resume.png",
+                    scale: 14.w,
+                  ),
+                  SizedBox(
+                    width: 12.w,
                   ),
                   Text(
                     "User Management",
-                    style: TextStyle(color: Colors.black, fontSize: 16.w),
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14.w,
+                        fontWeight: FontWeight.w600),
                   ),
                   const Spacer(),
                   Icon(
@@ -136,31 +165,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   )
                 ],
               ),
-            ),
-            SizedBox(
-              height: 10.w,
-            ),
-            _divider(),
-            SizedBox(
-              height: 10.w,
-            ),
-            Row(
-              children: [
-                Image.asset(
-                  "assets/images/logo.png",
-                  scale: 20.w,
-                ),
-                Text(
-                  "Lorem Ipsum",
-                  style: TextStyle(color: Colors.black, fontSize: 16.w),
-                ),
-                const Spacer(),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  size: 15.w,
-                  color: Colors.grey,
-                )
-              ],
             ),
             SizedBox(
               height: 10.w,
@@ -182,12 +186,18 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               children: [
                 Image.asset(
-                  "assets/images/logo.png",
-                  scale: 20.w,
+                  "assets/icons/ic_about.png",
+                  scale: 14.w,
+                ),
+                SizedBox(
+                  width: 12.w,
                 ),
                 Text(
-                  "Lorem Ipsum",
-                  style: TextStyle(color: Colors.black, fontSize: 16.w),
+                  "About",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.w,
+                      fontWeight: FontWeight.w600),
                 ),
                 const Spacer(),
                 Icon(
@@ -204,35 +214,52 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(
               height: 10.w,
             ),
-            Row(
-              children: [
-                Image.asset(
-                  "assets/images/logo.png",
-                  scale: 20.w,
-                ),
-                Text(
-                  "Lorem Ipsum",
-                  style: TextStyle(color: Colors.black, fontSize: 16.w),
-                ),
-                const Spacer(),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  size: 15.w,
-                  color: Colors.grey,
-                )
-              ],
+            GestureDetector(
+              child: Row(
+                children: [
+                  Image.asset(
+                    "assets/icons/ic_app.png",
+                    scale: 14.w,
+                  ),
+                  SizedBox(
+                    width: 12.w,
+                  ),
+                  Text(
+                    "App Version",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14.w,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  const Spacer(),
+                  const Text(
+                    "v1.1.1",
+                    style: TextStyle(color: Colors.black45),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10.w,
             ),
             _divider(),
             SizedBox(
               height: 22.w,
             ),
-            Text(
-              "Logout",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red,
-                  fontSize: 16.w),
+            GestureDetector(
+              onTap: () {
+                viewModel.logout();
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    RouteList.login, (Route<dynamic> route) => false);
+              },
+              child: Text(
+                "Logout",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red,
+                    fontSize: 16.w),
+              ),
             ),
             SizedBox(
               height: 25.w,

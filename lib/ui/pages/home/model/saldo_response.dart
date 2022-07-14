@@ -7,13 +7,13 @@ T? asT<T>(dynamic value) {
   return null;
 }
 
-class SaldoResponse {
-  SaldoResponse({
+class SaldoKasResponse {
+  SaldoKasResponse({
     this.meta,
     this.data,
   });
 
-  factory SaldoResponse.fromJson(Map<String, dynamic> json) {
+  factory SaldoKasResponse.fromJson(Map<String, dynamic> json) {
     final List<Data>? data = json['data'] is List ? <Data>[] : null;
     if (data != null) {
       for (final dynamic item in json['data']!) {
@@ -22,7 +22,7 @@ class SaldoResponse {
         }
       }
     }
-    return SaldoResponse(
+    return SaldoKasResponse(
       meta: json['meta'] == null
           ? null
           : Meta.fromJson(asT<Map<String, dynamic>>(json['meta'])!),
@@ -78,10 +78,8 @@ class Data {
     this.id,
     this.type,
     this.jumlah,
-    this.saldoAwal,
-    this.saldoAkhir,
+    this.saldo,
     this.keterangan,
-    this.tglInput,
     this.userId,
     this.createdAt,
     this.updatedAt,
@@ -92,10 +90,8 @@ class Data {
         id: asT<int?>(json['id']),
         type: asT<String?>(json['type']),
         jumlah: asT<int?>(json['jumlah']),
-        saldoAwal: asT<int?>(json['saldo_awal']),
-        saldoAkhir: asT<int?>(json['saldo_akhir']),
+        saldo: asT<int?>(json['saldo']),
         keterangan: asT<String?>(json['keterangan']),
-        tglInput: asT<String?>(json['tgl_input']),
         userId: asT<int?>(json['user_id']),
         createdAt: asT<String?>(json['created_at']),
         updatedAt: asT<String?>(json['updated_at']),
@@ -107,10 +103,8 @@ class Data {
   int? id;
   String? type;
   int? jumlah;
-  int? saldoAwal;
-  int? saldoAkhir;
+  int? saldo;
   String? keterangan;
-  String? tglInput;
   int? userId;
   String? createdAt;
   String? updatedAt;
@@ -125,10 +119,8 @@ class Data {
         'id': id,
         'type': type,
         'jumlah': jumlah,
-        'saldo_awal': saldoAwal,
-        'saldo_akhir': saldoAkhir,
+        'saldo': saldo,
         'keterangan': keterangan,
-        'tgl_input': tglInput,
         'user_id': userId,
         'created_at': createdAt,
         'updated_at': updatedAt,
@@ -152,6 +144,7 @@ class User {
     this.wilayahId,
     this.createdAt,
     this.updatedAt,
+    this.wilayah,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => User(
@@ -169,6 +162,9 @@ class User {
         wilayahId: asT<int?>(json['wilayah_id']),
         createdAt: asT<String?>(json['created_at']),
         updatedAt: asT<String?>(json['updated_at']),
+        wilayah: json['wilayah'] == null
+            ? null
+            : Wilayah.fromJson(asT<Map<String, dynamic>>(json['wilayah'])!),
       );
 
   int? id;
@@ -185,6 +181,7 @@ class User {
   int? wilayahId;
   String? createdAt;
   String? updatedAt;
+  Wilayah? wilayah;
 
   @override
   String toString() {
@@ -204,6 +201,40 @@ class User {
         'avatar': avatar,
         'role': role,
         'wilayah_id': wilayahId,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+        'wilayah': wilayah,
+      };
+}
+
+class Wilayah {
+  Wilayah({
+    this.id,
+    this.namaWilayah,
+    this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory Wilayah.fromJson(Map<String, dynamic> json) => Wilayah(
+        id: asT<int?>(json['id']),
+        namaWilayah: asT<String?>(json['nama_wilayah']),
+        createdAt: asT<String?>(json['created_at']),
+        updatedAt: asT<String>(json['updated_at'])!,
+      );
+
+  int? id;
+  String? namaWilayah;
+  String? createdAt;
+  String updatedAt;
+
+  @override
+  String toString() {
+    return jsonEncode(this);
+  }
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'id': id,
+        'nama_wilayah': namaWilayah,
         'created_at': createdAt,
         'updated_at': updatedAt,
       };

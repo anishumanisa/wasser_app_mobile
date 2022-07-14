@@ -14,11 +14,11 @@ class UserListResponse {
   });
 
   factory UserListResponse.fromJson(Map<String, dynamic> json) {
-    final List<Data>? data = json['data'] is List ? <Data>[] : null;
+    final List<User>? data = json['data'] is List ? <User>[] : null;
     if (data != null) {
       for (final dynamic item in json['data']!) {
         if (item != null) {
-          data.add(Data.fromJson(asT<Map<String, dynamic>>(item)!));
+          data.add(User.fromJson(asT<Map<String, dynamic>>(item)!));
         }
       }
     }
@@ -31,7 +31,7 @@ class UserListResponse {
   }
 
   Meta? meta;
-  List<Data>? data;
+  List<User>? data;
 
   @override
   String toString() {
@@ -73,8 +73,8 @@ class Meta {
       };
 }
 
-class Data {
-  Data({
+class User {
+  User({
     this.id,
     this.name,
     this.email,
@@ -92,7 +92,7 @@ class Data {
     this.wilayah,
   });
 
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
+  factory User.fromJson(Map<String, dynamic> json) => User(
         id: asT<int?>(json['id']),
         name: asT<String?>(json['name']),
         email: asT<String?>(json['email']),

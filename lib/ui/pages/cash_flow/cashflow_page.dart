@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:wasser_app/common/widgets/loading_state.dart';
 import 'package:wasser_app/core/base/base_view.dart';
 import 'package:wasser_app/core/router/route_list.dart';
 import 'package:wasser_app/core/utils/number_format.dart';
-import 'package:wasser_app/core/utils/string_extension.dart';
 import 'package:wasser_app/shared/colors.dart';
 import 'package:wasser_app/ui/pages/cash_flow/repository/cash_flow_repository.dart';
 import 'package:wasser_app/ui/pages/cash_flow/view_model/cash_flow_view_model.dart';
@@ -32,7 +32,10 @@ class _CashFlowPageState extends State<CashFlowPage> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, RouteList.cashFlowManage);
+          Navigator.pushNamed(context, RouteList.cashFlowManage)
+              .whenComplete(() async {
+            await viewModel.cashFlow();
+          });
         },
         backgroundColor: colorPrimary,
         child: const Icon(
@@ -42,7 +45,7 @@ class _CashFlowPageState extends State<CashFlowPage> {
       ),
       appBar: AppBar(
         backgroundColor: colorPrimary,
-        title: const Text("Saldo Kas"),
+        title: const Text("SALDO KAS"),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.w),
@@ -52,6 +55,31 @@ class _CashFlowPageState extends State<CashFlowPage> {
           physics: const NeverScrollableScrollPhysics(),
           children: [
             Builder(builder: (context) {
+              var total = context.select((CashFlowViewModel vm) => vm.total);
+              return Container(
+                padding: EdgeInsets.symmetric(vertical: 16.w, horizontal: 16.w),
+                decoration: BoxDecoration(
+                    color: colorPrimary,
+                    borderRadius: BorderRadius.all(Radius.circular(8.w))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "TOTAL SALDO",
+                      style: TextStyle(fontSize: 16.w, color: Colors.white),
+                    ),
+                    Text(
+                      NumberFormatter.rupiah(total),
+                      style: TextStyle(
+                          fontSize: 16.w,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ],
+                ),
+              );
+            }),
+            Builder(builder: (context) {
               var income = context.select((CashFlowViewModel vm) => vm.income);
 
               var outcome =
@@ -59,51 +87,8 @@ class _CashFlowPageState extends State<CashFlowPage> {
 
               return Column(
                 children: [
-                  Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Saldo Kas",
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 16.w,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 2.w,
-                          ),
-                          Text(
-                            NumberFormatter.rupiah(income),
-                            style: TextStyle(
-                                color: colorPrimary,
-                                fontSize: 18.w,
-                                fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      ),
-                      const Spacer(),
-                      const Text("Month")
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30.w,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/logo.png",
-                        scale: 10.w,
-                      )
-                    ],
-                  ),
                   SizedBox(
                     height: 16.w,
-                  ),
-                  SizedBox(
-                    height: 30.w,
                   ),
                   Row(
                     children: [
@@ -133,7 +118,7 @@ class _CashFlowPageState extends State<CashFlowPage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "Income",
+                                    "INCOME",
                                     style: TextStyle(
                                         fontSize: 12.w, color: Colors.black54),
                                   ),
@@ -191,7 +176,7 @@ class _CashFlowPageState extends State<CashFlowPage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "Outcome",
+                                    "OUTCOME",
                                     style: TextStyle(
                                         fontSize: 12.w, color: Colors.black54),
                                   ),
@@ -232,21 +217,11 @@ class _CashFlowPageState extends State<CashFlowPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "All Transaction",
+                  "Riwayat",
                   style: TextStyle(fontSize: 16.w, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                  height: 16.w,
-                ),
-                Row(
-                  children: const [
-                    Text("Market 2022"),
-                    Spacer(),
-                    Text("Diperbaharui Hari Ini,19.50"),
-                  ],
-                ),
-                SizedBox(
-                  height: 10.w,
+                  height: 8.w,
                 ),
                 Builder(builder: (context) {
                   var cashFlowList = context.select(
@@ -257,6 +232,24 @@ class _CashFlowPageState extends State<CashFlowPage> {
 
                   if (isLoading) {
                     return const LoadingState();
+                  }
+
+                  if (cashFlowList.isEmpty) {
+                    return Center(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            'assets/icons/ic_resume.png',
+                            width: 80.w,
+                            height: 80.w,
+                          ),
+                          SizedBox(
+                            height: 16.w,
+                          ),
+                          const Text("Saldo nya masih kosong nih!! :)")
+                        ],
+                      ),
+                    );
                   }
                   return ListView.separated(
                       separatorBuilder: (_, __) => Divider(
@@ -269,37 +262,67 @@ class _CashFlowPageState extends State<CashFlowPage> {
                       itemCount: cashFlowList.length,
                       itemBuilder: (context, index) {
                         var item = cashFlowList[index];
+
+                        var _createDate = DateTime.parse(item.createdAt ?? '');
+                        var date = DateFormat.yMMMEd().format(_createDate);
+
                         return Container(
                           padding: EdgeInsets.symmetric(vertical: 8.w),
                           child: Row(
                             children: [
-                              Image.asset(
-                                "assets/images/logo.png",
-                                scale: 15.w,
+                              Container(
+                                  width: 35.w,
+                                  height: 35.w,
+                                  decoration: BoxDecoration(
+                                      color: item.type == "in"
+                                          ? colorPrimary
+                                          : colorAccentPrimary,
+                                      borderRadius: BorderRadius.circular(8.r)),
+                                  child: Icon(
+                                    item.type == "in"
+                                        ? Icons.arrow_downward_sharp
+                                        : Icons.arrow_upward_sharp,
+                                    color: Colors.white,
+                                    size: 18.w,
+                                  )),
+                              SizedBox(
+                                width: 16.w,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(item.keterangan ?? ''),
+                                  Text(
+                                    item.keterangan?.toUpperCase() ?? '',
+                                    style: TextStyle(
+                                        fontSize: 12.w,
+                                        fontWeight: FontWeight.w600),
+                                  ),
                                   SizedBox(height: 4.w),
                                   Text(
                                     NumberFormatter.rupiah(item.jumlah ?? 0),
                                     style: TextStyle(
-                                        fontSize: 12.w, color: Colors.black45),
+                                        fontSize: 12.w,
+                                        color: Colors.black45,
+                                        fontWeight: FontWeight.w600),
                                   ),
                                 ],
                               ),
                               const Spacer(),
                               Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  Text((item.type ?? '')
-                                      .toUpperCaseFirstCharacterOfString()),
+                                  Text(
+                                    item.type == "in" ? 'MASUK' : 'KELUAR',
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w600),
+                                  ),
                                   SizedBox(height: 4.w),
                                   Text(
-                                    item.tglInput ?? '-',
+                                    date,
                                     style: TextStyle(
-                                        fontSize: 12.w, color: Colors.black45),
+                                        fontSize: 12.w,
+                                        color: Colors.black45,
+                                        fontWeight: FontWeight.w600),
                                   ),
                                 ],
                               ),

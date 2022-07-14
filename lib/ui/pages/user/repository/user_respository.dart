@@ -6,10 +6,10 @@ import 'package:wasser_app/core/network/api_provider.dart';
 import 'package:wasser_app/ui/pages/user/model/user_list_response.dart';
 
 class UserRepository {
-  Future<UserListResponse> userList() async {
+  Future<UserListResponse> userList({required String role}) async {
     try {
       final responseJson = await ApiProvider.dio.get(
-        ApiEndPoint.userList,
+        ApiEndPoint.userRole + role,
       );
 
       if (responseJson.statusCode == 200) {

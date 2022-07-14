@@ -4,7 +4,7 @@ class BottomNavigationBarMw extends StatefulWidget {
   final PageController pageController;
   static const lastIndex = 3;
 
-  BottomNavigationBarMw({Key? key, required this.pageController})
+  const BottomNavigationBarMw({Key? key, required this.pageController})
       : super(key: key);
 
   @override
@@ -27,7 +27,7 @@ class _BottomNavigationBarMwState extends State<BottomNavigationBarMw> {
       type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        BottomNavigationBarItem(icon: Icon(Icons.api), label: "Lorem"),
+        BottomNavigationBarItem(icon: Icon(Icons.feed), label: "Lorem"),
         BottomNavigationBarItem(
             icon: Icon(Icons.account_circle_sharp), label: "Lorem"),
         BottomNavigationBarItem(
