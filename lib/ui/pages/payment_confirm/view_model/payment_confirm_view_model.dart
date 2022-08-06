@@ -50,7 +50,7 @@ class PaymentConfirmViewModel extends BaseViewModel {
     var date1 = DateFormat.M().format(_createDate);
     var date2 = DateFormat.M().format(DateTime.now());
 
-    var diff = (int.parse(date1) - int.parse(date2));
+    var diff = (int.parse(date2) - int.parse(date1));
 
     var penaltyFee = 5000;
 
