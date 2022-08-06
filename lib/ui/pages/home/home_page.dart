@@ -79,7 +79,41 @@ class _HomePageState extends State<HomePage> {
             ),
             const CarouselSliders(),
             SizedBox(
-              height: 20.w,
+              height: 16.w,
+            ),
+            Builder(builder: (context) {
+              var total =
+                  context.select((HomeViewModel vm) => vm.totalTransaction);
+              return Container(
+                padding: EdgeInsets.symmetric(vertical: 12.w, horizontal: 16.w),
+                width: 200.w,
+                height: 46.w,
+                decoration: BoxDecoration(
+                    color: colorAccentPrimary,
+                    borderRadius: BorderRadius.circular(10.r)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Total Transaksi",
+                      style: TextStyle(
+                          fontSize: 14.w,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      NumberFormatter.rupiah(total),
+                      style: TextStyle(
+                          fontSize: 14.w,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              );
+            }),
+            SizedBox(
+              height: 10.w,
             ),
             Builder(builder: (context) {
               var income = context.select((HomeViewModel vm) => vm.income);
@@ -208,7 +242,7 @@ class _HomePageState extends State<HomePage> {
               );
             }),
             SizedBox(
-              height: 16.w,
+              height: 10.w,
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 16.w, horizontal: 16.w),

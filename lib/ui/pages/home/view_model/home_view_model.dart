@@ -12,6 +12,10 @@ class HomeViewModel extends BaseViewModel {
   HomeViewModel({required HomeRepository homeRepository})
       : _homeRepository = homeRepository;
 
+  int _totalTransaction = 0;
+
+  int get totalTransaction => _totalTransaction;
+
   var _transactionList = ListTransaksiResponse();
   ListTransaksiResponse get transactionList => _transactionList;
 
@@ -21,6 +25,11 @@ class HomeViewModel extends BaseViewModel {
     var response = await _homeRepository.transactionList();
 
     _transactionList = response;
+    _totalTransaction = response.data
+            ?.map((m) => m.total)
+            .reduce((a, b) => (a ?? 0) + (b ?? 0)) ??
+        0;
+
     isLoading = false;
     return response;
   }

@@ -66,7 +66,10 @@ class _CashFlowPageState extends State<CashFlowPage> {
                   children: [
                     Text(
                       "TOTAL SALDO",
-                      style: TextStyle(fontSize: 16.w, color: Colors.white),
+                      style: TextStyle(
+                          fontSize: 16.w,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
                     ),
                     Text(
                       NumberFormatter.rupiah(total),
