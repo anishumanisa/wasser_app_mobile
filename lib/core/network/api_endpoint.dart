@@ -2,6 +2,7 @@
 
 class ApiEndPoint {
   /// Base URL
+  // static const BASE_URL = "https://wasserapp.xyz/public/api";
   static const BASE_URL = "http://127.0.0.1:8000/api";
   // static const BASE_URL = "http://192.168.1.5:8000/api";
 

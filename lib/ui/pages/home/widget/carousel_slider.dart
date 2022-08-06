@@ -64,7 +64,7 @@ class _CarouselSlidersState extends State<CarouselSliders> {
                           'CSR Aqua Desa Ciherang Pondok',
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.w,
+                              fontSize: 16.w,
                               fontWeight: FontWeight.bold),
                         ),
                       ),

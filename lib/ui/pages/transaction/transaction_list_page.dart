@@ -142,12 +142,15 @@ class _TransactionListPageState extends State<TransactionListPage> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "${item.user?.name} - ${item.user?.wilayah?.namaWilayah}",
-                                style: TextStyle(
-                                  fontSize: 14.w,
-                                  fontWeight: FontWeight.bold,
-                                  color: colorPrimary,
+                              SizedBox(
+                                width: 180.w,
+                                child: Text(
+                                  "${item.user?.name} - ${item.user?.wilayah?.namaWilayah}",
+                                  style: TextStyle(
+                                    fontSize: 14.w,
+                                    fontWeight: FontWeight.bold,
+                                    color: colorPrimary,
+                                  ),
                                 ),
                               ),
                               SizedBox(

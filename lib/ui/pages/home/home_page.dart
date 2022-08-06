@@ -62,16 +62,16 @@ class _HomePageState extends State<HomePage> {
                     ],
                   );
                 }),
-                const Spacer(),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, RouteList.example);
-                  },
-                  child: const Icon(
-                    Icons.notifications_active,
-                    color: colorPrimary,
-                  ),
-                )
+                // const Spacer(),
+                // GestureDetector(
+                //   onTap: () {
+                //     Navigator.pushNamed(context, RouteList.example);
+                //   },
+                //   child: const Icon(
+                //     Icons.notifications_active,
+                //     color: colorPrimary,
+                //   ),
+                // )
               ],
             ),
             SizedBox(
@@ -384,12 +384,16 @@ class _HomePageState extends State<HomePage> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "${item.user?.name} - ${item.user?.wilayah?.namaWilayah}",
-                                    style: TextStyle(
-                                      fontSize: 14.w,
-                                      fontWeight: FontWeight.bold,
-                                      color: colorPrimary,
+                                  SizedBox(
+                                    width: 180.w,
+                                    child: Text(
+                                      "${item.user?.name} - ${item.user?.wilayah?.namaWilayah}",
+                                      style: TextStyle(
+                                        overflow: TextOverflow.ellipsis,
+                                        fontSize: 14.w,
+                                        fontWeight: FontWeight.bold,
+                                        color: colorPrimary,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
